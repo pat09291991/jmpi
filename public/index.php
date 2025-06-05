@@ -88,7 +88,7 @@ $products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
               <div class="w-full h-96 overflow-hidden">
                 <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="w-full h-full object-cover mb-0 transition-transform duration-300 group-hover:scale-110" />
               </div>
-              <div class="py-16 flex flex-col items-center w-full transition-all duration-300">
+              <div class="py-16 flex flex-col items-center w-full transition-all duration-300 bg-gray-50">
                 <div class="text-3xl group-hover:text-xl mb-3 group-hover:mb-1 group-hover:text-semibold transition-all duration-300"><?= htmlspecialchars($product['name']) ?></div>
                 <div class="text-base text-gray-500 mb-4 text-center max-h-0 overflow-hidden group-hover:max-h-20 group-hover:mb-4 transition-all duration-300">
                   <?= htmlspecialchars($product['description']) ?>
@@ -106,6 +106,32 @@ $products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
     <div class="w-1/3 bg-red-600 text-white rounded-3xl flex flex-col items-center justify-center p-10">
       <h3 class="text-2xl font-extrabold mb-4 text-center">New Products to Try!</h3>
       <p class="text-lg text-center">Exciting additions to the JMPi family — crispy, fun, and full of flavor.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="w-full flex flex-col md:flex-row items-stretch justify-center gap-12 px-8 py-16 mt-8">
+    <!-- Video Column -->
+    <div class="w-full md:w-1/2 flex justify-center items-stretch">
+      <div class="relative w-[700px] h-[400px] rounded-3xl overflow-hidden shadow-lg flex-shrink-0">
+        <video class="w-full h-full object-cover rounded-3xl" poster="/images/about-poster.jpg">
+          <source src="/videos/about.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button class="absolute inset-0 flex items-center justify-center focus:outline-none" aria-label="Play Video">
+          <span class="block w-24 h-24 bg-white bg-opacity-80 rounded-full flex items-center justify-center border-4 border-white shadow-lg">
+            <svg class="w-12 h-12 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+              <polygon points="9.5,7.5 16.5,12 9.5,16.5" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <!-- About Details Column -->
+    <div class="w-full md:w-1/2 flex flex-col items-center justify-center text-center h-full">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-red-600 mb-6">Joshua's Meat Products, Inc.</h2>
+      <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-xl">Founded in 1993 in Nagcarlan, Laguna, with just PHP 2,000 and a homemade longganisa recipe, JMPI has grown into a trusted name in processed meats. Now offering over 30 products and producing up to 10 tons daily, JMPI is NMIS-certified (Double A) and serves regions including Laguna, Metro Manila, Bicol, and Northern Luzon. With 350+ employees and a strong commitment to quality and community, JMPI continues to uphold food safety and support local livelihoods.</p>
+      <button class="px-8 py-3 bg-red-600 text-white rounded-full font-bold text-lg shadow hover:bg-red-700 transition">READ MORE</button>
     </div>
   </section>
 
