@@ -1,5 +1,6 @@
 <?php
 $products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
+$service_strengths = json_decode(file_get_contents(__DIR__ . '/service-strengths.json'), true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -130,8 +131,33 @@ $products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
     <!-- About Details Column -->
     <div class="w-full md:w-1/2 flex flex-col items-center justify-center text-center h-full">
       <h2 class="text-4xl md:text-5xl font-extrabold text-red-600 mb-6">Joshua's Meat Products, Inc.</h2>
-      <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-xl">Founded in 1993 in Nagcarlan, Laguna, with just PHP 2,000 and a homemade longganisa recipe, JMPI has grown into a trusted name in processed meats. Now offering over 30 products and producing up to 10 tons daily, JMPI is NMIS-certified (Double A) and serves regions including Laguna, Metro Manila, Bicol, and Northern Luzon. With 350+ employees and a strong commitment to quality and community, JMPI continues to uphold food safety and support local livelihoods.</p>
+      <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl">Founded in 1993 in Nagcarlan, Laguna, with just PHP 2,000 and a homemade longganisa recipe, JMPI has grown into a trusted name in processed meats. Now offering over 30 products and producing up to 10 tons daily, JMPI is NMIS-certified (Double A) and serves regions including Laguna, Metro Manila, Bicol, and Northern Luzon. With 350+ employees and a strong commitment to quality and community, JMPI continues to uphold food safety and support local livelihoods.</p>
       <button class="px-8 py-3 bg-red-600 text-white rounded-full font-bold text-lg shadow hover:bg-red-700 transition">READ MORE</button>
+    </div>
+  </section>
+
+  <!-- JMPi Service Strengths Section -->
+  <section class="w-full bg-gray-50 py-20 px-20">
+    <div class="mx-auto">
+      <h2 class="text-4xl font-extrabold text-red-600 text-center mb-4">JMPi Service Strengths</h2>
+      <p class="text-lg text-gray-700 text-center mb-16">We're committed to providing top-notch service every step of the way.</p>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <?php foreach ($service_strengths as $strength): ?>
+          <div class="flex flex-col items-center text-center px-4">
+            <?php if ($strength['icon'] === 'truck'): ?>
+              <svg class="w-16 h-16 mb-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17V7a2 2 0 012-2h11a2 2 0 012 2v10M16 17h2a2 2 0 002-2v-3a2 2 0 00-2-2h-2m-6 5a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <?php elseif ($strength['icon'] === 'clock'): ?>
+              <svg class="w-16 h-16 mb-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
+            <?php elseif ($strength['icon'] === 'credit-card'): ?>
+              <svg class="w-16 h-16 mb-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M2 10h20"/></svg>
+            <?php elseif ($strength['icon'] === 'percent'): ?>
+              <svg class="w-16 h-16 mb-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+            <?php endif; ?>
+            <h3 class="font-bold text-xl mb-2"><?= htmlspecialchars($strength['title']) ?></h3>
+            <p class="text-gray-700 text-base"><?= htmlspecialchars($strength['description']) ?></p>
+          </div>
+        <?php endforeach; ?>
+      </div>
     </div>
   </section>
 

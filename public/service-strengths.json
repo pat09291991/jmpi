@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "truck",
+    "title": "Free Delivery",
+    "description": "Enjoy free delivery when you order 200 kilos or more of our premium meat products, ensuring convenience and savings."
+  },
+  {
+    "icon": "clock",
+    "title": "Fast Transaction",
+    "description": "We prioritize quick responses to all your inquiries and seamless transactions for a smooth customer experience."
+  },
+  {
+    "icon": "credit-card",
+    "title": "Multiple Payment Methods",
+    "description": "Choose from various payment options including GCash, online bank transfers, and cash for your convenience."
+  },
+  {
+    "icon": "percent",
+    "title": "Exclusive Discounts",
+    "description": "Take advantage of special discounts on select products and bulk orders, making it easier to enjoy quality at a great value."
+  }
+] 
