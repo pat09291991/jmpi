@@ -7,6 +7,9 @@
   <link href="/output.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-white">
   <!-- Header / Navigation Bar -->
@@ -45,11 +48,23 @@
     <div class="relative w-full">
       <div class="swiper h-[600px] w-full rounded-3xl shadow-lg">
         <div class="swiper-wrapper h-full">
-          <div class="swiper-slide flex items-center justify-center h-full">
+          <div class="swiper-slide flex items-center justify-center h-full relative">
             <img src="/images/carousel1.png" alt="Carousel 1" class="h-full w-full object-cover rounded-3xl" />
+            <div class="absolute bottom-28 right-72 z-10">
+              <button class="expand-button px-12 py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-lg hover:text-white shadow-lg group cursor-pointer">
+                <span>VIEW PRODUCTS</span>
+                <span class="inline-block transition-all duration-300 group-hover:scale-x-150 ml-2">→</span>
+              </button>
+            </div>
           </div>
-          <div class="swiper-slide flex items-center justify-center h-full">
+          <div class="swiper-slide flex items-center justify-center h-full relative">
             <img src="/images/carousel2.jpg" alt="Carousel 2" class="h-full w-full object-cover rounded-3xl" />
+            <div class="absolute bottom-28 right-72 z-10">
+              <button class="expand-button px-12 py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-lg hover:text-white shadow-lg group cursor-pointer">
+                <span>VIEW PRODUCTS</span>
+                <span class="inline-block transition-all duration-300 group-hover:scale-x-150 ml-2">→</span>
+              </button>
+            </div>
           </div>
         </div>
         <div class="swiper-pagination"></div>

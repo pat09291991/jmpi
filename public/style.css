@@ -57,11 +57,15 @@ header {
   width: 10rem;
 }
 
-.search-anim:hover + #search-text,
-.search-anim:focus + #search-text,
-.relative:hover #search-text,
-.relative:focus-within #search-text {
+.search-anim:hover ~ #search-text,
+.search-anim:focus ~ #search-text {
   display: none;
+}
+
+.expand-button:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: white !important;
 }
 
 #search-group > .relative {
@@ -75,4 +79,8 @@ header {
 #search-group > .relative:hover,
 #search-group > .relative:focus-within {
   width: 10rem;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
 }
