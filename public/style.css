@@ -1,0 +1,78 @@
+/* Custom Swiper pagination as horizontal lines */
+.swiper-pagination-bullet {
+  width: 32px;
+  height: 6px;
+  border-radius: 3px;
+  background: #fff;
+  opacity: 0.4;
+  transition: opacity 0.3s, background 0.3s;
+  margin: 0 6px !important;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #fff;
+}
+
+header {
+  height: 100px !important;
+}
+
+@keyframes expandInput {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+.input-animate-expand {
+  animation: expandInput 0.3s cubic-bezier(0.4,0,0.2,1) forwards;
+  width: 10rem !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  background: white;
+  border-radius: 0.5rem;
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s, transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  transform-origin: right;
+  transform: scaleX(1);
+}
+
+.search-anim {
+  position: relative;
+  width: 1rem;
+  min-width: 1rem;
+  max-width: 10rem;
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+  transform-origin: right;
+  z-index: 10;
+}
+.search-anim:hover,
+.search-anim:focus {
+  width: 10rem;
+}
+
+.search-anim:hover + #search-text,
+.search-anim:focus + #search-text,
+.relative:hover #search-text,
+.relative:focus-within #search-text {
+  display: none;
+}
+
+#search-group > .relative {
+  width: 1rem;
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+#search-group > .relative:hover .search-anim,
+#search-group > .relative:focus-within .search-anim {
+  width: 10rem;
+}
+#search-group > .relative:hover,
+#search-group > .relative:focus-within {
+  width: 10rem;
+}
