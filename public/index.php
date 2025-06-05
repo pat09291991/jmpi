@@ -52,7 +52,7 @@ $products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
       <div class="hero-swiper h-[600px] w-full rounded-3xl shadow-lg">
         <div class="swiper-wrapper h-full">
           <div class="swiper-slide flex items-center justify-center h-full relative">
-            <img src="/images/carousel1.png" alt="Carousel 1" class="h-full w-full object-cover rounded-3xl" />
+            <img src="/images/carousel2.jpg" alt="Carousel 1" class="h-full w-full object-cover rounded-3xl" />
             <div class="absolute bottom-28 right-72 z-10">
               <button class="expand-button px-12 py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-lg hover:text-white shadow-lg group cursor-pointer">
                 <span>VIEW PRODUCTS</span>
@@ -61,7 +61,7 @@ $products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
             </div>
           </div>
           <div class="swiper-slide flex items-center justify-center h-full relative">
-            <img src="/images/carousel2.jpg" alt="Carousel 2" class="h-full w-full object-cover rounded-3xl" />
+            <img src="/images/carousel1.png" alt="Carousel 2" class="h-full w-full object-cover rounded-3xl" />
             <div class="absolute bottom-28 right-72 z-10">
               <button class="expand-button px-12 py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-lg hover:text-white shadow-lg group cursor-pointer">
                 <span>VIEW PRODUCTS</span>
@@ -76,18 +76,20 @@ $products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
   </section>
 
   <!-- Top Products Section -->
-  <section class="w-full flex flex-row gap-8 mt-12 px-8 pb-8 pt-8 min-h-[800px] items-stretch">
+  <section class="w-full flex flex-row gap-8 mt-12 px-8 pb-8 pt-8 items-stretch">
     <!-- Products Column -->
     <div class="w-2/3">
       <h2 class="text-4xl font-extrabold text-red-600 mb-2 text-center">JMPi Top Products</h2>
       <p class="text-lg text-gray-700 mb-8 text-center px-12">Discover the all-time favorites that bring extra flavor to every meal! These top picks are loved by families and foodies alike — perfect for everyday cooking, party platters, or quick bites.</p>
-      <div class="swiper product-swiper w-full !p-1">
+      <div class="swiper product-swiper w-full !p-1 h-[600px]">
         <div class="swiper-wrapper">
           <?php foreach ($products as $product): ?>
-            <div class="swiper-slide bg-white rounded-3xl shadow flex flex-col items-center w-80 h-full overflow-hidden group transition-all duration-300">
-              <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="w-full h-96 object-cover mb-0" />
+            <div class="swiper-slide bg-white rounded-3xl shadow flex flex-col items-center w-80 h-[600px] overflow-hidden group transition-all duration-300">
+              <div class="w-full h-96 overflow-hidden">
+                <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="w-full h-full object-cover mb-0 transition-transform duration-300 group-hover:scale-110" />
+              </div>
               <div class="py-16 flex flex-col items-center w-full transition-all duration-300">
-                <div class="text-3xl group-hover:text-2xl mb-3 group-hover:mb-1 transition-all duration-300"><?= htmlspecialchars($product['name']) ?></div>
+                <div class="text-3xl group-hover:text-xl mb-3 group-hover:mb-1 group-hover:text-semibold transition-all duration-300"><?= htmlspecialchars($product['name']) ?></div>
                 <div class="text-base text-gray-500 mb-4 text-center max-h-0 overflow-hidden group-hover:max-h-20 group-hover:mb-4 transition-all duration-300">
                   <?= htmlspecialchars($product['description']) ?>
                 </div>
@@ -101,7 +103,7 @@ $products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
       </div>
     </div>
     <!-- New Product Column -->
-    <div class="w-1/3 bg-red-600 text-white rounded-3xl flex flex-col items-center justify-center p-10 min-h-[750px]">
+    <div class="w-1/3 bg-red-600 text-white rounded-3xl flex flex-col items-center justify-center p-10">
       <h3 class="text-2xl font-extrabold mb-4 text-center">New Products to Try!</h3>
       <p class="text-lg text-center">Exciting additions to the JMPi family — crispy, fun, and full of flavor.</p>
     </div>
