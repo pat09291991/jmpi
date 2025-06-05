@@ -1,3 +1,6 @@
+<?php
+$products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,7 @@
 </head>
 <body class="bg-white">
   <!-- Header / Navigation Bar -->
-  <header class="w-full bg-white shadow flex items-center justify-between px-8 py-4 shadow-lg relative">
+  <header class="w-full bg-white shadow flex items-center justify-between px-8 py-4 shadow-lg relative fixed top-0 left-0 z-50">
     <img src="/images/logo.png" alt="Joshua's Meat Products, Inc." class="h-12">
     <nav class="hidden md:flex gap-x-24 font-bold text-lg absolute left-1/2 -translate-x-1/2">
       <a href="#" class="hover:text-red-600">HOME</a>
@@ -44,9 +47,9 @@
   </header>
 
   <!-- Carousel -->
-  <section class="w-full flex flex-col items-center justify-center md:px-8">
+  <section class="w-full flex flex-col items-center justify-center md:px-8 pt-[100px]">
     <div class="relative w-full">
-      <div class="swiper h-[600px] w-full rounded-3xl shadow-lg">
+      <div class="hero-swiper h-[600px] w-full rounded-3xl shadow-lg">
         <div class="swiper-wrapper h-full">
           <div class="swiper-slide flex items-center justify-center h-full relative">
             <img src="/images/carousel1.png" alt="Carousel 1" class="h-full w-full object-cover rounded-3xl" />
@@ -67,8 +70,40 @@
             </div>
           </div>
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination hero-swiper-pagination"></div>
       </div>
+    </div>
+  </section>
+
+  <!-- Top Products Section -->
+  <section class="w-full flex flex-row gap-8 mt-12 px-8 pb-8 pt-8 min-h-[800px] items-stretch">
+    <!-- Products Column -->
+    <div class="w-2/3">
+      <h2 class="text-4xl font-extrabold text-red-600 mb-2 text-center">JMPi Top Products</h2>
+      <p class="text-lg text-gray-700 mb-8 text-center px-12">Discover the all-time favorites that bring extra flavor to every meal! These top picks are loved by families and foodies alike — perfect for everyday cooking, party platters, or quick bites.</p>
+      <div class="swiper product-swiper w-full !p-1">
+        <div class="swiper-wrapper">
+          <?php foreach ($products as $product): ?>
+            <div class="swiper-slide bg-white rounded-3xl shadow flex flex-col items-center w-80 h-full overflow-hidden group transition-all duration-300">
+              <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="w-full h-96 object-cover mb-0" />
+              <div class="py-16 flex flex-col items-center w-full transition-all duration-300">
+                <div class="text-3xl group-hover:text-2xl mb-3 group-hover:mb-1 transition-all duration-300"><?= htmlspecialchars($product['name']) ?></div>
+                <div class="text-base text-gray-500 mb-4 text-center max-h-0 overflow-hidden group-hover:max-h-20 group-hover:mb-4 transition-all duration-300">
+                  <?= htmlspecialchars($product['description']) ?>
+                </div>
+                <button class="mt-auto px-6 py-2 bg-red-600 text-white rounded-full font-bold">VIEW</button>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+        <div class="swiper-button-prev product-swiper-prev"></div>
+        <div class="swiper-button-next product-swiper-next"></div>
+      </div>
+    </div>
+    <!-- New Product Column -->
+    <div class="w-1/3 bg-red-600 text-white rounded-3xl flex flex-col items-center justify-center p-10 min-h-[750px]">
+      <h3 class="text-2xl font-extrabold mb-4 text-center">New Products to Try!</h3>
+      <p class="text-lg text-center">Exciting additions to the JMPi family — crispy, fun, and full of flavor.</p>
     </div>
   </section>
 

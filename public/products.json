@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Cooked Ham",
+    "description": "Classic cooked ham, perfect for any meal.",
+    "image": "/images/carousel1.png"
+  },
+  {
+    "id": 2,
+    "name": "Pork Tapa",
+    "description": "Savory pork tapa, a Filipino breakfast favorite.",
+    "image": "/images/carousel1.png"
+  },
+  {
+    "id": 3,
+    "name": "Pork Bologna",
+    "description": "Delicious pork bologna, great for sandwiches.",
+    "image": "/images/carousel1.png"
+  },
+  {
+    "id": 4,
+    "name": "Chicken Nuggets",
+    "description": "Crispy chicken nuggets, fun for all ages.",
+    "image": "/images/carousel1.png"
+  }
+] 

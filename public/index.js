@@ -1,10 +1,21 @@
-// Swiper initialization
-const swiper = new Swiper(".swiper", {
+// Swiper initialization for hero carousel
+const heroSwiper = new Swiper(".hero-swiper", {
   effect: "fade",
   loop: true,
   pagination: {
-    el: ".swiper-pagination",
+    el: ".hero-swiper-pagination",
     clickable: true,
+  },
+});
+
+// Swiper for product cards (FreeMode + Navigation)
+const productSwiper = new Swiper(".product-swiper", {
+  slidesPerView: 3,
+  spaceBetween: 24,
+  freeMode: true,
+  navigation: {
+    nextEl: ".product-swiper-next",
+    prevEl: ".product-swiper-prev",
   },
 });
 
