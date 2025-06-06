@@ -3,7 +3,7 @@ const heroSwiper = new Swiper(".hero-swiper", {
   effect: "fade",
   loop: true,
   autoplay: {
-    delay: 2500,
+    delay: 5000,
     disableOnInteraction: false,
   },
   pagination: {
@@ -14,12 +14,26 @@ const heroSwiper = new Swiper(".hero-swiper", {
 
 // Swiper for product cards (FreeMode + Navigation)
 const productSwiper = new Swiper(".product-swiper", {
-  slidesPerView: 3,
-  spaceBetween: 24,
-  freeMode: true,
+  slidesPerView: 1,
+  spaceBetween: 16,
+  freeMode: false,
   navigation: {
     nextEl: ".product-swiper-next",
     prevEl: ".product-swiper-prev",
+  },
+  breakpoints: {
+    768: {
+      // tablet
+      slidesPerView: 2,
+      spaceBetween: 20,
+      freeMode: true,
+    },
+    1024: {
+      // desktop
+      slidesPerView: 3,
+      spaceBetween: 24,
+      freeMode: true,
+    },
   },
 });
 
@@ -122,4 +136,25 @@ document.addEventListener("DOMContentLoaded", function () {
       resultsBox.classList.add("hidden");
     }
   });
+
+  // Sidebar menu logic
+  const burger = document.getElementById("burger-menu");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebar-overlay");
+  const closeSidebar = document.getElementById("close-sidebar");
+
+  function openSidebar() {
+    sidebar.classList.remove("translate-x-full");
+    overlay.classList.remove("hidden");
+  }
+  function closeSidebarFn() {
+    sidebar.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+  }
+
+  if (burger && sidebar && overlay && closeSidebar) {
+    burger.addEventListener("click", openSidebar);
+    overlay.addEventListener("click", closeSidebarFn);
+    closeSidebar.addEventListener("click", closeSidebarFn);
+  }
 });
