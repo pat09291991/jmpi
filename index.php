@@ -57,18 +57,30 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
           <div class="swiper-slide flex items-center justify-center h-full relative">
             <img src="/images/carousel2.jpg" alt="Carousel 1" class="h-full w-full object-cover rounded-3xl" />
             <div class="absolute bottom-28 right-72 z-10">
-              <button class="expand-button px-12 py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-lg hover:text-white shadow-lg group cursor-pointer">
+              <button class="expand-button px-12 py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-lg hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
                 <span>VIEW PRODUCTS</span>
-                <span class="inline-block transition-all duration-300 group-hover:scale-x-150 ml-2">→</span>
+                <span class="inline-block transition-all duration-300 group-hover:translate-x-1 ml-2">
+                  <svg class="w-5 h-5 arrow-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 24">
+                    <line class="arrow-line" x1="4" y1="12" x2="20" y2="12" />
+                    <line class="arrow-line-hover" x1="4" y1="12" x2="28" y2="12" />
+                    <polyline points="22,6 28,12 22,18" />
+                  </svg>
+                </span>
               </button>
             </div>
           </div>
           <div class="swiper-slide flex items-center justify-center h-full relative">
             <img src="/images/carousel1.png" alt="Carousel 2" class="h-full w-full object-cover rounded-3xl" />
             <div class="absolute bottom-28 right-72 z-10">
-              <button class="expand-button px-12 py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-lg hover:text-white shadow-lg group cursor-pointer">
+              <button class="expand-button px-12 py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-lg hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
                 <span>VIEW PRODUCTS</span>
-                <span class="inline-block transition-all duration-300 group-hover:scale-x-150 ml-2">→</span>
+                <span class="inline-block transition-all duration-300 group-hover:translate-x-1 ml-2">
+                  <svg class="w-5 h-5 arrow-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 24">
+                    <line class="arrow-line" x1="4" y1="12" x2="20" y2="12" />
+                    <line class="arrow-line-hover" x1="4" y1="12" x2="28" y2="12" />
+                    <polyline points="22,6 28,12 22,18" />
+                  </svg>
+                </span>
               </button>
             </div>
           </div>

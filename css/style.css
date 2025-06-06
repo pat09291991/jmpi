@@ -183,3 +183,18 @@ body {
   opacity: 0;
   transform: translateX(0.5rem);
 }
+
+.group:hover .arrow-svg {
+  transform: scaleX(1.7);
+}
+
+.arrow-line-hover {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.group:hover .arrow-line-hover {
+  opacity: 1;
+}
+.group:hover .arrow-line {
+  opacity: 0;
+}
