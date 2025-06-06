@@ -1,7 +1,7 @@
 <?php
-$products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
-$service_strengths = json_decode(file_get_contents(__DIR__ . '/service-strengths.json'), true);
-$nav = json_decode(file_get_contents(__DIR__ . '/nav.json'), true);
+$products = json_decode(file_get_contents(__DIR__ . '/data/products.json'), true);
+$service_strengths = json_decode(file_get_contents(__DIR__ . '/data/service-strengths.json'), true);
+$nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/nav.json'), true);
   <title>Joshua's Meat Products, Inc.</title>
   <link href="/output.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,500,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
@@ -196,6 +196,6 @@ $nav = json_decode(file_get_contents(__DIR__ . '/nav.json'), true);
   </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="/index.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 </html> 
