@@ -10,6 +10,10 @@ const heroSwiper = new Swiper(".hero-swiper", {
     el: ".hero-swiper-pagination",
     clickable: true,
   },
+  autoHeight: false,
+  observer: false,
+  observeParents: false,
+  watchOverflow: true,
 });
 
 // Swiper for product cards (FreeMode + Navigation)

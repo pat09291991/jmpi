@@ -1,3 +1,7 @@
+html {
+  overflow-anchor: none;
+}
+
 /* Custom Swiper pagination as horizontal lines */
 .swiper-pagination-bullet {
   width: 32px;

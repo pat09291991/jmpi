@@ -66,26 +66,30 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
     </div>
     <nav class="flex flex-col gap-4 px-6 py-6">
       <?php foreach ($nav as $item): ?>
-        <a href="<?= htmlspecialchars($item['link']) ?>" class="py-2 px-2 rounded hover:bg-red-50 text-lg font-semibold text-gray-700 hover:text-red-600 transition">
+        <a href="<?= htmlspecialchars($item['link']) ?>" class="py-2 px-2 rounded hover:bg-red-50 text-xs md:text-sm lg:text-base font-semibold text-gray-700 hover:text-red-600 transition">
           <?= htmlspecialchars($item['name']) ?>
         </a>
       <?php endforeach; ?>
-      <a href="#" class="mt-4 px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-center hover:bg-red-600 hover:text-white transition">BE A DEALER</a>
+      <a href="#" class="mt-4 px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-center hover:bg-red-600 hover:text-white transition text-xs md:text-sm lg:text-base">BE A DEALER</a>
     </nav>
   </aside>
 
   <!-- Carousel -->
   <section class="w-full flex flex-col items-center justify-center md:px-8 pt-[100px]">
     <div class="relative w-full">
-      <div class="hero-swiper h-56 md:h-96 lg:h-[600px] w-full rounded-3xl shadow-lg">
+      <div class="hero-swiper h-56 md:h-96 lg:h-[600px] w-full rounded-none md:rounded-3xl shadow-lg">
         <div class="swiper-wrapper h-full">
           <div class="swiper-slide flex items-center justify-center h-full relative">
-            <img src="/images/carousel2.jpg" alt="Carousel 1" class="h-full w-full object-cover rounded-3xl" />
+            <img src="/images/carousel2.jpg" alt="Carousel 1" class="h-full w-full object-cover rounded-none md:rounded-3xl" />
             <div class="absolute bottom-8 md:bottom-20 md:right-32 right-4 z-10">
-              <button class="expand-button px-6 md:px-12 py-3 md:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-base md:text-lg hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
-                <span>VIEW PRODUCTS</span>
+              <button class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
+                <span class="text-xs sm:text-sm md:text-base">VIEW PRODUCTS</span>
                 <span class="inline-block transition-all duration-300 group-hover:translate-x-1 ml-2">
-                  <svg class="w-5 h-5 arrow-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 24">
+                  <svg class="w-4 h-4 md:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 24">
+                    <line x1="4" y1="12" x2="28" y2="12" />
+                    <polyline points="22,6 28,12 22,18" />
+                  </svg>
+                  <svg class="w-5 h-5 arrow-svg hidden md:inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 24">
                     <line class="arrow-line" x1="4" y1="12" x2="20" y2="12" />
                     <line class="arrow-line-hover" x1="4" y1="12" x2="28" y2="12" />
                     <polyline points="22,6 28,12 22,18" />
@@ -95,12 +99,16 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
             </div>
           </div>
           <div class="swiper-slide flex items-center justify-center h-full relative">
-            <img src="/images/carousel1.png" alt="Carousel 2" class="h-full w-full object-cover rounded-3xl" />
+            <img src="/images/carousel1.png" alt="Carousel 2" class="h-full w-full object-cover rounded-none md:rounded-3xl" />
             <div class="absolute bottom-8 md:bottom-20 md:right-32 right-4 z-10">
-              <button class="expand-button px-6 md:px-12 py-3 md:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-base md:text-lg hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
-                <span>VIEW PRODUCTS</span>
+              <button class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
+                <span class="text-xs sm:text-sm md:text-base">VIEW PRODUCTS</span>
                 <span class="inline-block transition-all duration-300 group-hover:translate-x-1 ml-2">
-                  <svg class="w-5 h-5 arrow-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 24">
+                  <svg class="w-4 h-4 md:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 24">
+                    <line x1="4" y1="12" x2="28" y2="12" />
+                    <polyline points="22,6 28,12 22,18" />
+                  </svg>
+                  <svg class="w-5 h-5 arrow-svg hidden md:inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 32 24">
                     <line class="arrow-line" x1="4" y1="12" x2="20" y2="12" />
                     <line class="arrow-line-hover" x1="4" y1="12" x2="28" y2="12" />
                     <polyline points="22,6 28,12 22,18" />
@@ -133,7 +141,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
                 <div class="text-xs md:text-base text-gray-500 mb-4 text-center max-h-0 overflow-hidden group-hover:max-h-20 group-hover:mb-4 transition-all duration-300">
                   <?= htmlspecialchars($product['description']) ?>
                 </div>
-                <button class="mt-auto px-6 py-2 bg-red-600 text-white rounded-full font-bold">VIEW</button>
+                <button class="mt-auto px-6 py-2 bg-red-600 text-white rounded-full font-bold text-xs md:text-sm lg:text-base">VIEW</button>
               </div>
             </div>
           <?php endforeach; ?>
@@ -171,7 +179,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
     <div class="w-full lg:w-1/2 flex flex-col items-center justify-center text-center h-full">
       <h2 class="text-lg sm:text-xl md:text-3xl lg:text-5xl font-extrabold text-red-600 mb-6">Joshua's Meat Products, Inc.</h2>
       <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-8 max-w-3xl">Founded in 1993 in Nagcarlan, Laguna, with just PHP 2,000 and a homemade longganisa recipe, JMPI has grown into a trusted name in processed meats. Now offering over 30 products and producing up to 10 tons daily, JMPI is NMIS-certified (Double A) and serves regions including Laguna, Metro Manila, Bicol, and Northern Luzon. With 350+ employees and a strong commitment to quality and community, JMPI continues to uphold food safety and support local livelihoods.</p>
-      <button class="px-8 py-3 bg-red-600 text-white rounded-full font-bold text-lg shadow hover:bg-red-700 transition">READ MORE</button>
+      <button class="px-8 py-3 bg-red-600 text-white rounded-full font-bold text-xs md:text-sm lg:text-base shadow hover:bg-red-700 transition">READ MORE</button>
     </div>
   </section>
 
