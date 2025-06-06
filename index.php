@@ -202,17 +202,17 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
 
   <!-- Footer Section -->
   <footer class="w-full">
-    <div class="bg-orange-500 w-full py-16 px-20 flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+    <div class="bg-orange-500 w-full py-16 px-2 md:px-4 lg:px-20 flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8">
       <!-- Left Column -->
-      <div class="w-full md:flex-1 flex flex-col items-start text-white max-w-xs mb-6 md:mb-0">
-        <span class="font-extrabold text-base md:text-lg mb-1 md:text-xl">BE A DEALER!</span>
-        <span class="text-base md:text-xl">Interested in becoming a dealer?<br>Fill out our form now!</span>
-        <a href="#" class="mt-4 md:mt-6 inline-block px-6 md:px-8 py-2 md:py-3 bg-white text-orange-600 font-bold rounded-full shadow transition hover:bg-orange-100 text-sm md:text-base">DEALER FORM</a>
+      <div class="w-full lg:flex-1 lg:max-w-xs flex flex-col items-center lg:items-start text-center lg:text-left text-white mb-6 lg:mb-0">
+        <span class="font-extrabold text-base sm:text-lg md:text-xl mb-1 lg:text-xl">BE A DEALER!</span>
+        <span class="text-xs sm:text-sm md:text-base">Interested in becoming a dealer?<span class="hidden lg:inline"><br></span><span class="inline lg:block"> Fill out our form now!</span></span>
+        <a href="#" class="mt-4 lg:mt-6 inline-block px-4 md:px-6 lg:px-8 py-2 lg:py-3 bg-white text-orange-600 font-bold rounded-full shadow transition hover:bg-orange-100 text-xs md:text-sm lg:text-base">DEALER FORM</a>
       </div>
       <!-- Center Column -->
-      <div class="w-full md:flex-1 flex flex-col items-center text-center mb-6 md:mb-0">
-        <img src="/images/jmpilogo.png" alt="Joshua's Meat Products, Inc." class="h-20 md:h-24 mb-2">
-        <div class="font-bold text-white mb-1 text-sm md:text-base">
+      <div class="w-full lg:flex-1 lg:max-w-xs flex flex-col items-center text-center mb-6 lg:mb-0">
+        <img src="/images/jmpilogo.png" alt="Joshua's Meat Products, Inc." class="h-20 lg:h-24 mb-2">
+        <div class="font-bold text-white mb-1 text-sm lg:text-base">
           <?php
             $footer_nav = array_filter($nav, function($item) {
               return $item['name'] !== 'HOME';
@@ -223,15 +223,15 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
             echo implode(' | ', $footer_links);
           ?>
         </div>
-        <div class="text-white text-xs md:text-sm">Brgy. Banago, Nagcarlan, Laguna, Philippines 4002</div>
+        <div class="text-white text-xs sm:text-sm md:text-base">Brgy. Banago, Nagcarlan, Laguna, Philippines 4002</div>
       </div>
       <!-- Right Column -->
-      <div class="w-full md:flex-1 flex flex-col items-end text-white text-base md:text-xl max-w-xs text-right">
-        <span>Access our product promotion materials by clicking 'Download' to ge a copy of our brochure.</span>
-        <a href="#" class="mt-4 md:mt-6 inline-block px-6 md:px-8 py-2 md:py-3 bg-white text-orange-600 font-bold rounded-full shadow transition hover:bg-orange-100 flex items-center justify-center gap-2 text-sm md:text-base">DOWNLOAD <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+      <div class="w-full lg:flex-1 lg:max-w-xs flex flex-col items-center lg:items-end text-center lg:text-right text-white text-base lg:text-xl">
+        <span class="text-xs sm:text-sm md:text-base">Access our product promotion materials by clicking 'Download' to get a copy of our brochure.</span>
+        <a href="#" class="mt-4 lg:mt-6 inline-block px-4 md:px-6 lg:px-8 py-2 lg:py-3 bg-white text-orange-600 font-bold rounded-full shadow transition hover:bg-orange-100 flex items-center justify-center gap-2 text-xs md:text-sm lg:text-base">DOWNLOAD <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
       </div>
     </div>
-    <div class="bg-gray-50 w-full py-8 text-center text-gray-400 text-sm">
+    <div class="bg-gray-50 w-full py-8 text-center text-gray-400 text-xs lg:text-sm">
       Copyright 2023. All Rights Reserved
     </div>
   </footer>
