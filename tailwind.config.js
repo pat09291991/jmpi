@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./index.php", "./about.php", "./contact.php", "./assets/**/*.js"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
