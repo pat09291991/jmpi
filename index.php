@@ -26,13 +26,14 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
       <?php endforeach; ?>
     </nav>
     <div class="flex items-center space-x-4">
-      <div class="relative flex items-center" id="search-group">
+      <div class="relative flex items-center group" id="search-group">
         <div class="flex items-center gap-x-1">
           <div class="relative">
-            <span class="absolute left-2 top-1/2 -translate-y-1/2 text-gray-800 pointer-events-none z-20">
+            <span class="absolute left-2 top-1/2 -translate-y-1/2 text-gray-800 pointer-events-none z-20 flex items-center gap-x-1">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z"/>
               </svg>
+              <span id="search-label" class="font-bold transition-all duration-300">SEARCH</span>
             </span>
             <input
               id="search-input"
@@ -41,9 +42,9 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
             />
           </div>
         </div>
-        <span class="mx-2 text-gray-400">|</span>
-        <a href="#" class="px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-sm hover:bg-red-600 hover:text-white transition">BE A DEALER</a>
       </div>
+      <span class="mx-2 text-gray-400">|</span>
+      <a href="#" class="px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-sm hover:bg-red-600 hover:text-white transition">BE A DEALER</a>
     </div>
   </header>
 
