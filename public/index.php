@@ -1,6 +1,7 @@
 <?php
 $products = json_decode(file_get_contents(__DIR__ . '/products.json'), true);
 $service_strengths = json_decode(file_get_contents(__DIR__ . '/service-strengths.json'), true);
+$nav = json_decode(file_get_contents(__DIR__ . '/nav.json'), true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,10 +21,9 @@ $service_strengths = json_decode(file_get_contents(__DIR__ . '/service-strengths
   <header class="w-full bg-white shadow flex items-center justify-between px-8 py-4 shadow-lg relative fixed top-0 left-0 z-50">
     <img src="/images/logo.png" alt="Joshua's Meat Products, Inc." class="h-12">
     <nav class="hidden md:flex gap-x-24 font-bold text-lg absolute left-1/2 -translate-x-1/2">
-      <a href="#" class="hover:text-red-600">HOME</a>
-      <a href="#" class="hover:text-red-600">PRODUCTS</a>
-      <a href="#" class="hover:text-red-600">ABOUT JMPI</a>
-      <a href="#" class="hover:text-red-600">STORES</a>
+      <?php foreach ($nav as $item): ?>
+        <a href="<?= htmlspecialchars($item['link']) ?>" class="hover:text-red-600"><?= htmlspecialchars($item['name']) ?></a>
+      <?php endforeach; ?>
     </nav>
     <div class="flex items-center space-x-4">
       <div class="relative flex items-center" id="search-group">
@@ -160,6 +160,40 @@ $service_strengths = json_decode(file_get_contents(__DIR__ . '/service-strengths
       </div>
     </div>
   </section>
+
+  <!-- Footer Section -->
+  <footer class="w-full">
+    <div class="bg-orange-500 w-full py-16 px-20 flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+      <!-- Left Column -->
+      <div class="flex-1 flex flex-col items-start text-white max-w-xs">
+        <span class="font-extrabold text-lg mb-1 text-xl">BE A DEALER!</span>
+        <span class="text-xl">Interested in becoming a dealer?<br>Fill out our form now!</span>
+      </div>
+      <!-- Center Column -->
+      <div class="flex-1 flex flex-col items-center text-center">
+        <img src="/images/logo.png" alt="Joshua's Meat Products, Inc." class="h-24 mb-2">
+        <div class="font-bold text-white mb-1">
+          <?php
+            $footer_nav = array_filter($nav, function($item) {
+              return $item['name'] !== 'HOME';
+            });
+            $footer_links = array_map(function($item) {
+              return '<a href="'.htmlspecialchars($item['link']).'" class="hover:underline">'.htmlspecialchars($item['name']).'</a>';
+            }, $footer_nav);
+            echo implode(' | ', $footer_links);
+          ?>
+        </div>
+        <div class="text-white text-sm">Brgy. Banago, Nagcarlan, Laguna, Philippines 4002</div>
+      </div>
+      <!-- Right Column -->
+      <div class="flex-1 flex flex-col items-end text-white text-xl max-w-xs text-right">
+        <span>Access our product promotion materials by clicking 'Download' to ge a copy of our brochure.</span>
+      </div>
+    </div>
+    <div class="bg-gray-50 w-full py-8 text-center text-gray-400 text-sm">
+      Copyright 2023. All Rights Reserved
+    </div>
+  </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/index.js"></script>
