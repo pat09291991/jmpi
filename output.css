@@ -602,6 +602,14 @@ video {
   top: 50%;
 }
 
+.top-full {
+  top: 100%;
+}
+
+.left-\[-40px\] {
+  left: -40px;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -670,6 +678,10 @@ video {
 
 .mt-auto {
   margin-top: auto;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .block {
@@ -762,6 +774,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-96 {
+  width: 24rem;
 }
 
 .max-w-3xl {
@@ -868,6 +884,10 @@ video {
 
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .border {

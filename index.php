@@ -42,6 +42,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
             />
           </div>
         </div>
+        <div id="search-results" class="absolute left-[-40px] top-full mt-2 w-96 bg-white rounded-xl shadow-lg z-50 hidden"></div>
       </div>
       <span class="mx-2 text-gray-400">|</span>
       <a href="#" class="px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-sm hover:bg-red-600 hover:text-white transition">BE A DEALER</a>
