@@ -19,7 +19,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/nav.json'), true);
 <body class="bg-white">
   <!-- Header / Navigation Bar -->
   <header class="w-full bg-white shadow flex items-center justify-between px-8 py-4 shadow-lg relative fixed top-0 left-0 z-50">
-    <img src="/images/logo.png" alt="Joshua's Meat Products, Inc." class="h-12">
+    <img src="/images/logo.png" alt="Joshua's Meat Products, Inc." class="h-16">
     <nav class="hidden md:flex gap-x-24 font-bold text-lg absolute left-1/2 -translate-x-1/2">
       <?php foreach ($nav as $item): ?>
         <a href="<?= htmlspecialchars($item['link']) ?>" class="hover:text-red-600"><?= htmlspecialchars($item['name']) ?></a>
