@@ -171,7 +171,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
       </div>
       <!-- Center Column -->
       <div class="flex-1 flex flex-col items-center text-center">
-        <img src="/images/logo.png" alt="Joshua's Meat Products, Inc." class="h-24 mb-2">
+        <img src="/images/jmpilogo.png" alt="Joshua's Meat Products, Inc." class="h-24 mb-2">
         <div class="font-bold text-white mb-1">
           <?php
             $footer_nav = array_filter($nav, function($item) {
