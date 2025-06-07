@@ -1,26 +1,82 @@
 [
   {
     "id": 1,
-    "name": "Cooked Ham",
-    "description": "Classic cooked ham, perfect for any meal.",
-    "image": "/images/carousel2.jpg"
+    "name": "Ham Cooked",
+    "pack_size": "250g",
+    "description": "A savory-sweet classic, our fully cooked ham is tender, flavorful, and ready to serve — perfect for any meal or sandwich.",
+    "image": "/images/cooked-ham.webp",
+    "category": ["Pork", "BestSeller"]
   },
   {
     "id": 2,
     "name": "Pork Tapa",
-    "description": "Savory pork tapa, a Filipino breakfast favorite. Savory pork tapa, a Filipino breakfast favorite. Savory pork tapa, a Filipino breakfast favorite.",
-    "image": "/images/carousel2.jpg"
+    "pack_size": "225g",
+    "description": "Bold and satisfying, our pork tapa delivers a balanced kick of salt and spice, great for silog meals or quick stir-fries.",
+    "image": "/images/pork_tapa.webp",
+    "category": ["Pork", "BestSeller"]
   },
   {
     "id": 3,
     "name": "Pork Bologna",
-    "description": "Delicious pork bologna, great for sandwiches.",
-    "image": "/images/carousel2.jpg"
+    "pack_size": "250g",
+    "description": "Smooth and flavorful, this sweet and salty pork bologna is a versatile favorite for breakfast or snacks.",
+    "image": "/images/pork_bologna.webp",
+    "category": ["Pork", "BestSeller"]
   },
   {
     "id": 4,
-    "name": "Chicken Nuggets",
-    "description": "Crispy chicken nuggets, fun for all ages.",
-    "image": "/images/carousel2.jpg"
+    "name": "Pork Skinless White",
+    "pack_size": "225g",
+    "description": "Mild yet tasty, this skinless pork sausage blends salty and sweet flavors — a comforting choice for any dish.",
+    "image": "/images/pork_skinless_white.webp",
+    "category": ["Pork", "BestSeller"]
+  },
+  {
+    "id": 5,
+    "name": "Canadian Bacon",
+    "pack_size": "250g",
+    "description": "Lean, meaty, and richly salty, our Canadian bacon is a premium cut that's great for sandwiches, breakfast plates, or as a pizza topping.",
+    "image": "/images/canadian_bacon.webp",
+    "category": ["Pork", "BestSeller"]
+  },
+  {
+    "id": 6,
+    "name": "Chicken Bologna",
+    "pack_size": "250g",
+    "description": "Made from quality chicken, this sweet and salty bologna offers a lighter option without sacrificing taste.",
+    "image": "/images/chicken_bologna.webp",
+    "category": ["Chicken", "BestSeller"]
+  },
+  {
+    "id": 7,
+    "name": "Tocino Regular",
+    "pack_size": "225g",
+    "description": "A Filipino favorite, our tocino is marinated in a signature sweet and salty blend — juicy, tender, and perfect with garlic rice.",
+    "image": "/images/tocino_regular.webp",
+    "category": ["Pork", "BestSeller"]
+  },
+  {
+    "id": 8,
+    "name": "Chicken Skinless",
+    "pack_size": "225g",
+    "description": "Tasty and healthier, this salty-sweet chicken sausage is a guilt-free choice for any time of day.",
+    "image": "/images/chicken_skinless.webp",
+    "category": ["Chicken", "BestSeller"]
+  },
+  {
+    "id": 9,
+    "name": "Pork Smoked Longganisa",
+    "pack_size": "225g",
+    "description": "Infused with a smoky twist, this sweet and salty longganisa brings a distinct depth of flavor to every bite.",
+    "image": "/images/pork_longganisa.webp",
+    "category": ["Pork", "BestSeller"]
+  },
+  {
+    "id": 10,
+    "name": "Pork Skinless Red",
+    "pack_size": "225g",
+    "description": "Eye-catching and flavorful, this red skinless longganisa boasts a balanced salty-sweet profile that's well-loved by all ages.",
+    "image": "/images/pork_skinless.webp",
+    "category": ["Pork", "BestSeller"]
   }
 ] 

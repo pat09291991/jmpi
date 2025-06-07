@@ -17,10 +17,14 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
 <body class="bg-white font-['Poppins']">
   <!-- Header / Navigation Bar -->
   <header class="w-full bg-white shadow flex items-center justify-between px-4 md:px-8 lg:px-16 xl:px-24 py-4 shadow-lg relative fixed top-0 left-0 z-50">
-    <img src="/images/jmpilogo.png" alt="Joshua's Meat Products, Inc." class="h-16">
+    <img src="/images/jmpi-logo.webp" alt="Joshua's Meat Products, Inc." class="h-16">
     <nav class="hidden lg:flex gap-x-24 font-bold text-lg absolute left-1/2 -translate-x-1/2">
       <?php foreach ($nav as $item): ?>
-        <a href="<?= htmlspecialchars($item['link']) ?>" class="hover:text-red-600"><?= htmlspecialchars($item['name']) ?></a>
+        <?php if ($item['name'] === 'HOME'): ?>
+          <a href="<?= htmlspecialchars($item['link']) ?>" class="text-red-600"><?= htmlspecialchars($item['name']) ?></a>
+        <?php else: ?>
+          <a href="<?= htmlspecialchars($item['link']) ?>"><?= htmlspecialchars($item['name']) ?></a>
+        <?php endif; ?>
       <?php endforeach; ?>
     </nav>
     <div class="hidden lg:flex items-center space-x-4">
@@ -78,16 +82,16 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
       <div class="hero-swiper h-56 md:h-96 lg:h-[600px] w-full rounded-3xl shadow-lg">
         <div class="swiper-wrapper h-full">
           <div class="swiper-slide flex items-center justify-center h-full relative">
-            <img src="/images/carousel2.jpg" alt="Carousel 1" class="h-full w-full object-cover rounded-3xl" />
-            <div class="absolute bottom-8 md:bottom-20 md:right-32 right-4 z-10">
+            <img src="/images/Banner_1.webp" alt="Carousel 1" class="h-full w-full object-cover rounded-3xl" />
+            <div class="absolute bottom-8 md:bottom-32 md:left-80 left-4 z-10">
               <button class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
                 <span class="text-xs sm:text-sm md:text-base">VIEW PRODUCTS</span>
               </button>
             </div>
           </div>
           <div class="swiper-slide flex items-center justify-center h-full relative">
-            <img src="/images/carousel1.png" alt="Carousel 2" class="h-full w-full object-cover rounded-3xl" />
-            <div class="absolute bottom-8 md:bottom-20 md:right-32 right-4 z-10">
+            <img src="/images/Banner_2.webp" alt="Carousel 2" class="h-full w-full object-cover rounded-3xl" />
+            <div class="absolute bottom-8 md:bottom-32 md:left-80 left-4 z-10">
               <button class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
                 <span class="text-xs sm:text-sm md:text-base">VIEW PRODUCTS</span>
               </button>
@@ -129,12 +133,31 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
       </div>
     </div>
     <!-- New Product Column -->
-    <div class="w-full lg:w-1/3 bg-red-600 text-white rounded-3xl flex flex-col items-center justify-center h-full mt-8 md:mt-0">
+    <div class="w-full lg:w-1/3 bg-red-600 text-white rounded-3xl flex flex-col items-center justify-center h-full mt-8 md:mt-0 group">
       <div class="px-12 py-12">
         <h3 class="text-lg md:text-2xl font-extrabold mb-4 text-center">New Products to Try!</h3>
         <p class="text-sm md:text-lg text-center">Exciting additions to the JMPi family — crispy, fun, and full of flavor.</p>
       </div>
-      <img src="/images/carousel2.jpg" class="w-full h-auto md:h-[400px] object-cover rounded-b-3xl transition-transform duration-300" />
+      <div class="relative w-full h-[400px] overflow-hidden rounded-b-3xl">
+        <div class="absolute inset-0 transition-opacity duration-300 group-hover:opacity-0">
+          <img src="/images/fries.webp" class="w-full h-full object-cover rounded-b-3xl" />
+          <div class="absolute top-4 left-4">
+            <img src="/images/workspace_premium_svg.svg" class="w-12 h-12" />
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+            <h4 class="text-2xl font-bold ml-4 mb-2">French Fries</h4>
+          </div>
+        </div>
+        <div class="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <img src="/images/chicken_pop.webp" class="w-full h-full object-cover rounded-b-3xl" />
+          <div class="absolute top-4 left-4">
+            <img src="/images/workspace_premium_svg.svg" class="w-12 h-12" />
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+            <h4 class="text-2xl font-bold ml-4">Chicken Pops <br> <span class="text-sm font-normal">Regular/Spicy</span></h4>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -222,8 +245,8 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
         <a href="#" class="mt-4 lg:mt-6 inline-block px-4 md:px-6 lg:px-8 py-2 lg:py-3 bg-white text-red-600 font-bold rounded-full shadow transition hover:bg-red-600 hover:text-white text-xs md:text-sm lg:text-base">DEALER FORM</a>
       </div>
       <!-- Center Column -->
-      <div class="w-full lg:flex-1 lg:max-w-xs flex flex-col items-center text-center mb-6 lg:mb-0">
-        <img src="/images/jmpilogo.png" alt="Joshua's Meat Products, Inc." class="h-20 lg:h-32 mb-2">
+      <div class="w-full lg:flex-1 lg:max-w-xl flex flex-col items-center text-center mb-6 lg:mb-0">
+        <img src="/images/jmpi-logo.webp" alt="Joshua's Meat Products, Inc." class="h-20 lg:h-32 mb-2">
         <div class="text-white mb-1 text-sm lg:text-base">
           <?php
             $footer_nav = array_filter($nav, function($item) {

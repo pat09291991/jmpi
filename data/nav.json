@@ -1,6 +1,6 @@
 [
-  { "link": "#", "name": "HOME" },
-  { "link": "#", "name": "PRODUCTS" },
+  { "link": "/", "name": "HOME" },
+  { "link": "/products.php", "name": "PRODUCTS" },
   { "link": "#", "name": "ABOUT JMPI" },
   { "link": "#", "name": "STORES" }
 ] 
