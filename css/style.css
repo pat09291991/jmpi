@@ -38,7 +38,7 @@ header {
 }
 .input-animate-expand {
   animation: expandInput 0.3s cubic-bezier(0.4,0,0.2,1) forwards;
-  width: 10rem !important;
+  width: 12rem !important;
   opacity: 1 !important;
   visibility: visible !important;
   position: absolute;
@@ -56,14 +56,14 @@ header {
   position: relative;
   width: 1rem;
   min-width: 6rem;
-  max-width: 10rem;
+  max-width: 12rem;
   transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
   transform-origin: right;
   z-index: 10;
 }
 .search-anim:hover,
 .search-anim:focus {
-  width: 10rem;
+  width: 12rem;
 }
 
 .search-anim:hover ~ #search-text,
@@ -171,7 +171,7 @@ body {
 }
 
 .search-anim.has-value {
-  width: 10rem !important;
+  width: 12rem !important;
 }
 
 #search-group .search-anim.has-value ~ #search-label {
@@ -201,4 +201,17 @@ body {
 }
 .group:hover .arrow-line {
   opacity: 0;
+}
+
+/* Force Swiper product slides to use auto height */
+.swiper-slide {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* Product card description overlay */
+.product-desc-overlay {
+  transition: opacity 0.3s;
+  will-change: opacity;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
 }
