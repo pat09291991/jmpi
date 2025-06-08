@@ -10,7 +10,8 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
   <title>Joshua's Meat Products: Authorize Dealer/Reseller Application Form</title>
   <link href="/output.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gray-50 font-['Poppins']">
 <?php include 'header.php'; ?>
@@ -160,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <?php include 'footer.php'; ?>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="/js/index.js"></script>
 </body>
 </html> 
