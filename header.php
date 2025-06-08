@@ -32,7 +32,7 @@
       <div id="search-results" class="absolute left-[-40px] top-full mt-2 w-96 bg-white rounded-xl shadow-lg z-50 hidden"></div>
     </div>
     <span class="mx-2 text-gray-400">|</span>
-    <a href="#" class="px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-sm hover:bg-red-600 hover:text-white transition">BE A DEALER</a>
+    <a href="/dealer.php" class="px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-sm hover:bg-red-600 hover:text-white transition">BE A DEALER</a>
   </div>
   <!-- Burger menu for mobile and tablet -->
   <button id="burger-menu" class="block xl:hidden focus:outline-none ml-auto">
@@ -57,6 +57,6 @@
         <?= htmlspecialchars($item['name']) ?>
       </a>
     <?php endforeach; ?>
-    <a href="#" class="mt-4 px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-center hover:bg-red-600 hover:text-white transition text-xs md:text-sm lg:text-base">BE A DEALER</a>
+    <a href="/dealer.php" class="mt-4 px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-center hover:bg-red-600 hover:text-white transition text-xs md:text-sm lg:text-base">BE A DEALER</a>
   </nav>
 </aside> 

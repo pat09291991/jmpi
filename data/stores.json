@@ -1,30 +1,74 @@
 [
   {
-    "name": "JMPi Alabang Town Center",
-    "address": "3rd Level Activity Center Alabang Town Center, Muntinlupa City",
-    "contact": "(02) 8809-30-41 | (0917) 637-0079",
-    "days_open": "Monday to Friday 11:00 AM – 9:00 PM",
-    "map_link": "#"
+    "id": 1,
+    "name": "Atimonan Outlet",
+    "address": "Brgy. Zone 3, Quezon St. Atimonan Quezon",
+    "contact_person": "Meriane B. Austria",
+    "contact": "09302190269",
+    "days_open": "7:00 am - 6:00 pm",
+    "map_link": "https://maps.app.goo.gl/aJ2FCps9QLzW9XPy5"
   },
   {
-    "name": "JMPi Ayala Malls Manila Bay",
-    "address": "Space 4113 4th Floor Ayala Malls Manila Bay Asean Avenue cor Diosdado Macapagal Aseana City, Brgy. Tambo, Parañaque City",
-    "contact": "(02) 8353-3003 | (0917) 634-2025",
-    "days_open": "Monday to Sunday 10:00 AM – 9:00 PM",
-    "map_link": "#"
+    "id": 2,
+    "name": "Siniloan Outlet",
+    "address": "Block 13 Lot 6, Madridejo St. Public Market Brgy. G Siniloan Laguna",
+    "contact_person": "Jefferson Monteza / Laarni Monteza",
+    "contact": "09380242150 / 09633504698",
+    "days_open": "8:00 am - 4:00 pm",
+    "map_link": "https://maps.app.goo.gl/9VTgmSNXJUuJXDRX6"
   },
   {
-    "name": "JMPi Ayala Center Cebu",
-    "address": "Level 3, New Wing Ayala Center Cebu, Ayala Business Center, Cardinal Rosales Ave., Brgy. Luz, Cebu City",
-    "contact": "(032) 260-45-49 | (0917) 637-0142",
-    "days_open": "Monday to Sunday 10:00AM – 9:00 PM",
-    "map_link": "#"
+    "id": 3,
+    "name": "Calauan Outlet",
+    "address": "Brgy. Dayap Calauan Laguna",
+    "contact_person": "Jay Ar F. Suministrado",
+    "contact": "09924983590",
+    "days_open": "7:00 am - 6:00 pm",
+    "map_link": "https://maps.app.goo.gl/j7E34m5h2v1ooxdN7"
   },
   {
-    "name": "JMPi Camera Quiapo",
-    "address": "310 P. Gomez Street Quiapo, Manila",
-    "contact": "(02) 8733-77-23 | (0917) 636-9943",
-    "days_open": "Monday to Saturday 9:30AM – 6:00PM",
-    "map_link": "#"
+    "id": 4,
+    "name": "San Pedro Outlet",
+    "address": "Hernandez St. Brgy . Landayan San Pedro , Laguna",
+    "contact_person": "Nomer Angeles",
+    "contact": "09682632377",
+    "days_open": "8:00 am - 7:00 pm",
+    "map_link": "https://maps.app.goo.gl/Xk34AC8bGaNf5erP8"
+  },
+  {
+    "id": 5,
+    "name": "Lucena Outlet",
+    "address": "Brgy. 6 CM Recto St Lucena City",
+    "contact_person": "Hazel A. Agravante / Josette R. Jacob",
+    "contact": "09560477253 / 09217717859",
+    "days_open": "8:00 am - 5:00 pm",
+    "map_link": "https://maps.app.goo.gl/Xk34AC8bGaNf5erP8"
+  },
+  {
+    "id": 6,
+    "name": "Mandaluyong Outlet",
+    "address": "68 Edsa Corner Pinatubo St. Malamig Mandaluyong City",
+    "contact_person": "Gerard M. Suministrado / Leunel Moraleja",
+    "contact": "09469072812 / 09217585260",
+    "days_open": "8:00 am - 7:00 pm",
+    "map_link": "https://maps.app.goo.gl/c8tYhwyByTkFRNW79"
+  },
+  {
+    "id": 7,
+    "name": "Naga Outlet",
+    "address": "J. Hernandez St. Abella Naga City Camarines Sur",
+    "contact_person": "Carol Shane SP. Villalon",
+    "contact": "09812941072",
+    "days_open": "9:00 am - 7:30 pm",
+    "map_link": "https://maps.app.goo.gl/sSww4BiWjmw6b6uSA"
+  },
+  {
+    "id": 8,
+    "name": "Nagcarlan Outlet",
+    "address": "Purok 5 . Brgy . Banago Nagcarlan , Laguna",
+    "contact_person": "Evelyn Ponce / Evangeline Evangelista",
+    "contact": "09163625446 / 09988596323",
+    "days_open": "6:00 am - 5:00 pm",
+    "map_link": "https://maps.app.goo.gl/6bf3GMvnyRcERtVp8"
   }
 ] 

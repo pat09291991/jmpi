@@ -28,11 +28,14 @@ define('ACTIVE_PAGE', 'STORES');
         <h2 class="text-2xl md:text-3xl font-extrabold text-gray-800">BRANCH NEAR YOU</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 max-w-7xl mx-auto">
-        <?php foreach ($branches as $branch): ?>
+        <?php foreach ($branches as $i => $branch): ?>
           <div class="bg-white rounded-xl shadow p-6 flex flex-col h-full max-w-4xl">
             <h3 class="font-extrabold text-base md:text-lg mb-1"><?= htmlspecialchars($branch['name']) ?></h3>
-            <p class="text-gray-800 text-sm md:text-base mb-2"><?= nl2br(htmlspecialchars($branch['address'])) ?><br><?= htmlspecialchars($branch['contact']) ?><br><?= htmlspecialchars($branch['days_open']) ?></p>
-            <a href="<?= htmlspecialchars($branch['map_link']) ?>" class="text-red-600 font-bold text-xs md:text-sm mt-auto inline-block">View Map</a>
+            <p class="text-gray-800 text-sm md:text-base mb-0"><?= nl2br(htmlspecialchars($branch['address'])) ?></p>
+            <p class="text-gray-800 text-sm md:text-base mb-0"><?= htmlspecialchars($branch['contact_person']) ?></p>
+            <p class="text-gray-800 text-sm md:text-base mb-0"><?= htmlspecialchars($branch['contact']) ?></p>
+            <p class="text-gray-800 text-sm md:text-base mb-0"><?= htmlspecialchars($branch['days_open']) ?></p>
+            <a href="<?= htmlspecialchars($branch['map_link']) ?>" target="_blank" class="text-red-600 font-bold text-xs md:text-sm mt-auto inline-block">View Map</a>
           </div>
         <?php endforeach; ?>
       </div>
