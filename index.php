@@ -24,18 +24,24 @@ define('ACTIVE_PAGE', 'HOME');
       <div class="hero-swiper  w-full rounded-3xl shadow-lg">
         <div class="swiper-wrapper h-full">
           <div class="swiper-slide flex items-center justify-center h-full relative">
-            <img src="/images/Banner_1.webp" alt="Carousel 1" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
-            <div class="hidden md:flex absolute bottom-8 md:bottom-12 lg:bottom-24 left-4 md:left-20 lg:left-70 xl:left-80 z-10">
-              <a href="/products.php" class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
-                <span class="text-xs sm:text-sm md:text-base">VIEW PRODUCTS</span>
+            <picture>
+              <source srcset="/images/Banner_1-mobile.webp" media="(max-width: 767px)">
+              <img src="/images/Banner_1.webp" alt="Carousel 1" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
+            </picture>
+            <div class="absolute bottom-4 md:bottom-8 left-1 md:left-4 z-10 w-auto">
+              <a href="/products.php" class="expand-button px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-sm md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center transition-all">
+                <span class="text-sm md:text-sm lg:text-base">VIEW PRODUCTS</span>
               </a>
             </div>
           </div>
           <div class="swiper-slide flex items-center justify-center h-full relative">
-            <img src="/images/Banner_2.webp" alt="Carousel 2" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
-            <div class="hidden md:flex absolute bottom-8 md:bottom-12 lg:bottom-24 left-4 md:left-20 lg:left-70 xl:left-80 z-10">
-              <a href="/products.php" class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
-                <span class="text-xs sm:text-sm md:text-base">VIEW PRODUCTS</span>
+            <picture>
+              <source srcset="/images/Banner_2-mobile.webp" media="(max-width: 767px)">
+              <img src="/images/Banner_2.webp" alt="Carousel 2" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
+            </picture>
+            <div class="absolute bottom-4 md:bottom-8 left-1 md:left-4 z-10 w-auto">
+              <a href="/products.php" class="expand-button px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-sm md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center transition-all">
+                <span class="text-sm md:text-sm lg:text-base">VIEW PRODUCTS</span>
               </a>
             </div>
           </div>
