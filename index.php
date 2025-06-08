@@ -47,9 +47,9 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
   
 
   <!-- Top Products Section -->
-  <section class="w-full flex flex-col justify-between lg:flex-row lg:gap-32 px-4 md:px-24 py-8 md:py-12 lg:py-16">
+  <section class="w-full flex flex-col justify-between xl:flex-row lg:gap-32 px-4 md:px-24 py-8 md:py-12 lg:py-16">
     <!-- Products Column -->
-    <div class="w-full lg:w-2/3 flex flex-col items-center justify-center text-center md:min-h-[600px]">
+    <div class="w-full xl:w-2/3 flex flex-col items-center justify-center text-center md:min-h-[600px]">
       <h2 class="text-xl sm:text-2xl md:text-4xl font-extrabold text-red-600 mb-2 text-center">JMPi Top Products</h2>
       <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-8 text-center w-full md:max-w-5xl px-4 md:px-12">Discover the all-time favorites that bring extra flavor to every meal! These top picks are loved by families and foodies alike — perfect for everyday cooking, party platters, or quick bites.</p>
       <div class="swiper product-swiper w-full !p-1 h-auto">
@@ -74,7 +74,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
       </div>
     </div>
     <!-- New Product Column -->
-    <div class="w-full lg:w-1/3 bg-red-600 text-white rounded-3xl flex flex-col items-center justify-center h-full mt-8 md:mt-0 group">
+    <div class="w-full xl:w-1/3 bg-red-600 text-white rounded-3xl flex flex-col items-center justify-center h-full mt-8 md:mt-0 group">
       <div class="px-12 py-12">
         <h3 class="text-lg md:text-2xl font-extrabold mb-4 text-center">New Products to Try!</h3>
         <p class="text-sm md:text-lg text-center">Exciting additions to the JMPi family — crispy, fun, and full of flavor.</p>

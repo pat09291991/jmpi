@@ -61,14 +61,28 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
     <?php if (empty($filtered_products)): ?>
         <div class="flex-grow min-h-[70vh] md:min-h-[75vh] flex items-center justify-center w-full text-center text-gray-400 px-4 py-24" style="min-height: 22vh;">No products found in this category.</div>
     <?php endif; ?>
-    <div class="mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 px-8 md:px-24 text-center mb-24 rounded-t-2xl">
+    <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-8 lg:px-24 xl:px-36 text-center mb-24">
       <?php foreach ($filtered_products as $product): ?>
-        <div class="bg-white shadow flex flex-col overflow-hidden">
+        <div class="bg-white rounded-2xl shadow flex flex-col overflow-hidden transition-all duration-300">
           <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"
-            class="w-full h-48 object-contain  group-hover:scale-105 transition-all duration-300">
-          <div class="flex flex-col flex-1 p-6 items-center text-center py-12">
-            <div class="text-lg md:text-xl mb-2"><?= htmlspecialchars($product['name']) ?></div>
-            <button class="mt-auto px-6 py-2 bg-black text-white rounded-full font-bold text-xs md:text-sm lg:text-base hover:bg-red-600 hover:text-white" onclick="openProductModal(<?= htmlspecialchars($product['id']) ?>)">VIEW</button>
+            class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="flex flex-col flex-1 p-6 text-left">
+            <div class="text-lg md:text-xl font-bold mb-1"><?= htmlspecialchars($product['name']) ?></div>
+            <div class="text-gray-700 text-sm mb-4 line-clamp-2 xl:line-clamp-3"><?= htmlspecialchars($product['description']) ?></div>
+            <div class="flex items-center gap-2 mb-2">
+              <img src="/images/weigh.svg" alt="Weight" class="w-5 h-5 inline">
+              <span class="text-sm"><?= htmlspecialchars($product['weight']) ?></span>
+            </div>
+            <div class="flex items-center gap-2 mb-4">
+              <img src="/images/ruler.svg" alt="Dimension" class="w-5 h-5 inline">
+              <span class="text-sm"><?= htmlspecialchars($product['dimension']) ?></span>
+            </div>
+            <div class="flex justify-end mt-auto">
+              <button class="px-6 py-2 bg-red-500 text-white rounded-full font-bold text-sm hover:bg-red-600 transition"
+                onclick="openProductModal(<?= htmlspecialchars($product['id']) ?>)">
+                VIEW
+              </button>
+            </div>
           </div>
         </div>
       <?php endforeach; ?>
@@ -77,21 +91,50 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
 
   <?php include 'footer.php'; ?>
 
-  <div class="modal-overlay hidden" id="product-modal">
-    <div class="modal-card">
-      <div class="modal-img-col">
-        <img id="modal-image" src="" alt="Product Image" class="modal-img" />
+  <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-2xl shadow-lg w-full lg:max-w-4xl p-0 relative flex flex-col md:flex-row overflow-hidden max-h-[90vh]">
+      <!-- Left: Product Image -->
+      <div class="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8">
+        <img id="modal-image" src="" alt="Product Image" class="w-full h-48 md:h-80 object-cover" />
       </div>
-      <div class="modal-content-col">
-        <h2 id="modal-name"></h2>
-        <p id="modal-description"></p>
-        <div class="modal-details">
-          <span id="modal-dimension"></span>
-          <span class="divider">|</span>
-          <span id="modal-weight" class="weight-block"></span>
+      <!-- Right: Product Details -->
+      <div class="w-full md:w-1/2 flex flex-col p-4 md:p-8 overflow-y-auto">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-xl md:text-2xl font-extrabold text-red-600" id="modal-name"></span>
+        </div>
+        <hr class="my-2 border-red-500">
+        <!-- Description -->
+        <div class="mb-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-base md:text-lg text-gray-800">Description</span>
+          </div>
+          <p id="modal-description" class="text-gray-700 text-sm md:text-base"></p>
+        </div>
+        <hr class="my-2 border-red-500">
+        <!-- Details -->
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="font-semibold text-base md:text-lg text-gray-800">Details</span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div class="bg-red-500 rounded-xl px-4 py-3 flex flex-col items-center min-w-[100px]">
+              <div class="flex items-center gap-2">
+                <img src="/images/weigh.svg" alt="Weight" class="w-6 h-6 mb-1">
+                <span class="text-xs text-white">Weight</span>
+              </div>
+              <span id="modal-weight" class="font-bold text-base md:text-lg text-white"></span>
+            </div>
+            <div class="bg-red-500 rounded-xl px-4 py-3 flex flex-col items-center min-w-[100px]">
+              <div class="flex items-center gap-2">
+                <img src="/images/ruler.svg" alt="Dimension" class="w-6 h-6 mb-1">
+                <span class="text-xs text-white">Size</span>
+              </div>
+              <span id="modal-dimension" class="font-bold text-base md:text-lg text-white"></span>
+            </div>
+          </div>
         </div>
       </div>
-      <button id="close-modal" class="modal-close">&times;</button>
+      <button id="close-modal" class="modal-close absolute top-2 right-2 text-2xl text-gray-400 hover:text-red-600">&times;</button>
     </div>
   </div>
   <script>
@@ -106,10 +149,10 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
       const product = products.find(p => p.id == id);
       if (product) {
         modalImage.src = product.image;
-        modalName.textContent = product.name.toUpperCase();
+        modalName.textContent = product.name;
         modalDescription.textContent = product.description;
-        modalDimension.textContent = `DIMENSIONS: ${product.dimension}`;
-        modalWeight.textContent = `WEIGHT: ${product.weight}`;
+        modalDimension.textContent = product.dimension;
+        modalWeight.textContent = product.weight;
         modal.classList.remove('hidden');
       }
     }
