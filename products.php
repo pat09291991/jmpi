@@ -3,6 +3,7 @@ $products = json_decode(file_get_contents(__DIR__ . '/data/products.json'), true
 $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
 $categories = ['BestSeller', 'Pork', 'Beef', 'Chicken', 'All'];
 $selected_category = $_GET['category'] ?? 'BestSeller';
+define('ACTIVE_PAGE', 'PRODUCTS');
 
 // Filter products by category if not 'All'
 $filtered_products = ($selected_category === 'All') ? $products : array_filter($products, function($p) use ($selected_category) {

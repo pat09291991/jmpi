@@ -17,7 +17,9 @@ define('ACTIVE_PAGE', 'ABOUT JMPI');
 <?php include 'header.php'; ?>
   <!-- About Banner Section -->
   <section class="w-full flex justify-center items-center pb-8 bg-white pt-16 md:pt-[100px]">
-    <img src="/images/Banner_1.webp" alt="Joshua's Meat Products Banner" class="max-w-full h-auto shadow-lg" />
+    <div class="relative w-full aspect-[16/8] sm:aspect-[16/5] md:aspect-[16/4] overflow-hidden">
+      <img src="/images/Banner_1.webp" alt="Joshua's Meat Products Banner" class="absolute inset-0 w-full h-full object-contain" />
+    </div>
   </section>
 
   <!-- Our Legacy Section -->

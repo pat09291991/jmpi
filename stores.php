@@ -1,6 +1,7 @@
 <?php
 $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
 $branches = json_decode(file_get_contents(__DIR__ . '/data/stores.json'), true);
+define('ACTIVE_PAGE', 'STORES');
 ?>
 <!DOCTYPE html>
 <html lang="en">

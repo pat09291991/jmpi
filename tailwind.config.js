@@ -5,6 +5,7 @@ module.exports = {
     "./about.php",
     "./products.php",
     "./stores.php",
+    "./dealer.php",
     "./header.php",
     "./footer.php",
     "./assets/**/*.js",

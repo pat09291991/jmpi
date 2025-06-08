@@ -2,6 +2,7 @@
 $products = json_decode(file_get_contents(__DIR__ . '/data/products.json'), true);
 $service_strengths = json_decode(file_get_contents(__DIR__ . '/data/service-strengths.json'), true);
 $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
+define('ACTIVE_PAGE', 'HOME');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,18 +25,18 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
         <div class="swiper-wrapper h-full">
           <div class="swiper-slide flex items-center justify-center h-full relative">
             <img src="/images/Banner_1.webp" alt="Carousel 1" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
-            <div class="absolute bottom-8 md:bottom-32 md:left-80 left-4 z-10">
-              <button class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
+            <div class="hidden md:flex absolute bottom-8 md:bottom-12 lg:bottom-24 left-4 md:left-20 lg:left-70 xl:left-80 z-10">
+              <a href="/products.php" class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
                 <span class="text-xs sm:text-sm md:text-base">VIEW PRODUCTS</span>
-              </button>
+              </a>
             </div>
           </div>
           <div class="swiper-slide flex items-center justify-center h-full relative">
             <img src="/images/Banner_2.webp" alt="Carousel 2" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
-            <div class="absolute bottom-8 md:bottom-32 md:left-80 left-4 z-10">
-              <button class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
+            <div class="hidden md:flex absolute bottom-8 md:bottom-12 lg:bottom-24 left-4 md:left-20 lg:left-70 xl:left-80 z-10">
+              <a href="/products.php" class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
                 <span class="text-xs sm:text-sm md:text-base">VIEW PRODUCTS</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
