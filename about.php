@@ -1,29 +1,12 @@
 <?php
-$products = json_decode(file_get_contents(__DIR__ . '/data/products.json'), true);
 $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
-$categories = ['BestSeller', 'Pork', 'Beef', 'Chicken', 'All'];
-$selected_category = $_GET['category'] ?? 'BestSeller';
-
-// Filter products by category if not 'All'
-$filtered_products = ($selected_category === 'All') ? $products : array_filter($products, function($p) use ($selected_category) {
-    if (isset($p['category'])) {
-        if (is_array($p['category'])) {
-            return in_array($selected_category, $p['category']);
-        } else {
-            return $p['category'] === $selected_category;
-        }
-    }
-    return false;
-});
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JMPI Products</title>
+  <title>JMPI About</title>
   <link href="/output.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,7 +17,7 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
     <img src="/images/jmpi-logo.webp" alt="Joshua's Meat Products, Inc." class="h-16">
     <nav class="hidden lg:flex gap-x-24 font-bold text-lg absolute left-1/2 -translate-x-1/2">
       <?php foreach ($nav as $item): ?>
-        <?php if ($item['name'] === 'PRODUCTS'): ?>
+        <?php if ($item['name'] === 'ABOUT JMPI'): ?>
           <a href="<?= htmlspecialchars($item['link']) ?>" class="text-red-600"><?= htmlspecialchars($item['name']) ?></a>
         <?php else: ?>
           <a href="<?= htmlspecialchars($item['link']) ?>"><?= htmlspecialchars($item['name']) ?></a>
@@ -89,53 +72,93 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
       <a href="#" class="mt-4 px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-center hover:bg-red-600 hover:text-white transition text-xs md:text-sm lg:text-base">BE A DEALER</a>
     </nav>
   </aside>
-  
-  <section class="w-full flex flex-col items-center justify-center py-8 md:py-12 lg:py-16 bg-gray-100">
-    <!-- Breadcrumbs -->
-    <div class="w-full px-4 md:px-8 lg:px-16 xl:px-24 py-6 flex items-center text-gray-700 text-sm">
-      <img src="/images/homesvg.svg" alt="Home" class="w-6 h-6 mr-1">
-      <a href="/" class="flex items-center justify-center hover:text-red-600">
-        HOME
-      </a>
-      <span class="mx-2">/</span>
-      <span class="font-bold text-red-600">PRODUCTS</span>
-    </div>
 
-    <!-- Title -->
-    <div class="w-full flex flex-col items-center justify-center mb-6">
-      <h1 class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-2">PRODUCTS</h1>
-      <!-- Category Filters -->
-      <div class="flex gap-2 md:gap-4 items-center justify-center mb-4">
-        <?php foreach ($categories as $cat): ?>
-          <a href="?category=<?= urlencode($cat) ?>"
-            class="px-3 py-1 rounded font-bold text-sm md:text-base transition <?php if ($selected_category === $cat) echo 'bg-red-600 text-white'; else echo 'text-gray-800 hover:bg-red-600 hover:text-white'; ?>">
-            <?= $cat === 'BestSeller' ? 'Best Seller' : htmlspecialchars($cat) ?>
-          </a>
-          <?php if ($cat !== end($categories)) echo '<span class="text-gray-400">|</span>'; ?>
-        <?php endforeach; ?>
-      </div>
-    </div>
+  <!-- About Banner Section -->
+  <section class="w-full flex justify-center items-center pb-8 bg-white">
+    <img src="/images/Banner_1.webp" alt="Joshua's Meat Products Banner" class="max-w-full h-auto shadow-lg" />
+  </section>
 
-    <!-- Products List -->
-    <?php if (empty($filtered_products)): ?>
-        <div class="flex-grow min-h-[70vh] md:min-h-[75vh] flex items-center justify-center w-full text-center text-gray-400 px-4 py-24" style="min-height: 22vh;">No products found in this category.</div>
-    <?php endif; ?>
-    <div class="mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 px-8 md:px-24 text-center mb-24 rounded-t-2xl">
-      <?php foreach ($filtered_products as $product): ?>
-        <div class="bg-white shadow flex flex-col overflow-hidden">
-          <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"
-            class="w-full h-48 object-contain  group-hover:scale-105 transition-all duration-300">
-          <div class="flex flex-col flex-1 p-6 items-center text-center py-12">
-            <div class="text-lg md:text-xl mb-2"><?= htmlspecialchars($product['name']) ?></div>
-            <button class="mt-auto px-6 py-2 bg-black text-white rounded-full font-bold text-xs md:text-sm lg:text-base hover:bg-red-600 hover:text-white" onclick="openProductModal(<?= htmlspecialchars($product['id']) ?>)">VIEW</button>
-          </div>
-        </div>
-      <?php endforeach; ?>
+  <!-- Our Legacy Section -->
+  <section class="w-full flex justify-center items-center bg-white pb-8 px-4 md:px-8 lg:px-16 xl:px-24">
+    <div class="bg-white  w-full mx-4 md:mx-auto mt-4 text-center border-b-2 border-gray-200">
+      <h2 class="text-2xl md:text-2xl font-extrabold mb-4 inline-block pb-2">OUR LEGACY OF EXCELLENCE</h2>
+      <p class="text-gray-700 text-base md:text-lg leading-relaxed mt-4 pb-12 text-justify">
+        JMPI prides itself on its double A rating from the National Meat Inspection Services (NMIS) since May 2006, a testament to our commitment to superior standards and fresh ingredients sourced from reputable suppliers. Starting locally in Nagcarlan, Laguna, we've expanded our reach across Quezon, Batangas, Cavite, Bicol Region, and even ventured into international markets. JMPI prides itself on its double A rating from the National Meat Inspection Services (NMIS) since May 2006, a testament to our commitment to superior standards and fresh ingredients sourced from reputable suppliers. Starting locally in Nagcarlan, Laguna, we've expanded our reach across Quezon, Batangas, Cavite, Bicol Region, and even ventured into international markets.
+      </p>
     </div>
   </section>
 
-  <!-- Footer Section -->
-  <footer class="w-full">
+  <!-- The Journey Section -->
+  <section class="w-full flex justify-center items-center bg-white py-8 md:py-12 px-4 md:px-8 lg:px-16 xl:px-24">
+    <div class="flex flex-col md:flex-row items-center justify-between w-full mx-4 md:mx-auto pb-12 gap-8 border-b-2 border-gray-200">
+      <div class="flex-1 text-left">
+        <h2 class="text-xl md:text-2xl font-extrabold mb-2">THE JOURNEY OF RESILIENCE AND TRANSFORMATION</h2>
+        <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+          Manny Valencia, our founder, embarked on a journey from humble beginnings. Starting as a candy delivery boy to support his family, fate led him to discover a recipe for skinless longganisa, igniting the spark for our venture. With determination and unwavering faith, Manny and Virginia Valencia established JMPI in 1993 with a meager investment, creating a legacy that stands tall today.
+        </p>
+      </div>
+      <div class="flex-1 flex justify-center">
+        <img src="/images/pork_longganisa.webp" alt="JMPI Founders" class="w-full max-w-md rounded-lg object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision, Success, and Quality Section -->
+  <section class="w-full flex justify-center items-center bg-white py-8 md:py-12 px-4 md:px-8 lg:px-16 xl:px-24">
+    <div class="w-full mx-4 md:mx-auto border-b-2 border-gray-200 pb-12">
+      <div class="mb-8">
+        <h3 class="font-extrabold text-base md:text-lg mb-1">DRIVEN BY VISION</h3>
+        <p class="text-gray-700 text-base md:text-lg">From a small-scale endeavor to becoming a household name, JMPI's success story resonates through our commitment to quality, innovation, and customer satisfaction. Over 25 years later, our dedication to providing exceptional meat products remains unwavering. Our aspiration is clear – to be the prime local and global producer of processed meat products.</p>
+      </div>
+      <div class="mb-8">
+        <h3 class="font-extrabold text-base md:text-lg mb-1">THE SPIRIT OF SUCCESS</h3>
+        <p class="text-gray-700 text-base md:text-lg">With a workforce exceeding 300 employees, JMPI continues to expand, catering to various regions and international markets. Despite our growth, our ethos remains grounded in supporting local sellers and prioritizing consumer well-being. Our hands-on approach ensures strict adherence to food safety and sanitation guidelines.</p>
+      </div>
+      <div>
+        <h3 class="font-extrabold text-base md:text-lg mb-1">CHOOSE JOSHUA'S – CHOOSE QUALITY</h3>
+        <p class="text-gray-700 text-base md:text-lg">For those seeking unparalleled quality and delectable meat products, Joshua's Meat Products Inc. stands as your ultimate choice. Join us in experiencing the essence of excellence with every bite.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision and Mission Section -->
+  <section class="w-full flex justify-center items-center bg-white py-8 md:py-12 px-4 md:px-8 lg:px-16 xl:px-24">
+    <div class="w-full max-w-7xl flex flex-col md:flex-row gap-8 md:gap-12">
+      <div class="flex-1 bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-12 flex flex-col items-center justify-center text-center shadow">
+        <h3 class="text-white font-extrabold text-lg md:text-xl mb-4">VISION</h3>
+        <p class="text-white text-base md:text-lg">PRIME LOCAL AND GLOBAL PRODUCER OF PROCESSED MEAT PRODUCTS</p>
+      </div>
+      <div class="flex-1 bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-12 flex flex-col items-center justify-center text-center shadow">
+        <h3 class="text-white font-extrabold text-lg md:text-xl mb-4">MISSION</h3>
+        <p class="text-white text-base md:text-lg">JOSHUAS MEAT PRODUCTS INCORPORATED (JMPI) is a meat processing plant producing locally and globally competitive quality processed and comminuted meat products seeking to provide job opportunities among</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accreditation Section -->
+  <section class="w-full flex flex-col items-center justify-center bg-white py-8 md:py-12 px-4 md:px-8 lg:px-16 xl:px-24">
+    <div class="w-full mx-auto flex flex-col items-center">
+      <h3 class="text-lg md:text-xl font-semibold mb-6 text-center">ACCREDITATION</h3>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-4">
+        <div class="flex flex-col items-center">
+          <img src="/images/fries.webp" alt="FDA" class="h-10 md:h-12 mb-1" />
+          <span class="text-gray-800 text-sm md:text-base font-semibold">LTO-3000001646583</span>
+        </div>
+        <div class="flex flex-row items-center gap-4">
+          <img src="/images/chicken_bologna.webp" alt="Accreditation 1" class="h-10 md:h-12" />
+          <img src="/images/pork_longganisa.webp" alt="Accreditation 2" class="h-10 md:h-12" />
+        </div>
+      </div>
+      <div class="flex items-center w-full my-6">
+        <hr class="flex-grow border-gray-200">
+        <span class="mx-4 font-bold tracking-wide text-gray-700 whitespace-nowrap">SINCE 1993</span>
+        <hr class="flex-grow border-gray-200">
+      </div>
+    </div>
+  </section>
+
+   <!-- Footer Section -->
+   <footer class="w-full">
     <div class="bg-red-600 w-full py-16 px-2 md:px-4 lg:px-20 flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8">
       <!-- Left Column -->
       <div class="w-full lg:flex-1 lg:max-w-xs flex flex-col items-center lg:items-start text-center lg:text-left text-white mb-6 lg:mb-0">
@@ -179,53 +202,6 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
     </div>
   </footer>
 
-  <div class="modal-overlay hidden" id="product-modal">
-    <div class="modal-card">
-      <div class="modal-img-col">
-        <img id="modal-image" src="" alt="Product Image" class="modal-img" />
-      </div>
-      <div class="modal-content-col">
-        <h2 id="modal-name"></h2>
-        <p id="modal-description"></p>
-        <div class="modal-details">
-          <span id="modal-dimension"></span>
-          <span class="divider">|</span>
-          <span id="modal-weight" class="weight-block"></span>
-        </div>
-      </div>
-      <button id="close-modal" class="modal-close">&times;</button>
-    </div>
-  </div>
-  <script>
-    const products = <?php echo json_encode(array_values($filtered_products)); ?>;
-    function openProductModal(id) {
-      const modal = document.getElementById('product-modal');
-      const modalImage = document.getElementById('modal-image');
-      const modalName = document.getElementById('modal-name');
-      const modalDescription = document.getElementById('modal-description');
-      const modalDimension = document.getElementById('modal-dimension');
-      const modalWeight = document.getElementById('modal-weight');
-      const product = products.find(p => p.id == id);
-      if (product) {
-        modalImage.src = product.image;
-        modalName.textContent = product.name.toUpperCase();
-        modalDescription.textContent = product.description;
-        modalDimension.textContent = `DIMENSIONS: ${product.dimension}`;
-        modalWeight.textContent = `WEIGHT: ${product.weight}`;
-        modal.classList.remove('hidden');
-      }
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-      const modal = document.getElementById('product-modal');
-      const closeModal = document.getElementById('close-modal');
-      closeModal.addEventListener('click', function() {
-        modal.classList.add('hidden');
-      });
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) modal.classList.add('hidden');
-      });
-    });
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="/js/index.js"></script>
 </body>

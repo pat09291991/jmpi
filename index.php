@@ -79,10 +79,10 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
   <!-- Carousel -->
   <section class="w-full flex flex-col items-center justify-center px-4 md:px-8 lg:px-16 xl:px-24 pt-16 md:pt-[100px] mt-16">
     <div class="relative w-full">
-      <div class="hero-swiper h-56 md:h-96 lg:h-[600px] w-full rounded-3xl shadow-lg">
+      <div class="hero-swiper  w-full rounded-3xl shadow-lg">
         <div class="swiper-wrapper h-full">
           <div class="swiper-slide flex items-center justify-center h-full relative">
-            <img src="/images/Banner_1.webp" alt="Carousel 1" class="h-full w-full object-cover rounded-3xl" />
+            <img src="/images/Banner_1.webp" alt="Carousel 1" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
             <div class="absolute bottom-8 md:bottom-32 md:left-80 left-4 z-10">
               <button class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
                 <span class="text-xs sm:text-sm md:text-base">VIEW PRODUCTS</span>
@@ -90,7 +90,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
             </div>
           </div>
           <div class="swiper-slide flex items-center justify-center h-full relative">
-            <img src="/images/Banner_2.webp" alt="Carousel 2" class="h-full w-full object-cover rounded-3xl" />
+            <img src="/images/Banner_2.webp" alt="Carousel 2" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
             <div class="absolute bottom-8 md:bottom-32 md:left-80 left-4 z-10">
               <button class="expand-button px-3 md:px-8 lg:px-12 py-2 md:py-3 lg:py-4 bg-white border border-red-600 text-red-600 rounded-full font-bold text-[10px] md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center">
                 <span class="text-xs sm:text-sm md:text-base">VIEW PRODUCTS</span>
@@ -106,9 +106,9 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
   
 
   <!-- Top Products Section -->
-  <section class="w-full flex flex-col justify-between items-center lg:flex-row md:gap-32 px-4 md:px-24 py-8 md:py-12 lg:py-16 mt-8">
+  <section class="w-full flex flex-col justify-between lg:flex-row lg:gap-32 px-4 md:px-24 py-8 md:py-12 lg:py-16">
     <!-- Products Column -->
-    <div class="w-full lg:w-2/3 flex flex-col items-center justify-center text-center min-h-[600px]">
+    <div class="w-full lg:w-2/3 flex flex-col items-center justify-center text-center md:min-h-[600px]">
       <h2 class="text-xl sm:text-2xl md:text-4xl font-extrabold text-red-600 mb-2 text-center">JMPi Top Products</h2>
       <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-8 text-center w-full md:max-w-5xl px-4 md:px-12">Discover the all-time favorites that bring extra flavor to every meal! These top picks are loved by families and foodies alike — perfect for everyday cooking, party platters, or quick bites.</p>
       <div class="swiper product-swiper w-full !p-1 h-auto">
