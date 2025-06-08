@@ -159,5 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php include 'footer.php'; ?>
+
+<script src="/js/index.js"></script>
 </body>
 </html> 

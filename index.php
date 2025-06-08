@@ -114,17 +114,7 @@ define('ACTIVE_PAGE', 'HOME');
     <!-- Video Column -->
     <div class="w-full lg:w-1/2 flex justify-center items-stretch mb-8 lg:mb-0">
       <div class="relative w-full max-w-2xl md:max-w-2xl lg:max-w-3xl aspect-video rounded-3xl overflow-hidden shadow-lg flex-shrink-0 bg-red-600">
-        <video class="w-full h-full object-cover rounded-3xl" poster="/images/about-poster.jpg">
-          <source src="/videos/about.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <button class="absolute inset-0 flex items-center justify-center focus:outline-none" aria-label="Play Video">
-          <span class="block w-24 h-24 bg-white bg-opacity-80 rounded-full flex items-center justify-center border-4 border-white shadow-lg">
-            <svg class="w-12 h-12 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-              <polygon points="9.5,7.5 16.5,12 9.5,16.5" />
-            </svg>
-          </span>
-        </button>
+        <iframe class="w-full h-full rounded-3xl" src="https://www.youtube.com/embed/slVoznGYMoI" title="Grand Opening of the New JMPI Main Store" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
     <!-- About Details Column -->
@@ -136,7 +126,7 @@ define('ACTIVE_PAGE', 'HOME');
       <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-8 max-w-3xl opacity-80">
         Check out our other locations and store outlets by clicking the button below.
       </p>
-      <button class="px-8 py-3 bg-red-600 text-white rounded-full font-bold text-xs md:text-sm lg:text-base shadow hover:bg-red-700 transition">SEE ALL LOCATIONS</button>
+      <a href="/stores.php" class="px-8 py-3 bg-red-600 text-white rounded-full font-bold text-xs md:text-sm lg:text-base shadow hover:bg-red-700 transition">SEE ALL LOCATIONS</a>
     </div>
   </section>
 
@@ -148,12 +138,15 @@ define('ACTIVE_PAGE', 'HOME');
       <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-6 max-w-3xl opacity-80">
         For over three decades, <span class="font-bold">Joshua's Meat Products, Inc.</span> has established itself as a competitive force in the food manufacturing industry. Renowned for its commitment to excellence, the company upholds the highest standards in producing safe, high-quality meat products. With a diverse portfolio of over 40 product varieties, Joshua's continues to innovate and meet market demands while maintaining strict compliance with food safety regulations. Trusted by consumers and partners alike, Joshua's is a name synonymous with quality, consistency, and dedication.
       </p>
-      <button class="px-8 py-3 bg-red-600 text-white rounded-full font-bold text-xs md:text-sm lg:text-base shadow hover:bg-red-700 transition">ABOUT US</button>
+      <a href="/about.php" class="px-8 py-3 bg-red-600 text-white rounded-full font-bold text-xs md:text-sm lg:text-base shadow hover:bg-red-700 transition">ABOUT US</a>
     </div>
     <!-- Image Column -->
     <div class="w-full lg:w-1/2 flex justify-center items-stretch mb-8 lg:mb-0 px-4 md:px-8">
-      <div class="relative w-full max-w-xl md:max-w-2xl lg:max-w-3xl aspect-video rounded-3xl overflow-hidden shadow-lg flex-shrink-0">
-        <img src="/images/carousel2.jpg" alt="About Joshua's Meat Products, Inc." class="w-full h-full object-cover rounded-3xl" />
+      <div class="relative w-full max-w-xl md:max-w-2xl lg:max-w-3xl aspect-video rounded-3xl overflow-hidden shadow-lg flex-shrink-0 group">
+        <img src="/images/about-us_2.webp" alt="About Joshua's Meat Products, Inc." class="w-full h-full object-cover rounded-3xl" />
+        <div class="absolute inset-0 bg-red-600 bg-opacity-90 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
+          <img src="/images/about-us-thumbnail.webp" alt="Joshua's Meat Products, Inc. Logo" class="w-full h-full object-cover rounded-3xl" />
+        </div>
       </div>
     </div>
   </section>
