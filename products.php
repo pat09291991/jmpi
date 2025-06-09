@@ -29,6 +29,7 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body class="font-['Poppins']">
   <?php include 'header.php'; ?>
@@ -65,7 +66,8 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
     <?php endif; ?>
     <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-8 lg:px-24 xl:px-36 text-center mb-24">
       <?php foreach ($filtered_products as $product): ?>
-        <div class="bg-white rounded-2xl shadow flex flex-col overflow-hidden transition-all duration-300">
+        <?php $randDelay = rand(0, 6) * 100; ?>
+        <div class="bg-white rounded-2xl shadow flex flex-col overflow-hidden transition-all duration-300" data-aos="zoom-in" data-aos-delay="<?= $randDelay ?>">
           <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"
             class="w-full h-48 object-cover rounded-t-2xl">
           <div class="flex flex-col flex-1 p-6 text-left">
@@ -167,5 +169,7 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
   </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ once: false, duration: 800 }); window.addEventListener('load', () => { setTimeout(() => { AOS.refresh(); }, 500); });</script>
 </body>
 </html> 
