@@ -118,22 +118,18 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
           <div class="flex items-center gap-2 mb-2">
             <span class="font-semibold text-base md:text-lg text-gray-800">Details</span>
           </div>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <div class="bg-red-500 rounded-xl px-4 py-3 flex flex-col items-center min-w-[100px]">
-              <div class="flex items-center gap-2">
-                <img src="/images/weigh.svg" alt="Weight" class="w-6 h-6 mb-1">
-                <span class="text-xs text-white">Weight</span>
+          <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                  <img src="/images/weigh.svg" alt="Weight" class="w-6 h-6 mb-1">
+                  <span class="text-xs text-gray-700 font-semibold">Weight:</span>
+                  <span id="modal-weight" class="font-bold text-base md:text-lg text-gray-800"></span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <img src="/images/ruler.svg" alt="Dimension" class="w-6 h-6 mb-1">
+                  <span class="text-xs text-gray-700 font-semibold">Dimension:</span>
+                  <span id="modal-dimension" class="font-bold text-base md:text-lg text-gray-800"></span>
+                </div>
               </div>
-              <span id="modal-weight" class="font-bold text-base md:text-lg text-white"></span>
-            </div>
-            <div class="bg-red-500 rounded-xl px-4 py-3 flex flex-col items-center min-w-[100px]">
-              <div class="flex items-center gap-2">
-                <img src="/images/ruler.svg" alt="Dimension" class="w-6 h-6 mb-1">
-                <span class="text-xs text-white">Size</span>
-              </div>
-              <span id="modal-dimension" class="font-bold text-base md:text-lg text-white"></span>
-            </div>
-          </div>
         </div>
       </div>
       <button id="close-modal" class="modal-close absolute top-2 right-2 text-2xl text-gray-400 hover:text-red-600">&times;</button>

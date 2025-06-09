@@ -1,7 +1,7 @@
 <?php if (!isset($nav)) $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true); ?>
 
 <!-- Header / Navigation Bar -->
-<header class="w-full bg-white shadow flex items-center justify-between px-4 md:px-8 lg:px-16 xl:px-24 py-4 shadow-lg relative fixed top-0 left-0 z-50">
+<header class="w-full bg-white shadow flex items-center justify-between px-4 md:px-8 lg:px-16 xl:px-24 py-4 shadow-lg relative fixed top-0 left-0 z-50" data-aos="fade-down">
   <a href="/" class="focus:outline-none"><img src="/images/jmpi-logo.webp" alt="Joshua's Meat Products, Inc." class="h-10 md:h-12 lg:h-16"></a>
   <nav class="hidden xl:flex gap-x-24 font-bold text-lg absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
     <?php foreach ($nav as $item): ?>

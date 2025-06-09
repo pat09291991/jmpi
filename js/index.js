@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!document.getElementById("product-modal")) {
     const modalDiv = document.createElement("div");
     modalDiv.innerHTML = `
-      <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+      <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden" data-aos="fade-up">
         <div class="bg-white rounded-2xl shadow-lg w-full lg:max-w-4xl p-0 relative flex flex-col md:flex-row overflow-hidden max-h-[90vh]">
           <button id="modal-prev" class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full shadow-lg w-12 h-12 flex items-center justify-center text-2xl text-gray-600 hover:bg-red-600 hover:text-white transition z-10 border-2 border-gray-200 p-0" style="display:none">
             <svg xmlns='http://www.w3.org/2000/svg' class='w-full h-full pointer-events-none' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M15 19l-7-7 7-7'/></svg>
@@ -190,8 +190,19 @@ document.addEventListener("DOMContentLoaded", function () {
       modalDimension.textContent = product.dimension;
       modalWeight.textContent = product.weight;
       modal.classList.remove("hidden");
-      // Show arrows if more than 1 product
-      showModalArrows(modalProductList.length > 1);
+      if (window.AOS) {
+        AOS.refreshHard && AOS.refreshHard();
+        AOS.refresh && AOS.refresh();
+      }
+      // Only show arrows if this is the Top Products list
+      const topProductIds = Array.from(
+        document.querySelectorAll(".top-product-view-btn")
+      ).map((b) => b.dataset.productId);
+      const isTopProducts =
+        Array.isArray(productList) &&
+        productList.length &&
+        productList.every((p) => topProductIds.includes(p.id.toString()));
+      showModalArrows(isTopProducts && modalProductList.length > 1);
     }
   }
 

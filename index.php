@@ -1,5 +1,8 @@
 <?php
-$products = json_decode(file_get_contents(__DIR__ . '/data/products.json'), true);
+$allProducts = json_decode(file_get_contents(__DIR__ . '/data/products.json'), true);
+$productsList = array_filter($allProducts, function($p) {
+    return isset($p['category']) && (in_array('BestSeller', (array)$p['category']));
+});
 $service_strengths = json_decode(file_get_contents(__DIR__ . '/data/service-strengths.json'), true);
 $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
 define('ACTIVE_PAGE', 'HOME');
@@ -14,12 +17,13 @@ define('ACTIVE_PAGE', 'HOME');
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body class="bg-white font-['Poppins']">
 <?php include 'header.php'; ?>
 
   <!-- Carousel -->
-  <section class="w-full flex flex-col items-center justify-center px-4 md:px-8 lg:px-16 xl:px-24 pt-16 md:pt-[100px] mt-16">
+  <section class="w-full flex flex-col items-center justify-center px-4 md:px-8 lg:px-16 xl:px-24 pt-16 md:pt-[100px] mt-16"  data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
     <div class="relative w-full">
       <div class="hero-swiper  w-full rounded-3xl shadow-lg">
         <div class="swiper-wrapper h-full">
@@ -54,14 +58,14 @@ define('ACTIVE_PAGE', 'HOME');
   
 
   <!-- Top Products Section -->
-  <section class="w-full flex flex-col justify-between xl:flex-row lg:gap-32 px-4 md:px-24 py-8 md:py-12 lg:py-16">
+  <section class="w-full flex flex-col justify-between xl:flex-row lg:gap-32 px-4 md:px-24 py-8 md:py-12 lg:py-16" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
     <!-- Products Column -->
     <div class="w-full xl:w-2/3 flex flex-col items-center justify-center text-center md:min-h-[600px]">
       <h2 class="text-xl sm:text-2xl md:text-4xl font-extrabold text-red-600 mb-2 text-center">JMPi Top Products</h2>
       <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-8 text-center w-full md:max-w-5xl px-4 md:px-12">Discover the all-time favorites that bring extra flavor to every meal! These top picks are loved by families and foodies alike — perfect for everyday cooking, party platters, or quick bites.</p>
       <div class="swiper product-swiper w-full !p-1 h-auto">
         <div class="swiper-wrapper">
-          <?php foreach ($products as $product): ?>
+          <?php foreach ($productsList as $product): ?>
             <div class="swiper-slide bg-white rounded-3xl shadow w-56 lg:w-64 overflow-hidden group relative transition-all duration-300 ">
               <div class="w-full h-40 lg:h-72 overflow-hidden">
                 <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="w-full h-40 lg:h-72 object-cover rounded-t-3xl transition-transform duration-300 group-hover:scale-110" />
@@ -81,7 +85,7 @@ define('ACTIVE_PAGE', 'HOME');
       </div>
     </div>
     <!-- New Product Column -->
-    <div class="w-full xl:w-1/3 bg-red-600 text-white rounded-3xl flex flex-col items-center justify-center h-full mt-8 md:mt-0 group">
+    <div class="w-full xl:w-1/3 bg-red-600 text-white rounded-3xl flex flex-col items-center justify-center h-full mt-8 md:mt-0 group" data-aos="fade-up" data-aos-delay="200">
       <div class="px-12 py-12">
         <h3 class="text-lg md:text-2xl font-extrabold mb-4 text-center">New Products to Try!</h3>
         <p class="text-sm md:text-lg text-center">Exciting additions to the JMPi family — crispy, fun, and full of flavor.</p>
@@ -110,15 +114,15 @@ define('ACTIVE_PAGE', 'HOME');
   </section>
 
   <!-- About Section -->
-  <section class="w-full flex flex-col lg:flex-row items-center justify-center md:gap-12 px-4 md:px-8 py-8 md:py-12 lg:py-16 mt-8">
+  <section class="w-full flex flex-col lg:flex-row items-center justify-center md:gap-12 px-4 md:px-8 py-8 md:py-12 lg:py-16 mt-8" data-aos="fade-up" data-aos-delay="200">
     <!-- Video Column -->
-    <div class="w-full lg:w-1/2 flex justify-center items-stretch mb-8 lg:mb-0">
+    <div class="w-full lg:w-1/2 flex justify-center items-stretch mb-8 lg:mb-0" data-aos="fade-down" data-aos-delay="200">
       <div class="relative w-full max-w-2xl md:max-w-2xl lg:max-w-3xl aspect-video rounded-3xl overflow-hidden shadow-lg flex-shrink-0 bg-red-600">
         <iframe class="w-full h-full rounded-3xl" src="https://www.youtube.com/embed/slVoznGYMoI" title="Grand Opening of the New JMPI Main Store" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
     <!-- About Details Column -->
-    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center text-center h-full">
+    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center text-center h-full" data-aos="fade-up" data-aos-delay="300">
       <h2 class="text-lg sm:text-xl md:text-3xl font-extrabold mb-4 text-gray-800">JMPi Main Store Grand Opening</h2>
       <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-6 max-w-3xl opacity-80">
         <span class="font-bold">June 2, 2025</span> marked a major milestone for Joshua's Meat Products, Inc. as we officially opened the doors of our new and improved main store. This newly upgraded space is designed to serve you better — with wider selections, fresher meats, and improved customer experience. Thank you to everyone who joined us in this special milestone. We are excited to continue providing quality and trusted products to every Filipino home.
@@ -133,7 +137,7 @@ define('ACTIVE_PAGE', 'HOME');
   <!-- About Us Section (New) -->
   <section class="w-full flex flex-col lg:flex-row items-center justify-center gap-12 py-8 md:py-12 lg:py-16 mt-8 bg-gray-100">
     <!-- Text Column -->
-    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center text-center h-full px-8">
+    <div class="w-full lg:w-1/2 flex flex-col items-center justify-center text-center h-full px-8" data-aos="fade-up" data-aos-delay="300">
       <h2 class="text-lg sm:text-xl md:text-3xl font-extrabold mb-4 text-gray-800">About Joshua's Meat Products, Inc.</h2>
       <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-6 max-w-3xl opacity-80">
         For over three decades, <span class="font-bold">Joshua's Meat Products, Inc.</span> has established itself as a competitive force in the food manufacturing industry. Renowned for its commitment to excellence, the company upholds the highest standards in producing safe, high-quality meat products. With a diverse portfolio of over 40 product varieties, Joshua's continues to innovate and meet market demands while maintaining strict compliance with food safety regulations. Trusted by consumers and partners alike, Joshua's is a name synonymous with quality, consistency, and dedication.
@@ -141,7 +145,7 @@ define('ACTIVE_PAGE', 'HOME');
       <a href="/about.php" class="px-8 py-3 bg-red-600 text-white rounded-full font-bold text-xs md:text-sm lg:text-base shadow hover:bg-red-700 transition">ABOUT US</a>
     </div>
     <!-- Image Column -->
-    <div class="w-full lg:w-1/2 flex justify-center items-stretch mb-8 lg:mb-0 px-4 md:px-8">
+    <div class="w-full lg:w-1/2 flex justify-center items-stretch mb-8 lg:mb-0 px-4 md:px-8" data-aos="fade-down" data-aos-delay="400">
       <div class="relative w-full max-w-xl md:max-w-2xl lg:max-w-3xl aspect-video rounded-3xl overflow-hidden shadow-lg flex-shrink-0 group">
         <img src="/images/about-us_2.webp" alt="About Joshua's Meat Products, Inc." class="w-full h-full object-cover rounded-3xl" />
         <div class="absolute inset-0 bg-red-600 bg-opacity-90 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
@@ -152,13 +156,14 @@ define('ACTIVE_PAGE', 'HOME');
   </section>
 
   <!-- JMPi Service Strengths Section -->
-  <section class="w-full bg-gray-50 py-20 px-20">
+  <section class="w-full bg-gray-50 py-20 px-20" data-aos="fade-up" data-aos-delay="150">
     <div class="mx-auto">
       <h2 class="text-lg sm:text-2xl md:text-4xl font-extrabold text-red-600 text-center mb-2">JMPi Service Strengths</h2>
       <p class="text-sm sm:text-base md:text-lg text-gray-700 text-center mb-12">We're committed to providing top-notch service every step of the way.</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <?php $i = 0; ?>
         <?php foreach ($service_strengths as $strength): ?>
-          <div class="flex flex-col items-center text-center px-4 group">
+          <div class="flex flex-col items-center text-center px-4 group" data-aos="fade-up" data-aos-delay="<?= 200 + ($i * 200) ?>">
             <?php if ($strength['icon'] === 'truck'): ?>
               <svg class="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 mb-4 text-gray-400 group-hover:text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17V7a2 2 0 012-2h11a2 2 0 012 2v10M16 17h2a2 2 0 002-2v-3a2 2 0 00-2-2h-2m-6 5a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
             <?php elseif ($strength['icon'] === 'clock'): ?>
@@ -171,6 +176,7 @@ define('ACTIVE_PAGE', 'HOME');
             <h3 class="font-bold text-base sm:text-lg md:text-xl mb-2"><?= htmlspecialchars($strength['title']) ?></h3>
             <p class="text-xs sm:text-sm md:text-base text-gray-700 text-base"><?= htmlspecialchars($strength['description']) ?></p>
           </div>
+          <?php $i++; ?>
         <?php endforeach; ?>
       </div>
     </div>
@@ -180,5 +186,9 @@ define('ACTIVE_PAGE', 'HOME');
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init({ once: false, duration: 800 });
+    window.addEventListener('load', () => { setTimeout(() => { AOS.refresh(); }, 500); });
+    </script>
 </body>
 </html> 
