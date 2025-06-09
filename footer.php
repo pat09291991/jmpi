@@ -33,7 +33,7 @@
     <!-- Right Column -->
     <div class="w-full lg:flex-1 lg:max-w-xs flex flex-col items-center lg:items-end text-center lg:text-right text-white text-base lg:text-xl">
       <span class="text-xs sm:text-sm md:text-base">Access our product promotion materials by clicking 'Download' to get a copy of our brochure.</span>
-      <a href="#" class="mt-4 lg:mt-6 inline-block px-4 md:px-6 lg:px-8 py-2 lg:py-3 bg-white text-red-600 font-bold rounded-full shadow transition hover:bg-red-600 hover:text-white flex items-center justify-center gap-2 text-xs md:text-sm lg:text-base">
+      <a href="/images/Download-Brochure.pdf" download class="mt-4 lg:mt-6 inline-block px-4 md:px-6 lg:px-8 py-2 lg:py-3 bg-white text-red-600 font-bold rounded-full shadow transition hover:bg-red-600 hover:text-white flex items-center justify-center gap-2 text-xs md:text-sm lg:text-base">
         DOWNLOAD
         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
       </a>
