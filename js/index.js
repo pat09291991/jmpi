@@ -25,6 +25,12 @@ const productSwiper = new Swiper(".product-swiper", {
     nextEl: ".product-swiper-next",
     prevEl: ".product-swiper-prev",
   },
+  autoplay: {
+    delay: 0, // continuous
+    disableOnInteraction: false,
+  },
+  speed: 3500, // smooth continuous speed
+  loop: true,
   breakpoints: {
     768: {
       // tablet
@@ -93,6 +99,137 @@ document.addEventListener("DOMContentLoaded", function () {
   let lastQuery = "";
   let debounceTimeout;
 
+  // --- Product Modal Logic (shared with products.php) ---
+  let allProducts = [];
+  // Fetch all products data once
+  fetch("/data/products.json")
+    .then((res) => res.json())
+    .then((data) => {
+      allProducts = data;
+    });
+
+  // Inject modal HTML if not present
+  if (!document.getElementById("product-modal")) {
+    const modalDiv = document.createElement("div");
+    modalDiv.innerHTML = `
+      <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-lg w-full lg:max-w-4xl p-0 relative flex flex-col md:flex-row overflow-hidden max-h-[90vh]">
+          <button id="modal-prev" class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full shadow-lg w-12 h-12 flex items-center justify-center text-2xl text-gray-600 hover:bg-red-600 hover:text-white transition z-10 border-2 border-gray-200 p-0" style="display:none">
+            <svg xmlns='http://www.w3.org/2000/svg' class='w-full h-full pointer-events-none' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M15 19l-7-7 7-7'/></svg>
+          </button>
+          <div class="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8">
+            <img id="modal-image" src="" alt="Product Image" class="w-full h-48 md:h-80 object-cover" />
+          </div>
+          <div class="w-full md:w-1/2 flex flex-col p-4 md:p-8 overflow-y-auto">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-xl md:text-2xl font-extrabold text-red-600" id="modal-name"></span>
+            </div>
+            <hr class="my-2 border-red-500">
+            <div class="mb-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="font-semibold text-base md:text-lg text-gray-800">Description</span>
+              </div>
+              <p id="modal-description" class="text-gray-700 text-sm md:text-base"></p>
+            </div>
+            <hr class="my-2 border-red-500">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-semibold text-base md:text-lg text-gray-800">Details</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                  <img src="/images/weigh.svg" alt="Weight" class="w-6 h-6 mb-1">
+                  <span class="text-xs text-gray-700 font-semibold">Weight:</span>
+                  <span id="modal-weight" class="font-bold text-base md:text-lg text-gray-800"></span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <img src="/images/ruler.svg" alt="Dimension" class="w-6 h-6 mb-1">
+                  <span class="text-xs text-gray-700 font-semibold">Dimension:</span>
+                  <span id="modal-dimension" class="font-bold text-base md:text-lg text-gray-800"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="modal-next" class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full shadow-lg w-12 h-12 flex items-center justify-center text-2xl text-gray-600 hover:bg-red-600 hover:text-white transition z-10 border-2 border-gray-200 p-0" style="display:none">
+            <svg xmlns='http://www.w3.org/2000/svg' class='w-full h-full pointer-events-none' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M9 5l7 7-7 7'/></svg>
+          </button>
+          <button id="close-modal" class="modal-close absolute top-2 right-2 text-2xl text-gray-400 hover:text-red-600">&times;</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modalDiv.firstElementChild);
+  }
+
+  // Track current modal product index for navigation
+  let modalProductList = [];
+  let modalCurrentIndex = -1;
+
+  function showModalArrows(show) {
+    document.getElementById("modal-prev").style.display = show ? "" : "none";
+    document.getElementById("modal-next").style.display = show ? "" : "none";
+  }
+
+  function openProductModal(id, productList = null) {
+    const modal = document.getElementById("product-modal");
+    const modalImage = document.getElementById("modal-image");
+    const modalName = document.getElementById("modal-name");
+    const modalDescription = document.getElementById("modal-description");
+    const modalDimension = document.getElementById("modal-dimension");
+    const modalWeight = document.getElementById("modal-weight");
+    // Use provided list or allProducts
+    modalProductList =
+      Array.isArray(productList) && productList.length
+        ? productList
+        : allProducts;
+    modalCurrentIndex = modalProductList.findIndex((p) => p.id == id);
+    const product = modalProductList[modalCurrentIndex];
+    if (product) {
+      modalImage.src = product.image;
+      modalName.textContent = product.name;
+      modalDescription.textContent = product.description;
+      modalDimension.textContent = product.dimension;
+      modalWeight.textContent = product.weight;
+      modal.classList.remove("hidden");
+      // Show arrows if more than 1 product
+      showModalArrows(modalProductList.length > 1);
+    }
+  }
+
+  // Modal arrow navigation
+  document.addEventListener("click", function (e) {
+    const modal = document.getElementById("product-modal");
+    if (!modal) return;
+    if (e.target === modal || (e.target && e.target.id === "close-modal")) {
+      modal.classList.add("hidden");
+    }
+    if (
+      e.target &&
+      e.target.id === "modal-prev" &&
+      modalProductList.length > 1
+    ) {
+      modalCurrentIndex =
+        (modalCurrentIndex - 1 + modalProductList.length) %
+        modalProductList.length;
+      openProductModal(
+        modalProductList[modalCurrentIndex].id,
+        modalProductList
+      );
+    }
+    if (
+      e.target &&
+      e.target.id === "modal-next" &&
+      modalProductList.length > 1
+    ) {
+      modalCurrentIndex = (modalCurrentIndex + 1) % modalProductList.length;
+      openProductModal(
+        modalProductList[modalCurrentIndex].id,
+        modalProductList
+      );
+    }
+  });
+
+  // --- End Product Modal Logic ---
+
   searchInput.addEventListener("input", function () {
     if (searchInput.value.trim() !== "") {
       searchInput.classList.add("has-value");
@@ -119,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
           resultsBox.innerHTML = products
             .map(
               (product) => `
-            <div class="search-result-item">
+            <div class="search-result-item" data-product-id="${product.id}">
               <img src="${product.image}" alt="${product.name}" class="search-result-img" />
               <div>
                 <div class="search-result-name">${product.name}</div>
@@ -134,10 +271,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 200);
   });
 
-  // Hide results when clicking outside
-  document.addEventListener("click", function (e) {
-    if (!resultsBox.contains(e.target) && e.target !== searchInput) {
-      resultsBox.classList.add("hidden");
+  // Attach click event to search result items (event delegation)
+  resultsBox.addEventListener("click", function (e) {
+    let item = e.target;
+    while (item && !item.classList.contains("search-result-item")) {
+      item = item.parentElement;
+    }
+    if (item && item.dataset.productId) {
+      openProductModal(item.dataset.productId);
     }
   });
 
@@ -161,4 +302,19 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.addEventListener("click", closeSidebarFn);
     closeSidebar.addEventListener("click", closeSidebarFn);
   }
+
+  // Top Products VIEW button logic (homepage)
+  document.body.addEventListener("click", function (e) {
+    const btn = e.target.closest(".top-product-view-btn");
+    if (btn && btn.dataset.productId) {
+      // Only show top products in modal navigation
+      const topProductIds = Array.from(
+        document.querySelectorAll(".top-product-view-btn")
+      ).map((b) => b.dataset.productId);
+      const topProducts = allProducts.filter((p) =>
+        topProductIds.includes(p.id.toString())
+      );
+      openProductModal(btn.dataset.productId, topProducts);
+    }
+  });
 });

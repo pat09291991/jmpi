@@ -71,7 +71,7 @@ define('ACTIVE_PAGE', 'HOME');
                 <div class="text-xs md:text-base group-hover:text-xs text-gray-700 mb-2 transition-all duration-300 opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-20 line-clamp-2">
                   <?= htmlspecialchars($product['description']) ?>
                 </div>
-                <button class="px-6 py-2 bg-red-600 text-white rounded-full font-bold text-xs md:text-sm lg:text-base">VIEW</button>
+                <button class="px-6 py-2 bg-red-600 text-white rounded-full font-bold text-xs md:text-sm lg:text-base top-product-view-btn" data-product-id="<?= htmlspecialchars($product['id']) ?>">VIEW</button>
               </div>
             </div>
           <?php endforeach; ?>
