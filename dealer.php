@@ -55,6 +55,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
       <div>
         <label for="business_email" class="block font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Business Email</label>
         <input type="email" id="business_email" name="business_email" class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-500 text-xs sm:text-sm md:text-base" required>
+        <p id="email-error" class="mt-1 text-xs text-red-500 hidden">Please enter a valid email address (e.g., name@company.com)</p>
       </div>
       <div class="sm:col-span-2">
         <label for="phone_number" class="block font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Phone Number</label>
@@ -95,8 +96,27 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
         </div>
         <button type="submit" class="w-full md:w-40 h-12 bg-red-600 text-white rounded-lg font-bold text-xs sm:text-sm md:text-base shadow hover:bg-red-700 transition">Submit</button>
       </div>
+      <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="text-sm text-gray-600"><strong>Disclaimer:</strong> By submitting this form, you acknowledge that all information provided is accurate and complete. Joshua's Meat Products reserves the right to verify all information provided and may request additional documentation. Incomplete or inaccurate information may result in the rejection of your application.</p>
+      </div>
+    </div>
+    <input type="hidden" id="recaptcha_token" name="recaptcha_token">
+    <div id="validation-message" class="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm hidden mt-8">
+      Please fill in all required fields before proceeding to the next step.
     </div>
   </form>
+</div>
+
+<!-- Confirmation Modal -->
+<div id="confirmation-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+    <h2 class="text-lg font-bold mb-2">Confirm Submission</h2>
+    <p class="mb-4 text-gray-700">Are you sure you want to submit your application?</p>
+    <div class="flex justify-end gap-2">
+      <button id="cancel-confirmation" class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 text-gray-800">Cancel</button>
+      <button id="confirm-submit" class="px-4 py-2 rounded bg-red-600 hover:bg-red-700 text-white font-bold">Confirm</button>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -124,6 +144,52 @@ const backToStep2 = document.getElementById('back-to-step2');
 const step1Indicator = document.getElementById('step1-indicator');
 const step2Indicator = document.getElementById('step2-indicator');
 const step3Indicator = document.getElementById('step3-indicator');
+const validationMessage = document.getElementById('validation-message');
+
+// Function to validate email format
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Function to check if all required fields in a step are filled
+function validateStep(step) {
+  const requiredFields = step.querySelectorAll('input[required], textarea[required]');
+  let isValid = true;
+  
+  requiredFields.forEach(field => {
+    if (!field.value.trim()) {
+      isValid = false;
+      field.classList.add('border-red-500');
+    } else {
+      field.classList.remove('border-red-500');
+      
+      // Additional validation for email field
+      if (field.type === 'email') {
+        const emailError = document.getElementById('email-error');
+        if (!validateEmail(field.value.trim())) {
+          isValid = false;
+          field.classList.add('border-red-500');
+          emailError.classList.remove('hidden');
+          return;
+        } else {
+          emailError.classList.add('hidden');
+        }
+      }
+    }
+  });
+  
+  return isValid;
+}
+
+// Function to show validation message
+function showValidationMessage(message = 'Please fill in all required fields before proceeding to the next step.') {
+  validationMessage.textContent = message;
+  validationMessage.classList.remove('hidden');
+  setTimeout(() => {
+    validationMessage.classList.add('hidden');
+  }, 3000);
+}
 
 function showStep(step) {
   step1.classList.add('hidden');
@@ -131,10 +197,13 @@ function showStep(step) {
   step3.classList.add('hidden');
   [step1Indicator, step2Indicator, step3Indicator].forEach(el => {
     el.classList.remove('font-bold', 'text-gray-900');
-    // Remove underline if present
     const underline = el.querySelector('.active-underline');
     if (underline) underline.remove();
   });
+  
+  // Hide validation message when changing steps
+  validationMessage.classList.add('hidden');
+  
   if (step === 1) {
     step1.classList.remove('hidden');
     step1Indicator.classList.add('font-bold', 'text-gray-900');
@@ -149,13 +218,91 @@ function showStep(step) {
     step3Indicator.insertAdjacentHTML('beforeend', '<span class="active-underline"></span>');
   }
 }
-if (toStep2) toStep2.onclick = () => showStep(2);
+
+// Add event listeners for navigation buttons
+if (toStep2) {
+  toStep2.onclick = () => {
+    if (validateStep(step1)) {
+      showStep(2);
+    } else {
+      showValidationMessage();
+    }
+  };
+}
+
+if (toStep3) {
+  toStep3.onclick = () => {
+    if (validateStep(step2)) {
+      showStep(3);
+    } else {
+      showValidationMessage();
+    }
+  };
+}
+
 if (backToStep1) backToStep1.onclick = () => showStep(1);
-if (toStep3) toStep3.onclick = () => showStep(3);
 if (backToStep2) backToStep2.onclick = () => showStep(2);
+
+// Add input event listeners to remove red border when user starts typing
+document.querySelectorAll('input[required], textarea[required]').forEach(field => {
+  field.addEventListener('input', function() {
+    if (this.value.trim()) {
+      this.classList.remove('border-red-500');
+      
+      // Real-time email validation
+      if (this.type === 'email') {
+        const emailError = document.getElementById('email-error');
+        if (validateEmail(this.value.trim())) {
+          this.classList.remove('border-red-500');
+          emailError.classList.add('hidden');
+        } else {
+          this.classList.add('border-red-500');
+          emailError.classList.remove('hidden');
+        }
+      }
+    }
+  });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
   showStep(1);
+});
+
+// Confirmation modal logic
+const confirmationModal = document.getElementById('confirmation-modal');
+const confirmSubmitBtn = document.getElementById('confirm-submit');
+const cancelConfirmationBtn = document.getElementById('cancel-confirmation');
+let pendingSubmitEvent = null;
+
+const form = document.getElementById('dealer-form');
+form.addEventListener('submit', function(e) {
+  // Only show modal if not already confirmed
+  if (!form.dataset.confirmed) {
+    e.preventDefault();
+    confirmationModal.classList.remove('hidden');
+    pendingSubmitEvent = e;
+    return false;
+  }
+  // If confirmed, allow reCAPTCHA to proceed
+  form.dataset.confirmed = '';
+});
+
+confirmSubmitBtn.addEventListener('click', function() {
+  confirmationModal.classList.add('hidden');
+  form.dataset.confirmed = 'true';
+  // Trigger reCAPTCHA and submit
+  grecaptcha.ready(function() {
+    grecaptcha.execute('YOUR_RECAPTCHA_SITE_KEY', {action: 'submit'}).then(function(token) {
+      document.getElementById('recaptcha_token').value = token;
+      form.submit();
+    });
+  });
+});
+
+cancelConfirmationBtn.addEventListener('click', function() {
+  confirmationModal.classList.add('hidden');
+  form.dataset.confirmed = '';
+  pendingSubmitEvent = null;
 });
 </script>
 
