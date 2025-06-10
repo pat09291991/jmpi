@@ -12,6 +12,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body class="bg-gray-50 font-['Poppins']">
 <?php include 'header.php'; ?>
@@ -94,7 +95,10 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
         <div class="flex-1">
           <p class="font-bold text-gray-900 mb-1 text-xs sm:text-sm md:text-base">Thank you for your interest in Joshua's Meat Products.<span class="font-normal text-gray-700"> Once you've completed the form, please submit it, and our agent will review your application. If your business qualifies, we will contact you to discuss further opportunities.</span></p>
         </div>
-        <button type="submit" class="w-full md:w-40 h-12 bg-red-600 text-white rounded-lg font-bold text-xs sm:text-sm md:text-base shadow hover:bg-red-700 transition">Submit</button>
+        <div class="flex flex-col items-center gap-4">
+          <div class="h-captcha" data-sitekey="fe4037d4-0dc0-4e6a-bed0-05dc18fa7426" data-callback="onCaptchaVerified"></div>
+          <button type="submit" id="submit-button" class="w-full md:w-40 h-12 bg-red-600 text-white rounded-lg font-bold text-xs sm:text-sm md:text-base shadow hover:bg-red-700 transition opacity-50 cursor-not-allowed" disabled>Submit</button>
+        </div>
       </div>
       <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
         <p class="text-sm text-gray-600"><strong>Disclaimer:</strong> By submitting this form, you acknowledge that all information provided is accurate and complete. Joshua's Meat Products reserves the right to verify all information provided and may request additional documentation. Incomplete or inaccurate information may result in the rejection of your application.</p>
@@ -268,41 +272,98 @@ document.addEventListener('DOMContentLoaded', function() {
   showStep(1);
 });
 
+// Add development mode check
+const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
 // Confirmation modal logic
 const confirmationModal = document.getElementById('confirmation-modal');
 const confirmSubmitBtn = document.getElementById('confirm-submit');
 const cancelConfirmationBtn = document.getElementById('cancel-confirmation');
 let pendingSubmitEvent = null;
 
-const form = document.getElementById('dealer-form');
-form.addEventListener('submit', function(e) {
-  // Only show modal if not already confirmed
-  if (!form.dataset.confirmed) {
-    e.preventDefault();
-    confirmationModal.classList.remove('hidden');
-    pendingSubmitEvent = e;
-    return false;
-  }
-  // If confirmed, allow reCAPTCHA to proceed
-  form.dataset.confirmed = '';
-});
-
 confirmSubmitBtn.addEventListener('click', function() {
   confirmationModal.classList.add('hidden');
   form.dataset.confirmed = 'true';
-  // Trigger reCAPTCHA and submit
-  grecaptcha.ready(function() {
-    grecaptcha.execute('YOUR_RECAPTCHA_SITE_KEY', {action: 'submit'}).then(function(token) {
-      document.getElementById('recaptcha_token').value = token;
-      form.submit();
-    });
-  });
+  form.submit();
 });
 
 cancelConfirmationBtn.addEventListener('click', function() {
   confirmationModal.classList.add('hidden');
   form.dataset.confirmed = '';
   pendingSubmitEvent = null;
+});
+
+// Get the submit button
+const submitButton = document.getElementById('submit-button');
+
+// Function to handle captcha verification
+function onCaptchaVerified(token) {
+  if (isDevelopment) {
+    submitButton.disabled = false;
+    submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+    return;
+  }
+  
+  // Verify the captcha
+  fetch('/verify_captcha.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `h-captcha-response=${encodeURIComponent(token)}`
+  })
+  .then(response => response.json())
+  .then(result => {
+    if (result.success) {
+      submitButton.disabled = false;
+      submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+    } else {
+      showValidationMessage(result.message || 'Captcha verification failed');
+      hcaptcha.reset();
+    }
+  })
+  .catch(error => {
+    showValidationMessage('An error occurred during verification');
+    console.error('Captcha verification error:', error);
+    hcaptcha.reset();
+  });
+}
+
+// Modify the form submission handler
+const form = document.getElementById('dealer-form');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  // Skip captcha verification in development mode
+  if (isDevelopment) {
+    if (!form.dataset.confirmed) {
+      confirmationModal.classList.remove('hidden');
+      pendingSubmitEvent = e;
+      return;
+    }
+    form.dataset.confirmed = '';
+    form.submit();
+    return;
+  }
+  
+  // Get the hCaptcha response
+  const hcaptchaResponse = hcaptcha.getResponse();
+  
+  if (!hcaptchaResponse) {
+    showValidationMessage('Please complete the captcha verification');
+    return;
+  }
+  
+  // If captcha is verified, show confirmation modal
+  if (!form.dataset.confirmed) {
+    confirmationModal.classList.remove('hidden');
+    pendingSubmitEvent = e;
+    return;
+  }
+  
+  // If confirmed, submit the form
+  form.dataset.confirmed = '';
+  form.submit();
 });
 </script>
 
