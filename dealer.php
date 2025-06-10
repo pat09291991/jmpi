@@ -35,7 +35,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
       <span id="step3-indicator" class="step-label transition-all duration-200 relative">Submit</span>
     </div>
   </div>
-  <form id="dealer-form" class="bg-white rounded-2xl shadow p-4 sm:p-6 md:p-8">
+  <form id="dealer-form" class="bg-white rounded-2xl shadow p-4 sm:p-6 md:p-8" action="/process_dealer_form.php" method="POST">
     <!-- Step 1: Contact Information -->
     <div id="step1" class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
       <div class="flex items-center justify-end col-span-1 sm:col-span-2 mb-2">
@@ -50,32 +50,32 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
         <input type="text" id="contact_person" name="contact_person" class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-500 text-xs sm:text-sm md:text-base" required>
       </div>
       <div>
-        <label for="business_address" class="block font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Business Address</label>
-        <input type="text" id="business_address" name="business_address" class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-500 text-xs sm:text-sm md:text-base" required>
-      </div>
-      <div>
         <label for="business_email" class="block font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Business Email</label>
         <input type="email" id="business_email" name="business_email" class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-500 text-xs sm:text-sm md:text-base" required>
         <p id="email-error" class="mt-1 text-xs text-red-500 hidden">Please enter a valid email address (e.g., name@company.com)</p>
       </div>
-      <div class="sm:col-span-2">
+      <div>
         <label for="phone_number" class="block font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Phone Number</label>
         <input type="text" id="phone_number" name="phone_number" class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-500 text-xs sm:text-sm md:text-base" required>
       </div>
+      <div class="sm:col-span-2">
+        <label for="business_address" class="block font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Business Address</label>
+        <input type="text" id="business_address" name="business_address" class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-500 text-xs sm:text-sm md:text-base" required>
+      </div>
     </div>
     <!-- Step 2: Interest & Requirements -->
-    <div id="step2" class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 hidden">
-      <div class="flex items-center justify-between col-span-1 sm:col-span-2 mb-2">
+    <div id="step2">
+      <div class="flex items-center justify-between mb-8">
         <button type="button" id="back-to-step1" class="text-xs sm:text-sm md:text-base hover:text-red-600">&lt; Previous</button>
         <button type="button" id="to-step3" class="text-xs sm:text-sm md:text-base hover:text-red-600">Next &gt;</button>
       </div>
-      <div class="col-span-2 lg:col-span-1">
+      <div class="mb-4">
         <label for="interested_products" class="block font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">What Joshua's Meat Products are you interested in reselling?</label>
-        <input type="text" id="interested_products" name="interested_products" placeholder="Please specify products or categories" class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-500 text-xs sm:text-sm md:text-base" required>
+        <textarea type="text" id="interested_products" name="interested_products" placeholder="Please specify products or categories" class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-500 text-xs sm:text-sm md:text-base" required style="height: 100px;"></textarea>
       </div>
-      <div class="col-span-2 lg:col-span-1">
+      <div class="mb-4">
         <label for="estimated_quantity" class="block font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Estimated quantity of products required per month</label>
-        <input type="text" id="estimated_quantity" name="estimated_quantity" class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-500 text-xs sm:text-sm md:text-base" required>
+        <textarea type="text" id="estimated_quantity" name="estimated_quantity" class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-500 text-xs sm:text-sm md:text-base" required style="height: 100px;"></textarea>
       </div>
       <div>
         <label for="interest_reason" class="block font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Why are you interested in becoming an authorized dealer for Joshua's Meat Products?</label>
@@ -120,6 +120,15 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
       <button id="cancel-confirmation" class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 text-gray-800">Cancel</button>
       <button id="confirm-submit" class="px-4 py-2 rounded bg-red-600 hover:bg-red-700 text-white font-bold">Confirm</button>
     </div>
+  </div>
+</div>
+
+<!-- Thank You Modal -->
+<div id="thankyou-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center">
+    <h2 class="text-lg font-bold mb-2 text-green-700">Thank You!</h2>
+    <p class="mb-4 text-gray-700">Your application has been submitted successfully.<br>We appreciate your interest in becoming a dealer.</p>
+    <button id="close-thankyou" class="px-4 py-2 rounded bg-green-600 hover:bg-green-700 text-white font-bold mt-2">Close</button>
   </div>
 </div>
 
@@ -187,12 +196,22 @@ function validateStep(step) {
 }
 
 // Function to show validation message
-function showValidationMessage(message = 'Please fill in all required fields before proceeding to the next step.') {
+function showValidationMessage(message = 'Please fill in all required fields before proceeding to the next step.', type = 'error') {
   validationMessage.textContent = message;
   validationMessage.classList.remove('hidden');
+  
+  // Update styling based on message type
+  if (type === 'success') {
+    validationMessage.classList.remove('bg-red-50', 'border-red-200', 'text-red-700');
+    validationMessage.classList.add('bg-green-50', 'border-green-200', 'text-green-700');
+  } else {
+    validationMessage.classList.remove('bg-green-50', 'border-green-200', 'text-green-700');
+    validationMessage.classList.add('bg-red-50', 'border-red-200', 'text-red-700');
+  }
+  
   setTimeout(() => {
     validationMessage.classList.add('hidden');
-  }, 3000);
+  }, 5000);
 }
 
 function showStep(step) {
@@ -328,43 +347,6 @@ function onCaptchaVerified(token) {
     hcaptcha.reset();
   });
 }
-
-// Modify the form submission handler
-const form = document.getElementById('dealer-form');
-form.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  
-  // Skip captcha verification in development mode
-  if (isDevelopment) {
-    if (!form.dataset.confirmed) {
-      confirmationModal.classList.remove('hidden');
-      pendingSubmitEvent = e;
-      return;
-    }
-    form.dataset.confirmed = '';
-    form.submit();
-    return;
-  }
-  
-  // Get the hCaptcha response
-  const hcaptchaResponse = hcaptcha.getResponse();
-  
-  if (!hcaptchaResponse) {
-    showValidationMessage('Please complete the captcha verification');
-    return;
-  }
-  
-  // If captcha is verified, show confirmation modal
-  if (!form.dataset.confirmed) {
-    confirmationModal.classList.remove('hidden');
-    pendingSubmitEvent = e;
-    return;
-  }
-  
-  // If confirmed, submit the form
-  form.dataset.confirmed = '';
-  form.submit();
-});
 </script>
 
 <?php include 'footer.php'; ?>
