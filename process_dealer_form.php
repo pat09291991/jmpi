@@ -69,7 +69,7 @@ try {
 
     // Recipients
     $mail->setFrom($smtpFromEmail, $smtpFromName);
-    $mail->addAddress('altemailstudent3@gmail.com', 'JMPI Sales');
+    $mail->addAddress($smtpFromEmail, 'JMPI Sales');
     $mail->addReplyTo($formData['business_email'], $formData['contact_person']);
 
     // Content

@@ -15,6 +15,7 @@ define('ACTIVE_PAGE', 'STORES');
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="icon" type="image/webp" href="/images/jmpi-logo.webp">
 </head>
 <body class="font-['Poppins']">
   <?php include 'header.php'; ?>

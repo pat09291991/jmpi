@@ -18,6 +18,7 @@ define('ACTIVE_PAGE', 'HOME');
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="icon" type="image/webp" href="/images/jmpi-logo.webp">
 </head>
 <body class="bg-white font-['Poppins']">
 <?php include 'header.php'; ?>
@@ -61,7 +62,7 @@ define('ACTIVE_PAGE', 'HOME');
   <section class="w-full flex flex-col justify-between xl:flex-row lg:gap-32 px-4 md:px-24 py-8 md:py-12 lg:py-16" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
     <!-- Products Column -->
     <div class="w-full xl:w-2/3 flex flex-col items-center justify-center text-center md:min-h-[600px]">
-      <h2 class="text-xl sm:text-2xl md:text-4xl font-extrabold text-[#252525] mb-2 text-center">JMPi Top Products</h2>
+      <h2 class="text-xl sm:text-2xl md:text-4xl font-extrabold text-[#F01B23] mb-2 text-center">JMPi Top Products</h2>
       <p class="text-sm sm:text-base md:text-lg text-gray-700 mb-8 text-center w-full md:max-w-5xl px-4 md:px-12">Discover the all-time favorites that bring extra flavor to every meal! These top picks are loved by families and foodies alike — perfect for everyday cooking, party platters, or quick bites.</p>
       <div class="swiper product-swiper w-full !p-1 h-auto">
         <div class="swiper-wrapper">
@@ -87,7 +88,7 @@ define('ACTIVE_PAGE', 'HOME');
     <!-- New Product Column -->
     <div class="w-full xl:w-1/3 bg-[#F01B23] text-white rounded-3xl flex flex-col items-center justify-center h-full mt-8 md:mt-0 group" data-aos="fade-up" data-aos-delay="200">
       <div class="px-12 py-12">
-        <h3 class="text-lg md:text-2xl font-extrabold mb-4 text-center text-[#252525]">New Products to Try!</h3>
+        <h3 class="text-lg md:text-2xl font-extrabold mb-4 text-center text-white">New Products to Try!</h3>
         <p class="text-sm md:text-lg text-center">Exciting additions to the JMPi family — crispy, fun, and full of flavor.</p>
       </div>
       <div class="relative w-full h-[400px] overflow-hidden rounded-b-3xl">

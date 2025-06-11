@@ -13,6 +13,7 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/webp" href="/images/jmpi-logo.webp">
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body class="bg-gray-50 font-['Poppins']">

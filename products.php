@@ -31,6 +31,7 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="icon" type="image/webp" href="/images/jmpi-logo.webp">
 </head>
 <body class="font-['Poppins']">
   <?php include 'header.php'; ?>
@@ -129,13 +130,13 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
           <div class="flex flex-col gap-2">
                 <div class="flex items-center gap-2">
                   <img src="/images/weigh.svg" alt="Weight" class="w-6 md:w-7 h-6 md:h-7 mb-1">
-                  <span class="text-base md:text-lg text-[#252525] font-semibold">Weight:</span>
-                  <span id="modal-weight" class="font-bold text-base md:text-lg text-[#252525]"></span>
+                  <span class="text-sm md:text-base text-[#252525]">Weight:</span>
+                  <span id="modal-weight" class="text-sm md:text-base text-[#252525]"></span>
                 </div>
                 <div class="flex items-center gap-2">
                   <img src="/images/ruler.svg" alt="Dimension" class="w-6 md:w-7 h-6 md:h-7 mb-1">
-                  <span class="text-base md:text-lg text-[#252525] font-semibold">Dimension:</span>
-                  <span id="modal-dimension" class="font-bold text-base md:text-lg text-[#252525]"></span>
+                  <span class="text-sm md:text-base text-[#252525]">Dimension:</span>
+                  <span id="modal-dimension" class="text-sm md:text-base text-[#252525]"></span>
                 </div>
               </div>
         </div>

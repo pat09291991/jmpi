@@ -59,4 +59,6 @@
     <?php endforeach; ?>
     <a href="/dealer.php" class="mt-4 px-4 py-2 border-2 border-[#F01B23] text-[#F01B23] rounded-full font-bold text-center hover:bg-[#F01B23] hover:text-white transition text-xs md:text-sm lg:text-base">BE A DEALER</a>
   </nav>
-</aside> 
+</aside>
+
+<link rel="icon" type="image/webp" href="/images/jmpi-logo.webp">

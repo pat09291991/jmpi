@@ -127,25 +127,25 @@ document.addEventListener("DOMContentLoaded", function () {
             <hr class="my-2 border-red-500">
             <div class="mb-4">
               <div class="flex items-center gap-2 mb-1">
-                <span class="font-semibold text-base md:text-lg text-gray-800">Description</span>
+                <span class="font-semibold text-base md:text-lg text-[#252525]">Description</span>
               </div>
               <p id="modal-description" class="text-gray-700 text-sm md:text-base"></p>
             </div>
             <hr class="my-2 border-red-500">
             <div>
               <div class="flex items-center gap-2 mb-2">
-                <span class="font-semibold text-base md:text-lg text-gray-800">Details</span>
+                <span class="font-semibold text-base md:text-lg text-[#252525]">Details</span>
               </div>
               <div class="flex flex-col gap-2">
                 <div class="flex items-center gap-2">
-                  <img src="/images/weigh.svg" alt="Weight" class="w-6 h-6 mb-1">
-                  <span class="text-xs text-gray-700 font-semibold">Weight:</span>
-                  <span id="modal-weight" class="font-bold text-base md:text-lg text-gray-800"></span>
+                  <img src="/images/weigh.svg" alt="Weight" class="w-6 md:w-7 h-6 md:h-7 mb-1">
+                  <span class="text-sm md:text-base text-[#252525]">Weight:</span>
+                  <span id="modal-weight" class="text-sm md:text-base text-[#252525]"></span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <img src="/images/ruler.svg" alt="Dimension" class="w-6 h-6 mb-1">
-                  <span class="text-xs text-gray-700 font-semibold">Dimension:</span>
-                  <span id="modal-dimension" class="font-bold text-base md:text-lg text-gray-800"></span>
+                  <img src="/images/ruler.svg" alt="Dimension" class="w-6 md:w-7 h-6 md:h-7 mb-1">
+                  <span class="text-sm md:text-base text-[#252525]">Dimension:</span>
+                  <span id="modal-dimension" class="text-sm md:text-base text-[#252525]"></span>
                 </div>
               </div>
             </div>
@@ -165,8 +165,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let modalCurrentIndex = -1;
 
   function showModalArrows(show) {
-    document.getElementById("modal-prev").style.display = show ? "" : "none";
-    document.getElementById("modal-next").style.display = show ? "" : "none";
+    const isMobile = window.innerWidth < 768;
+    document.getElementById("modal-prev").style.display =
+      show && !isMobile ? "" : "none";
+    document.getElementById("modal-next").style.display =
+      show && !isMobile ? "" : "none";
   }
 
   function openProductModal(id, productList = null) {
@@ -328,4 +331,66 @@ document.addEventListener("DOMContentLoaded", function () {
       openProductModal(btn.dataset.productId, topProducts);
     }
   });
+
+  window.addEventListener("resize", function () {
+    // Re-evaluate arrow visibility on resize
+    const modal = document.getElementById("product-modal");
+    if (modal && !modal.classList.contains("hidden")) {
+      // Only show arrows if this is the Top Products list
+      const topProductIds = Array.from(
+        document.querySelectorAll(".top-product-view-btn")
+      ).map((b) => b.dataset.productId);
+      const isTopProducts =
+        Array.isArray(window.modalProductList) &&
+        window.modalProductList.length &&
+        window.modalProductList.every((p) =>
+          topProductIds.includes(p.id.toString())
+        );
+      showModalArrows(isTopProducts && window.modalProductList.length > 1);
+    }
+  });
+
+  // --- Swipe support for modal on mobile ---
+  (function () {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    function handleGesture() {
+      const modal = document.getElementById("product-modal");
+      if (!modal || modal.classList.contains("hidden")) return;
+      // Only allow swipe if arrows would be shown (top products modal, >1 product)
+      const prevBtn = document.getElementById("modal-prev");
+      const nextBtn = document.getElementById("modal-next");
+      if (window.innerWidth >= 500) return; // Only on mobile
+      if (
+        prevBtn.style.display === "none" &&
+        nextBtn.style.display === "none"
+      ) {
+        if (touchEndX < touchStartX - 40) {
+          // Swipe left (next)
+          nextBtn.click();
+        }
+        if (touchEndX > touchStartX + 40) {
+          // Swipe right (prev)
+          prevBtn.click();
+        }
+      }
+    }
+    document.addEventListener("touchstart", function (e) {
+      if (
+        !document.getElementById("product-modal") ||
+        document.getElementById("product-modal").classList.contains("hidden")
+      )
+        return;
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    document.addEventListener("touchend", function (e) {
+      if (
+        !document.getElementById("product-modal") ||
+        document.getElementById("product-modal").classList.contains("hidden")
+      )
+        return;
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    });
+  })();
 });
