@@ -1,5 +1,14 @@
 <?php
-require 'vendor/autoload.php'; // We'll need to install PHPMailer via Composer
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/env_loader.php';
+// Load SMTP and hCaptcha config from environment
+$smtpHost = getenv('SMTP_HOST');
+$smtpPort = getenv('SMTP_PORT');
+$smtpUsername = getenv('SMTP_USERNAME');
+$smtpPassword = getenv('SMTP_PASSWORD');
+$smtpFromEmail = getenv('SMTP_FROM_EMAIL');
+$smtpFromName = getenv('SMTP_FROM_NAME');
+$hcaptchaSecret = getenv('HCAPTCHA_SECRET_KEY');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -43,14 +52,14 @@ if (!filter_var($formData['business_email'], FILTER_VALIDATE_EMAIL)) {
 try {
     $mail = new PHPMailer(true);
 
-    // Server settings for Arvixe
+    // Server settings
     $mail->isSMTP();
-    $mail->Host = 'abyssinian.arvixe.com';
+    $mail->Host = $smtpHost;
     $mail->SMTPAuth = true;
-    $mail->Username = 'sales@joshuameatproductsph.com';
-    $mail->Password = 'jmpi_mail_2025';
+    $mail->Username = $smtpUsername;
+    $mail->Password = $smtpPassword;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port = 465;
+    $mail->Port = $smtpPort;
 
     // Enable debug output
     $mail->SMTPDebug = 2; // Enable verbose debug output
@@ -59,8 +68,8 @@ try {
     };
 
     // Recipients
-    $mail->setFrom('sales@joshuameatproductsph.com', 'JMPI Sales');
-    $mail->addAddress('sales@joshuameatproductsph.com', 'Test Recipient'); // Test email
+    $mail->setFrom($smtpFromEmail, $smtpFromName);
+    $mail->addAddress('altemailstudent3@gmail.com', 'JMPI Sales');
     $mail->addReplyTo($formData['business_email'], $formData['contact_person']);
 
     // Content

@@ -72,14 +72,14 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
             class="w-full h-48 object-cover rounded-t-2xl">
           <div class="flex flex-col flex-1 p-6 text-left">
             <div class="text-lg md:text-xl font-bold mb-1"><?= htmlspecialchars($product['name']) ?></div>
-            <div class="text-gray-700 text-sm mb-4 line-clamp-2 xl:line-clamp-3"><?= htmlspecialchars($product['description']) ?></div>
+            <div class="text-gray-700 text-base md:text-lg mb-4 line-clamp-2 xl:line-clamp-3"><?= htmlspecialchars($product['description']) ?></div>
             <div class="flex items-center gap-2 mb-2">
-              <img src="/images/weigh.svg" alt="Weight" class="w-5 h-5 inline">
-              <span class="text-sm"><?= htmlspecialchars($product['weight']) ?></span>
+              <img src="/images/weigh.svg" alt="Weight" class="w-6 md:w-7 h-6 md:w-7 inline">
+              <span class="text-base md:text-lg"><?= htmlspecialchars($product['weight']) ?></span>
             </div>
             <div class="flex items-center gap-2 mb-4">
-              <img src="/images/ruler.svg" alt="Dimension" class="w-5 h-5 inline">
-              <span class="text-sm"><?= htmlspecialchars($product['dimension']) ?></span>
+              <img src="/images/ruler.svg" alt="Dimension" class="w-6 md:w-7 h-6 md:w-7 inline">
+              <span class="text-base md:text-lg"><?= htmlspecialchars($product['dimension']) ?></span>
             </div>
             <div class="flex justify-end mt-auto">
               <button class="px-6 py-2 bg-red-500 text-white rounded-full font-bold text-sm hover:bg-red-600 transition"
@@ -122,13 +122,13 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
           </div>
           <div class="flex flex-col gap-2">
                 <div class="flex items-center gap-2">
-                  <img src="/images/weigh.svg" alt="Weight" class="w-6 h-6 mb-1">
-                  <span class="text-xs text-gray-700 font-semibold">Weight:</span>
+                  <img src="/images/weigh.svg" alt="Weight" class="w-6 md:w-7 h-6 md:h-7 mb-1">
+                  <span class="text-base md:text-lg text-gray-700 font-semibold">Weight:</span>
                   <span id="modal-weight" class="font-bold text-base md:text-lg text-gray-800"></span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <img src="/images/ruler.svg" alt="Dimension" class="w-6 h-6 mb-1">
-                  <span class="text-xs text-gray-700 font-semibold">Dimension:</span>
+                  <img src="/images/ruler.svg" alt="Dimension" class="w-6 md:w-7 h-6 md:h-7 mb-1">
+                  <span class="text-base md:text-lg text-gray-700 font-semibold">Dimension:</span>
                   <span id="modal-dimension" class="font-bold text-base md:text-lg text-gray-800"></span>
                 </div>
               </div>

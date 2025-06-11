@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/env_loader.php';
 header('Content-Type: application/json');
 
 // Check if we're in development mode
@@ -18,8 +19,9 @@ if (empty($hcaptcha_response)) {
 }
 
 // Verify the hCaptcha response
+$hcaptchaSecret = getenv('HCAPTCHA_SECRET_KEY');
 $data = [
-    'secret' => 'ES_85a380d26b044bafb651defcb385174b',
+    'secret' => $hcaptchaSecret,
     'response' => $hcaptcha_response
 ];
 
@@ -37,5 +39,5 @@ $result = json_decode($response, true);
 if ($result['success']) {
     echo json_encode(['success' => true]);
 } else {
-    echo json_encode(['success' => false, 'message' => 'Captcha verification failed']);
+    echo json_encode(['success' => false, 'message' => $result['error-codes'] ?? 'Captcha verification failed']);
 } 

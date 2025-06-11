@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
 $page_title = "Dealer/Reseller Application";
 $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
 ?>
