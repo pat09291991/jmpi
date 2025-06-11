@@ -78,11 +78,11 @@ function randomAos() {
     <div class="w-full max-w-7xl flex flex-col md:flex-row gap-8 md:gap-12">
       <div class="flex-1 bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-12 flex flex-col items-center text-center shadow">
         <h3 class="text-white font-extrabold text-base md:text-lg lg:text-xl mb-4">VISION</h3>
-        <p class="text-white text-sm md:text-base lg:text-lg">PRIME LOCAL AND GLOBAL PRODUCER OF PROCESSED MEAT PRODUCTS</p>
+        <p class="text-white text-sm md:text-base lg:text-lg">To be a trusted leader in the meat industry, known for honoring God through ethical practices, exceptional quality, and compassionate service — impacting lives, nourishing communities, and advancing His kingdom through our work.</p>
       </div>
       <div class="flex-1 bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-12 flex flex-col items-center justify-center text-center shadow">
         <h3 class="text-white font-extrabold text-base md:text-lg lg:text-xl mb-4">MISSION</h3>
-        <p class="text-white text-sm md:text-base lg:text-lg">JOSHUAS MEAT PRODUCTS INCORPORATED (JMPI) is a meat processing plant producing locally and globally competitive quality processed and comminuted meat products seeking to provide job opportunities among</p>
+        <p class="text-white text-sm md:text-base lg:text-lg">To glorify God by producing high-quality, safe, and affordable meat products with integrity, excellence, and compassion—serving our customers, supporting our communities, and honoring Christ in all that we do.</p>
       </div>
     </div>
   </section>

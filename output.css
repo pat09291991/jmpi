@@ -1648,9 +1648,22 @@ video {
   border-width: 2px;
 }
 
+.hover\:border:hover {
+  border-width: 1px;
+}
+
+.hover\:border-b-2:hover {
+  border-bottom-width: 2px;
+}
+
 .hover\:border-red-500:hover {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
+}
+
+.hover\:border-\[\#F01B23\]:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(240 27 35 / var(--tw-border-opacity, 1));
 }
 
 .hover\:bg-gray-100:hover {

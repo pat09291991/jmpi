@@ -165,7 +165,7 @@ define('ACTIVE_PAGE', 'HOME');
         <?php foreach ($service_strengths as $strength): ?>
           <div class="flex flex-col items-center text-center px-4 group" data-aos="fade-up" data-aos-delay="<?= 200 + ($i * 200) ?>">
             <?php if ($strength['icon'] === 'truck'): ?>
-              <svg class="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 mb-4 text-gray-400 group-hover:text-[#F01B23]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17V7a2 2 0 012-2h11a2 2 0 012 2v10M16 17h2a2 2 0 002-2v-3a2 2 0 00-2-2h-2m-6 5a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              <img src="/images/truck.svg" alt="Truck" class="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 mb-4 text-gray-400 group-hover:text-[#F01B23]">
             <?php elseif ($strength['icon'] === 'clock'): ?>
               <svg class="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 mb-4 text-gray-400 group-hover:text-[#F01B23]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
             <?php elseif ($strength['icon'] === 'credit-card'): ?>

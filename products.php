@@ -35,7 +35,7 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
 <body class="font-['Poppins']">
   <?php include 'header.php'; ?>
   
-  <section class="w-full flex flex-col items-center justify-center py-8 md:py-12 lg:py-16 bg-gray-100">
+  <section class="w-full flex flex-col items-center justify-center py-8 md:py-12 lg:py-16 bg-gray-100 mt-16">
     <!-- Breadcrumbs -->
     <div class="w-full px-4 md:px-8 lg:px-16 xl:px-24 py-6 flex items-center text-gray-700 text-sm">
       <img src="/images/homesvg.svg" alt="Home" class="w-6 h-6 mr-1">

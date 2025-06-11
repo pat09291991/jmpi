@@ -11,6 +11,7 @@ define('ACTIVE_PAGE', 'STORES');
   <title>JMPI Stores</title>
   <link href="/output.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/products.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -31,7 +32,7 @@ define('ACTIVE_PAGE', 'STORES');
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 max-w-7xl mx-auto">
         <?php foreach ($branches as $i => $branch): ?>
           <?php $randDelay = rand(0, 6) * 100; ?>
-          <div class="bg-white rounded-xl shadow p-6 flex flex-col h-full max-w-4xl"
+          <div class="bg-white rounded-xl shadow p-6 flex flex-col h-full max-w-4xl store-card group hover:shadow-2xl"
                data-aos="zoom-in" data-aos-delay="<?= $randDelay ?>">
             <h3 class="font-extrabold text-base md:text-lg mb-1 text-[#252525]"><?= htmlspecialchars($branch['name']) ?></h3>
             <p class="text-gray-800 text-sm md:text-base mb-0"><?= nl2br(htmlspecialchars($branch['address'])) ?></p>
