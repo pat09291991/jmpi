@@ -50,7 +50,7 @@ function randomAos() {
         </p>
       </div>
       <div class="flex-1 flex justify-center">
-        <img src="/images/pork_longganisa.webp" alt="JMPI Founders" class="w-full max-w-md rounded-lg object-cover" />
+        <img src="/images/founder.webp" alt="JMPI Founders" class="w-full max-w-md rounded-lg object-cover" />
       </div>
     </div>
   </section>

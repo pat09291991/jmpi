@@ -72,8 +72,8 @@ header {
 }
 
 .expand-button:hover {
-  background: #dc2626 !important;
-  border-color: #dc2626 !important;
+  background: #F01B23 !important;
+  border-color: #F01B23 !important;
   color: white !important;
 }
 
@@ -100,15 +100,15 @@ body {
   border: 2px solid rgba(0,0,0,0.18);
   border-radius: 50%;
   background: transparent !important;
-  color: #111;
+  color: #252525;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 16px rgba(37,37,37,0.18);
 }
 .product-swiper-prev::after, .product-swiper-next::after {
   font-size: 22px;
-  color: rgba(0,0,0,0.18);
+  color: rgba(37,37,37,0.18);
   font-weight: bold;
 }
 
@@ -157,7 +157,7 @@ body {
 }
 #search-results .search-result-name {
   font-weight: bold;
-  color: #dc2626;
+  color: #F01B23;
   font-size: 1.1rem;
   margin-bottom: 0.15rem;
 }

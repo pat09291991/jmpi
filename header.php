@@ -6,7 +6,7 @@
   <nav class="hidden xl:flex gap-x-24 font-bold text-lg absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
     <?php foreach ($nav as $item): ?>
       <?php if (defined('ACTIVE_PAGE') && $item['name'] === ACTIVE_PAGE): ?>
-        <a href="<?= htmlspecialchars($item['link']) ?>" class="text-red-600"><?= htmlspecialchars($item['name']) ?></a>
+        <a href="<?= htmlspecialchars($item['link']) ?>" class="text-[#F01B23]"><?= htmlspecialchars($item['name']) ?></a>
       <?php else: ?>
         <a href="<?= htmlspecialchars($item['link']) ?>"><?= htmlspecialchars($item['name']) ?></a>
       <?php endif; ?>
@@ -32,20 +32,20 @@
       <div id="search-results" class="absolute left-[-40px] top-full mt-2 w-96 bg-white rounded-xl shadow-lg z-50 hidden"></div>
     </div>
     <span class="mx-2 text-gray-400">|</span>
-    <a href="/dealer.php" class="px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-sm hover:bg-red-600 hover:text-white transition">BE A DEALER</a>
+    <a href="/dealer.php" class="px-4 py-2 border-2 border-[#F01B23] text-[#F01B23] rounded-full font-bold text-sm hover:bg-[#F01B23] hover:text-white transition">BE A DEALER</a>
   </div>
   <!-- Burger menu for mobile and tablet -->
   <button id="burger-menu" class="block xl:hidden focus:outline-none ml-auto">
-    <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <svg class="w-8 h-8 text-[#F01B23]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   </button>
 </header>
 <!-- Sidebar overlay and drawer -->
-<div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-40 z-50 hidden"></div>
+<div id="sidebar-overlay" class="fixed inset-0 bg-[#252525] bg-opacity-40 z-50 hidden"></div>
 <aside id="sidebar" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300">
   <div class="flex justify-end items-center px-6 py-4 border-b">
-    <button id="close-sidebar" class="text-gray-500 hover:text-red-600 focus:outline-none">
+    <button id="close-sidebar" class="text-gray-500 hover:text-[#F01B23] focus:outline-none">
       <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
@@ -53,10 +53,10 @@
   </div>
   <nav class="flex flex-col gap-4 px-6 py-6">
     <?php foreach ($nav as $item): ?>
-      <a href="<?= htmlspecialchars($item['link']) ?>" class="py-2 px-2 rounded hover:bg-red-50 text-xs md:text-sm lg:text-base font-semibold text-gray-700 hover:text-red-600 transition">
+      <a href="<?= htmlspecialchars($item['link']) ?>" class="py-2 px-2 rounded hover:bg-red-50 text-xs md:text-sm lg:text-base font-semibold text-gray-700 hover:text-[#F01B23] transition">
         <?= htmlspecialchars($item['name']) ?>
       </a>
     <?php endforeach; ?>
-    <a href="/dealer.php" class="mt-4 px-4 py-2 border-2 border-red-600 text-red-600 rounded-full font-bold text-center hover:bg-red-600 hover:text-white transition text-xs md:text-sm lg:text-base">BE A DEALER</a>
+    <a href="/dealer.php" class="mt-4 px-4 py-2 border-2 border-[#F01B23] text-[#F01B23] rounded-full font-bold text-center hover:bg-[#F01B23] hover:text-white transition text-xs md:text-sm lg:text-base">BE A DEALER</a>
   </nav>
 </aside> 
