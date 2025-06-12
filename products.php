@@ -59,7 +59,7 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="icon" type="image/webp" href="/images/jmpi-logo.png">
+  <link rel="icon" type="image/webp" href="/images/yticon.png">
 </head>
 
 <body class="font-['Poppins']">

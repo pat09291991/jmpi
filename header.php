@@ -71,4 +71,4 @@
   </nav>
 </aside>
 
-<link rel="icon" type="image/webp" href="/images/jmpi-logo.png">
+<link rel="icon" type="image/webp" href="/images/yticon.png">
