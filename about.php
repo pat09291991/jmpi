@@ -275,7 +275,7 @@ $featuredVideos = json_decode(file_get_contents(__DIR__ . '/data/featuredvideos.
             <div class="flex justify-center gap-2 mt-6">
                 <?php foreach ($featuredVideos as $i => $video): ?>
                 <button
-                    class="featured-video-dot w-6 h-2 rounded-full transition-all duration-300 <?= $i === 0 ? 'bg-[#F01B23]' : 'bg-gray-300' ?>"
+                    class="featured-video-dot w-10 h-2 rounded-full transition-all duration-300 <?= $i === 0 ? 'bg-[#F01B23]' : 'bg-gray-300' ?>"
                     data-index="<?= $i ?>"></button>
                 <?php endforeach; ?>
             </div>
