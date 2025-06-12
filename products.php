@@ -161,6 +161,7 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
         modalDimension.textContent = product.dimension;
         modalWeight.textContent = product.weight;
         modal.classList.remove('hidden');
+        document.body.classList.add('modal-open');
       }
     }
     document.addEventListener('DOMContentLoaded', function() {
@@ -168,9 +169,13 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
       const closeModal = document.getElementById('close-modal');
       closeModal.addEventListener('click', function() {
         modal.classList.add('hidden');
+        document.body.classList.remove('modal-open');
       });
       modal.addEventListener('click', function(e) {
-        if (e.target === modal) modal.classList.add('hidden');
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          document.body.classList.remove('modal-open');
+        }
       });
     });
   </script>

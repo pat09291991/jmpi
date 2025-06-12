@@ -260,3 +260,35 @@ body {
     flex-direction: row;
   }
 }
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F01B23;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d41820;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #F01B23 #f1f1f1;
+}
+
+/* Modal open styles */
+body.modal-open {
+  overflow: hidden;
+  padding-right: 8px; /* Compensate for scrollbar width to prevent layout shift */
+}

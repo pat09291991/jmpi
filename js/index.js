@@ -193,6 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modalDimension.textContent = product.dimension;
       modalWeight.textContent = product.weight;
       modal.classList.remove("hidden");
+      document.body.classList.add("modal-open");
       if (window.AOS) {
         AOS.refreshHard && AOS.refreshHard();
         AOS.refresh && AOS.refresh();
@@ -215,6 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!modal) return;
     if (e.target === modal || (e.target && e.target.id === "close-modal")) {
       modal.classList.add("hidden");
+      document.body.classList.remove("modal-open");
     }
     if (
       e.target &&
