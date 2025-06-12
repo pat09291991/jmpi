@@ -98,7 +98,7 @@ define('ACTIVE_PAGE', 'HOME');
             <img src="/images/workspace_premium_svg.svg" class="w-12 h-12" />
           </div>
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#252525]/70 to-transparent p-6">
-            <h4 class="text-2xl font-bold ml-4 mb-2 text-[#252525]">French Fries</h4>
+            <h4 class="text-2xl font-bold ml-4 mb-2 text-white">French Fries</h4>
           </div>
         </div>
         <div class="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -107,7 +107,7 @@ define('ACTIVE_PAGE', 'HOME');
             <img src="/images/workspace_premium_svg.svg" class="w-12 h-12" />
           </div>
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#252525]/70 to-transparent p-6">
-            <h4 class="text-2xl font-bold ml-4 text-[#252525]">Chicken Pops <br> <span class="text-sm font-normal">Regular/Spicy</span></h4>
+            <h4 class="text-2xl font-bold ml-4 text-white">Chicken Pops <br> <span class="text-sm font-normal">Regular/Spicy</span></h4>
           </div>
         </div>
       </div>
