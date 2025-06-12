@@ -2,13 +2,13 @@
 <footer class="w-full">
   <div class="bg-[#F01B23] w-full py-16 px-2 md:px-4 lg:px-20 flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8">
     <!-- Left Column -->
-    <div class="w-full lg:flex-1 lg:max-w-xs flex flex-col items-center lg:items-start text-center lg:text-left text-white mb-6 lg:mb-0" data-aos="fade-up" data-aos-delay="100">
+    <div class="w-full lg:flex-1 lg:max-w-xs flex flex-col items-center lg:items-start text-center lg:text-left text-white mb-6 lg:mb-0">
       <span class="font-extrabold text-base sm:text-lg md:text-xl mb-1 lg:text-xl">BE A DEALER!</span>
       <span class="text-xs sm:text-sm md:text-base">Interested in becoming a dealer?<span class="hidden lg:inline"><br></span><span class="inline lg:block"> Fill out our form now!</span></span>
       <a href="/dealer.php" class="mt-4 lg:mt-6 inline-block px-4 md:px-6 lg:px-8 py-2 lg:py-3 bg-white text-[#F01B23] font-bold rounded-full shadow transition hover:bg-[#F01B23] hover:text-white text-xs md:text-sm lg:text-base">DEALER FORM</a>
     </div>
     <!-- Center Column -->
-    <div class="w-full lg:flex-1 lg:max-w-xl flex flex-col items-center text-center mb-6 lg:mb-0" data-aos="fade-down" data-aos-delay="200">
+    <div class="w-full lg:flex-1 lg:max-w-xl flex flex-col items-center text-center mb-6 lg:mb-0">
       <img src="/images/jmpi-logo.webp" alt="Joshua's Meat Products, Inc." class="h-20 lg:h-32 mb-2">
       <div class="text-white mb-1 text-sm lg:text-base">
         <?php
@@ -31,7 +31,7 @@
       </div>
     </div>
     <!-- Right Column -->
-    <div class="w-full lg:flex-1 lg:max-w-xs flex flex-col items-center lg:items-end text-center lg:text-right text-white text-base lg:text-xl" data-aos="fade-up" data-aos-delay="300">
+    <div class="w-full lg:flex-1 lg:max-w-xs flex flex-col items-center lg:items-end text-center lg:text-right text-white text-base lg:text-xl">
       <span class="text-xs sm:text-sm md:text-base">Access our product promotion materials by clicking 'Download' to get a copy of our brochure.</span>
       <a href="/images/Download-Brochure.pdf" download class="mt-4 lg:mt-6 inline-block px-4 md:px-6 lg:px-8 py-2 lg:py-3 bg-white text-[#F01B23] font-bold rounded-full shadow transition hover:bg-[#F01B23] hover:text-white flex items-center justify-center gap-2 text-xs md:text-sm lg:text-base">
         DOWNLOAD

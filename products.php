@@ -1,7 +1,34 @@
 <?php
-$products = json_decode(file_get_contents(__DIR__ . '/data/products.json'), true);
+$jsonFile = file_get_contents('data/products.json');
+$products = json_decode($jsonFile, true);
 $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
-$categories = ['BestSeller', 'Pork', 'Beef', 'Chicken', 'All'];
+
+// Get unique categories from products
+$categories = [];
+foreach ($products as $product) {
+    foreach ($product['category'] as $category) {
+        if (!in_array($category, $categories)) {
+            $categories[] = $category;
+        }
+    }
+}
+
+// Sort categories alphabetically
+sort($categories);
+
+// Remove BestSeller from the array if it exists
+$bestSellerIndex = array_search('BestSeller', $categories);
+if ($bestSellerIndex !== false) {
+    unset($categories[$bestSellerIndex]);
+}
+
+// Reindex the array
+$categories = array_values($categories);
+
+// Add BestSeller at the beginning and All at the end
+array_unshift($categories, 'BestSeller');
+$categories[] = 'All';
+
 $selected_category = $_GET['category'] ?? 'BestSeller';
 define('ACTIVE_PAGE', 'PRODUCTS');
 
@@ -49,15 +76,19 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
 
     <!-- Title -->
     <div class="w-full flex flex-col items-center justify-center mb-6">
-      <h1 class="text-2xl md:text-3xl font-extrabold text-[#252525] mb-2">PRODUCTS</h1>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-[#252525] mb-6">PRODUCTS</h1>
       <!-- Category Filters -->
-      <div class="flex gap-2 md:gap-4 items-center justify-center mb-4">
+      <div class="flex flex-wrap gap-2 md:gap-4 items-center justify-center mb-4 px-4">
         <?php foreach ($categories as $cat): ?>
-          <a href="?category=<?= urlencode($cat) ?>"
-            class="px-3 py-1 rounded font-bold text-sm md:text-base transition <?php if ($selected_category === $cat) echo 'bg-[#F01B23] text-white'; else echo 'text-gray-800 hover:bg-[#F01B23] hover:text-white'; ?>">
-            <?= $cat === 'BestSeller' ? 'Best Seller' : htmlspecialchars($cat) ?>
-          </a>
-          <?php if ($cat !== end($categories)) echo '<span class="text-gray-400">|</span>'; ?>
+          <div class="flex items-center">
+            <a href="?category=<?= urlencode($cat) ?>"
+              class="px-3 py-1 rounded font-bold text-sm md:text-base transition <?php if ($selected_category === $cat) echo 'bg-[#F01B23] text-white'; else echo 'text-gray-800 hover:bg-[#F01B23] hover:text-white'; ?>">
+              <?= $cat === 'BestSeller' ? 'Best Seller' : htmlspecialchars($cat) ?>
+            </a>
+            <?php if ($cat !== end($categories)): ?>
+              <span class="text-gray-400 mx-2 hidden md:inline">|</span>
+            <?php endif; ?>
+          </div>
         <?php endforeach; ?>
       </div>
     </div>
