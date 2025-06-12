@@ -102,8 +102,6 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
         <?php $randDelay = rand(0, 6) * 100; ?>
         <div onclick="openProductModal(<?= htmlspecialchars($product['id']) ?>)"
           class="product-card group animated-border bg-white rounded-2xl shadow flex flex-col overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-2xl"
-          data-aos="zoom-in"
-          data-aos-delay="<?= $randDelay ?>"
         >
           <div class="overflow-hidden">
             <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"
