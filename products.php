@@ -39,7 +39,7 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
   <section class="w-full flex flex-col items-center justify-center py-8 md:py-12 lg:py-16 bg-gray-100 mt-16">
     <!-- Breadcrumbs -->
     <div class="w-full px-4 md:px-8 lg:px-16 xl:px-24 py-6 flex items-center text-gray-700 text-sm">
-      <img src="/images/homesvg.svg" alt="Home" class="w-6 h-6 mr-1">
+      <img src="/images/home.svg" alt="Home" class="w-6 h-6 mr-1">
       <a href="/" class="flex items-center justify-center hover:text-[#F01B23]">
         HOME
       </a>
@@ -102,10 +102,10 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
 
   <?php include 'footer.php'; ?>
 
-  <div id="product-modal" class="fixed inset-0 bg-[#252525] bg-opacity-60 flex items-center justify-center z-50 hidden">
+  <div id="product-modal" class="fixed inset-0 bg-[#252525] bg-opacity-60 flex items-center justify-center z-50 hidden px-4 md:px-0">
     <div class="bg-white rounded-2xl shadow-lg w-full lg:max-w-4xl p-0 relative flex flex-col md:flex-row overflow-hidden max-h-[90vh]">
       <!-- Left: Product Image -->
-      <div class="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8">
+      <div class="w-full md:w-1/2 flex items-center justify-center md:p-8">
         <img id="modal-image" src="" alt="Product Image" class="w-full h-48 md:h-80 object-cover" />
       </div>
       <!-- Right: Product Details -->

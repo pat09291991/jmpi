@@ -42,7 +42,7 @@ define('ACTIVE_PAGE', 'HOME');
           <div class="swiper-slide flex items-center justify-center h-full relative">
             <picture>
               <source srcset="/images/Banner_2-mobile.webp" media="(max-width: 767px)">
-              <img src="/images/Banner_2.webp" alt="Carousel 2" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
+              <img src="/images/Banner_2_final.webp" alt="Carousel 2" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
             </picture>
             <div class="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10 w-auto flex justify-center">
               <a href="/products.php" class="expand-button px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 bg-white border border-[#F01B23] text-[#F01B23] rounded-full font-bold text-sm md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center transition-all">
