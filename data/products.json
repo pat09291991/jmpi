@@ -12,7 +12,7 @@
     "id": 2,
     "name": "Pork Tapa",
     "weight": "225g",
-    "dimension": "16.2 x 19.5 x 3.8 cm",
+    "dimension": "6x6",
     "description": "Bold and satisfying, our pork tapa delivers a balanced kick of salt and spice, great for silog meals or quick stir-fries.",
     "image": "/images/pork_tapa.webp",
     "category": ["Pork", "BestSeller"]
@@ -21,7 +21,7 @@
     "id": 3,
     "name": "Pork Bologna",
     "weight": "250g",
-    "dimension": "14.8 x 18.7 x 4.2 cm",
+    "dimension": "6x6",
     "description": "Smooth and flavorful, this sweet and salty pork bologna is a versatile favorite for breakfast or snacks.",
     "image": "/images/pork_bologna.webp",
     "category": ["Pork", "BestSeller"]
@@ -30,7 +30,7 @@
     "id": 4,
     "name": "Pork Skinless White",
     "weight": "225g",
-    "dimension": "15.5 x 21.0 x 5.0 cm",
+    "dimension": "6x6",
     "description": "Mild yet tasty, this skinless pork sausage blends salty and sweet flavors — a comforting choice for any dish.",
     "image": "/images/pork_skinless_white.webp",
     "category": ["Pork", "BestSeller"]
@@ -48,7 +48,7 @@
     "id": 6,
     "name": "Chicken Bologna",
     "weight": "250g",
-    "dimension": "15.2 x 19.0 x 4.1 cm",
+    "dimension": "6x6",
     "description": "A hearty and flavorful take on a classic! Our Chicken Bologna is made with finely ground chicken, perfectly seasoned for a smooth and satisfying bite. Great for sandwiches, breakfast meals, or as a snack on its own.",
     "image": "/images/Chicken-Bologna.jpg",
     "category": ["Chicken", "BestSeller"]
@@ -84,7 +84,7 @@
     "id": 10,
     "name": "Pork Skinless Red",
     "weight": "225g",
-    "dimension": "15.65 x 21.0 x 5.0 cm",
+    "dimension": "6x6",
     "description": "Eye-catching and flavorful, this red skinless longganisa boasts a balanced salty-sweet profile that's well-loved by all ages.",
     "image": "/images/pork_skinless.webp",
     "category": ["Pork", "BestSeller"]
@@ -239,7 +239,7 @@
     "name": "Cheesedog",
     "image": "/images/Cheesedog.jpg",
     "weight": "250g",
-    "dimension": "6.89x618",
+    "dimension": "6.89x6.18",
     "description": "Cheese + Hotdog = Perfect Combo! Our classic Cheesedog is bursting with creamy cheese and premium meat. One bite and you'll be hooked!"
   },
   {

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Mr. Manuelito Valencia",
+    "position": "Chief Executive Officer & President",
+    "image": "/images/manuelito_valencia.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Mrs. Virginia Valencia",
+    "position": "Treasurer",
+    "image": "/images/virginia_valencia.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Ms. Joanna Valencia",
+    "position": "General Manager and Operations Heads",
+    "image": "/images/joanna_valencia.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Mrs. Virginia Valencia",
+    "position": "Treasurer",
+    "image": "/images/virginia_valencia.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Ms. Joanna Valencia",
+    "position": "General Manager and Operations Heads",
+    "image": "/images/joanna_valencia.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Mrs. Virginia Valencia",
+    "position": "Treasurer",
+    "image": "/images/virginia_valencia.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Ms. Joanna Valencia",
+    "position": "General Manager and Operations Heads",
+    "image": "/images/joanna_valencia.jpg"
+  }
+]
