@@ -31,7 +31,7 @@ define('ACTIVE_PAGE', 'HOME');
           <div class="swiper-slide flex items-center justify-center h-full relative">
             <picture>
               <source srcset="/images/Banner_1-mobile.webp" media="(max-width: 767px)">
-              <img src="/images/Banner_1.webp" alt="Carousel 1" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
+              <img src="/images/Banner_1.webp" alt="Carousel 1" class="h-full w-full object-contain lg:object-cover rounded-3xl" loading="lazy" />
             </picture>
             <div class="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10 w-auto flex justify-center">
               <a href="/products.php" class="expand-button px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 bg-white border border-[#F01B23] text-[#F01B23] rounded-full font-bold text-sm md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center transition-all">
@@ -42,7 +42,7 @@ define('ACTIVE_PAGE', 'HOME');
           <div class="swiper-slide flex items-center justify-center h-full relative">
             <picture>
               <source srcset="/images/Banner_2-mobile.webp" media="(max-width: 767px)">
-              <img src="/images/Banner_2_final.webp" alt="Carousel 2" class="h-full w-full object-contain lg:object-cover rounded-3xl" />
+              <img src="/images/Banner_2_final.webp" alt="Carousel 2" class="h-full w-full object-contain lg:object-cover rounded-3xl" loading="lazy" />
             </picture>
             <div class="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10 w-auto flex justify-center">
               <a href="/products.php" class="expand-button px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 bg-white border border-[#F01B23] text-[#F01B23] rounded-full font-bold text-sm md:text-sm lg:text-base hover:text-white shadow-lg group cursor-pointer flex justify-center items-center transition-all">
@@ -69,7 +69,7 @@ define('ACTIVE_PAGE', 'HOME');
           <?php foreach ($productsList as $product): ?>
             <div class="swiper-slide bg-white rounded-3xl shadow w-56 lg:w-64 overflow-hidden group relative transition-all duration-300 ">
               <div class="w-full h-40 lg:h-72 overflow-hidden">
-                <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="w-full h-40 lg:h-72 object-cover rounded-t-3xl transition-transform duration-300 group-hover:scale-110" />
+                <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="w-full h-40 lg:h-72 object-cover rounded-t-3xl transition-transform duration-300 group-hover:scale-110" loading="lazy" />
               </div>
               <div class="p-4 flex flex-col items-center text-center min-h-40 bg-gray-100">
                 <div class="text-base md:text-2xl font-semibold mb-2 text-[#252525] group-hover:text-base transition-all duration-300"><?= htmlspecialchars($product['name']) ?></div>

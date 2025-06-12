@@ -76,17 +76,17 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
         >
           <div class="overflow-hidden">
             <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"
-            class="w-full h-48 object-cover rounded-t-2xl group-hover:scale-110 transition-all duration-300">
+            class="w-full h-48 object-cover rounded-t-2xl group-hover:scale-110 transition-all duration-300" loading="lazy">
           </div>
           <div class="flex flex-col flex-1 p-6 text-left">
             <div class="text-lg md:text-xl font-bold mb-1 group-hover:text-[#F01B23] transition-all duration-300 text-[#252525]"><?= htmlspecialchars($product['name']) ?></div>
             <div class="text-gray-700 text-base md:text-lg mb-4 line-clamp-2 xl:line-clamp-3 group-hover:text-gray-700 transition-all duration-300"><?= htmlspecialchars($product['description']) ?></div>
             <div class="flex items-center gap-2 mb-2">
-              <img src="/images/weigh.svg" alt="Weight" class="w-6 md:w-7 h-6 md:w-7 inline">
+              <img src="/images/weigh.svg" alt="Weight" class="w-6 md:w-7 h-6 md:w-7 inline" loading="lazy">
               <span class="text-base md:text-lg"><?= htmlspecialchars($product['weight']) ?></span>
             </div>
             <div class="flex items-center gap-2 mb-4">
-              <img src="/images/ruler.svg" alt="Dimension" class="w-6 md:w-7 h-6 md:w-7 inline">
+              <img src="/images/ruler.svg" alt="Dimension" class="w-6 md:w-7 h-6 md:w-7 inline" loading="lazy">
               <span class="text-base md:text-lg"><?= htmlspecialchars($product['dimension']) ?></span>
             </div>
             <div class="flex justify-end mt-auto">
@@ -106,7 +106,7 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
     <div class="bg-white rounded-2xl shadow-lg w-full lg:max-w-4xl p-0 relative flex flex-col md:flex-row overflow-hidden max-h-[90vh]">
       <!-- Left: Product Image -->
       <div class="w-full md:w-1/2 flex items-center justify-center md:p-8">
-        <img id="modal-image" src="" alt="Product Image" class="w-full h-48 md:h-80 object-cover" />
+        <img id="modal-image" src="" alt="Product Image" class="w-full h-48 md:h-80 object-cover" loading="lazy" />
       </div>
       <!-- Right: Product Details -->
       <div class="w-full md:w-1/2 flex flex-col p-4 md:p-8 overflow-y-auto">
@@ -129,12 +129,12 @@ $filtered_products = ($selected_category === 'All') ? $products : array_filter($
           </div>
           <div class="flex flex-col gap-2">
                 <div class="flex items-center gap-2">
-                  <img src="/images/weigh.svg" alt="Weight" class="w-6 md:w-7 h-6 md:h-7 mb-1">
+                  <img src="/images/weigh.svg" alt="Weight" class="w-6 md:w-7 h-6 md:h-7 mb-1" loading="lazy">
                   <span class="text-sm md:text-base text-[#252525]">Weight:</span>
                   <span id="modal-weight" class="text-sm md:text-base text-[#252525]"></span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <img src="/images/ruler.svg" alt="Dimension" class="w-6 md:w-7 h-6 md:h-7 mb-1">
+                  <img src="/images/ruler.svg" alt="Dimension" class="w-6 md:w-7 h-6 md:h-7 mb-1" loading="lazy">
                   <span class="text-sm md:text-base text-[#252525]">Dimension:</span>
                   <span id="modal-dimension" class="text-sm md:text-base text-[#252525]"></span>
                 </div>

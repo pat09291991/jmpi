@@ -27,7 +27,7 @@ function randomAos() {
   <!-- About Banner Section -->
   <section class="w-full flex justify-center items-center pb-8 bg-white pt-16 md:pt-[100px]" <?= randomAos() ?>>
     <div class="relative w-full aspect-[16/8] sm:aspect-[16/5] md:aspect-[16/4] overflow-hidden">
-      <img src="/images/Banner_1.webp" alt="Joshua's Meat Products Banner" class="absolute inset-0 w-full h-full object-contain" />
+      <img src="/images/Banner_1.webp" alt="Joshua's Meat Products Banner" class="absolute inset-0 w-full h-full object-contain" loading="lazy" />
     </div>
   </section>
 
@@ -51,7 +51,7 @@ function randomAos() {
         </p>
       </div>
       <div class="flex-1 flex justify-center">
-        <img src="/images/founder.webp" alt="JMPI Founders" class="w-full max-w-md rounded-lg object-cover" />
+        <img src="/images/founder.webp" alt="JMPI Founders" class="w-full max-w-md rounded-lg object-cover" loading="lazy" />
       </div>
     </div>
   </section>
@@ -94,12 +94,12 @@ function randomAos() {
       <h3 class="text-lg md:text-xl lg:text-2xl font-semibold mb-6 text-center">ACCREDITATION</h3>
       <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-4">
         <div class="flex flex-col items-center">
-          <img src="/images/fries.webp" alt="FDA" class="h-10 md:h-12 mb-1" />
+          <img src="/images/fries.webp" alt="FDA" class="h-10 md:h-12 mb-1" loading="lazy" />
           <span class="text-gray-800 text-sm md:text-base font-semibold">LTO-3000001646583</span>
         </div>
         <div class="flex flex-row items-center gap-4">
-          <img src="/images/chicken_bologna.webp" alt="Accreditation 1" class="h-10 md:h-12" />
-          <img src="/images/pork_longganisa.webp" alt="Accreditation 2" class="h-10 md:h-12" />
+          <img src="/images/chicken_bologna.webp" alt="Accreditation 1" class="h-10 md:h-12" loading="lazy" />
+          <img src="/images/pork_longganisa.webp" alt="Accreditation 2" class="h-10 md:h-12" loading="lazy" />
         </div>
       </div>
       <div class="flex items-center w-full my-6">
