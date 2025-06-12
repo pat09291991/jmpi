@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "name": "Ham Cooked",
+    "category": ["Pork", "BestSeller"],
+    "name": "Pork Cooked Ham",
+    "image": "/images/Pork-Cooked-Ham.jpg",
     "weight": "250g",
-    "dimension": "15.0 x 20.0 x 4.0 cm",
-    "description": "A savory-sweet classic, our fully cooked ham is tender, flavorful, and ready to serve — perfect for any meal or sandwich.",
-    "image": "/images/cooked-ham.webp",
-    "category": ["Pork", "BestSeller"]
+    "dimension": "6x6",
+    "description": "A savory-sweet classic, our fully cooked ham is tender, flavorful, and ready to serve — perfect for any meal or sandwich."
   },
   {
     "id": 2,
@@ -37,48 +37,48 @@
   },
   {
     "id": 5,
-    "name": "Canadian Bacon",
+    "category": ["Pork", "BestSeller"],
+    "name": "Pork Canadian Style Bacon",
+    "image": "/images/Pork-Canadian-Style-Bacon.jpg",
     "weight": "250g",
-    "dimension": "16.0 x 20.5 x 4.5 cm",
-    "description": "Lean, meaty, and richly salty, our Canadian bacon is a premium cut that's great for sandwiches, breakfast plates, or as a pizza topping.",
-    "image": "/images/canadian_bacon.webp",
-    "category": ["Pork", "BestSeller"]
+    "dimension": "6x6",
+    "description": "Crafted from premium pork loin, this Canadian-style bacon offers a leaner alternative to traditional bacon—perfect for health-conscious eaters who still crave that classic cured flavor."
   },
   {
     "id": 6,
     "name": "Chicken Bologna",
     "weight": "250g",
     "dimension": "15.2 x 19.0 x 4.1 cm",
-    "description": "Made from quality chicken, this sweet and salty bologna offers a lighter option without sacrificing taste.",
-    "image": "/images/chicken_bologna.webp",
+    "description": "A hearty and flavorful take on a classic! Our Chicken Bologna is made with finely ground chicken, perfectly seasoned for a smooth and satisfying bite. Great for sandwiches, breakfast meals, or as a snack on its own.",
+    "image": "/images/Chicken-Bologna.jpg",
     "category": ["Chicken", "BestSeller"]
   },
   {
     "id": 7,
-    "name": "Tocino Regular",
-    "weight": "225g",
-    "dimension": "15.8 x 20.2 x 4.3 cm",
-    "description": "A Filipino favorite, our tocino is marinated in a signature sweet and salty blend — juicy, tender, and perfect with garlic rice.",
+    "category": ["Pork", "BestSeller"],
+    "name": "Pork Tocino",
     "image": "/images/tocino_regular.webp",
-    "category": ["Pork", "BestSeller"]
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "Marinated in a signature sweet and savory glaze, our Pork Tocino caramelizes beautifully in the pan for a traditional Filipino breakfast experience."
   },
   {
     "id": 8,
-    "name": "Chicken Skinless",
+    "category": ["Chicken", "BestSeller"],
+    "name": "Chicken Skinless-Longganisa",
+    "image": "/images/Chicken-Skinless-Longganisa.jpg",
     "weight": "225g",
-    "dimension": "16.1 x 18.9 x 4.0 cm",
-    "description": "Tasty and healthier, this salty-sweet chicken sausage is a guilt-free choice for any time of day.",
-    "image": "/images/chicken_skinless.webp",
-    "category": ["Chicken", "BestSeller"]
+    "dimension": "6x6",
+    "description": "Skip the guilt but keep the flavor! Our Skinless Chicken Longganisa is savory-sweet, made with natural spices and no casing—just pure meaty goodness. A breakfast staple that's lighter and healthier."
   },
   {
     "id": 9,
-    "name": "Pork Smoked Longganisa",
-    "weight": "225g",
-    "dimension": "15.7 x 21.3 x 4.7 cm",
-    "description": "Infused with a smoky twist, this sweet and salty longganisa brings a distinct depth of flavor to every bite.",
-    "image": "/images/pork_longganisa.webp",
-    "category": ["Pork", "BestSeller"]
+    "category": ["Pork", "BestSeller"],
+    "name": "Premium Pork Smoked Longganisa",
+    "image": "/images/Premium-Pork-Smoked-Longganisa.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "Elevated with a subtle smoky aroma, this variant brings a robust flavor that sets it apart from traditional longganisa."
   },
   {
     "id": 10,
@@ -88,5 +88,302 @@
     "description": "Eye-catching and flavorful, this red skinless longganisa boasts a balanced salty-sweet profile that's well-loved by all ages.",
     "image": "/images/pork_skinless.webp",
     "category": ["Pork", "BestSeller"]
+  },
+  {
+    "id": 11,
+    "category": ["Beef"],
+    "name": "Beef Longganisa",
+    "image": "/images/Beef-Longganisa.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "A flavorful twist on a Filipino classic, Joshua's Beef Longganisa brings rich, garlicky goodness to every bite. Made from premium beef and blended with traditional spices."
+  },
+  {
+    "id": 12,
+    "category": ["Beef"],
+    "name": "Beef Skinless",
+    "image": "/images/Beef-Skinless.jpg",
+    "weight": "225g",
+    "dimension": "6x6",
+    "description": "Joshua's Skinless Beef Longganisa is juicy, savory, and easy to cook. A perfect everyday choice for families who love big flavor in every meal."
+  },
+  {
+    "id": 13,
+    "category": ["Beef"],
+    "name": "Beef Tapa",
+    "image": "/images/Beef-Tapa.jpg",
+    "weight": "225g",
+    "dimension": "6x6",
+    "description": "Joshua's Beef Tapa is tender, marinated to perfection, and ready to cook. Packed with bold flavor and ideal for hearty meals."
+  },
+  {
+    "id": 14,
+    "category": ["Beef"],
+    "name": "Corned Beef",
+    "image": "/images/Corned-Beef.jpg",
+    "weight": "200g",
+    "dimension": "6x6",
+    "description": "Joshua's Corned Beef is chunky, savory, and satisfying. Made with premium beef and seasoned with the perfect balance of spices."
+  },
+  {
+    "id": 15,
+    "category": ["Beef"],
+    "name": "Hamburger",
+    "image": "/images/Hamburger.jpg",
+    "weight": "225g",
+    "dimension": "6x6",
+    "description": "Joshua's Beef Hamburger Patties are juicy and meaty, ideal for quick burgers or rice meals. A versatile must-have for every kitchen."
+  },
+  {
+    "id": 16,
+    "category": ["Chicken"],
+    "name": "Chicken Bologna",
+    "image": "/images/Chicken-Bologna.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "A hearty and flavorful take on a classic! Our Chicken Bologna is made with finely ground chicken, perfectly seasoned for a smooth and satisfying bite. Great for sandwiches, breakfast meals, or as a snack on its own."
+  },
+  {
+    "id": 17,
+    "category": ["Chicken"],
+    "name": "Chicken Embotido",
+    "image": "/images/Chicken-Embotido.jpg",
+    "weight": "250g",
+    "dimension": "9.4x6",
+    "description": "Our Chicken Embutido is a Filipino-style meatloaf that's both festive and flavorful. Made from tender chicken meat, mixed vegetables, and seasonings, then wrapped and steamed to perfection. Just heat and serve!"
+  },
+  {
+    "id": 18,
+    "category": ["Chicken"],
+    "name": "Chicken Marinated",
+    "image": "/images/Chicken-Marinated.png",
+    "weight": "500g",
+    "dimension": "10.43x6.89",
+    "description": "Ready to cook and full of flavor! Our Marinated Chicken is soaked in a special blend of herbs and spices, locking in taste and tenderness. Ideal for grilling, pan-frying, or oven-roasting—your next quick and tasty meal is ready in minutes."
+  },
+  {
+    "id": 19,
+    "category": ["Chicken"],
+    "name": "Chicken Meatloaf",
+    "image": "/images/Chicken-Meatloaf.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "A comforting classic! Our Chicken Meatloaf offers a juicy, homestyle flavor in every slice. Ideal for quick lunches or dinner plates. Serve with mashed potatoes or rice for a complete meal."
+  },
+  {
+    "id": 20,
+    "category": ["Chicken"],
+    "name": "Chicken Salami",
+    "image": "/images/Chicken-Salami.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "Lean, flavorful, and deliciously spiced—our Chicken Salami is perfect for sandwiches, pizzas, or your favorite charcuterie boards. Made from quality chicken and seasoned just right."
+  },
+  {
+    "id": 21,
+    "category": ["Chicken"],
+    "name": "Chicken Smoked Longganisa",
+    "image": "/images/Chicken-Smoked-Longganisa.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "Experience the bold, smoky twist on a classic Filipino favorite. Our Chicken Smoked Longganisa packs a flavorful punch with every bite—ideal for silog meals or as a tapa alternative."
+  },
+  {
+    "id": 22,
+    "category": ["Chicken"],
+    "name": "Chicken Tempura",
+    "image": "/images/Chicken-Tempura.jpg",
+    "weight": "200g",
+    "dimension": "10x5",
+    "description": "Crispy on the outside, tender on the inside. Our Chicken Tempura is made with juicy chicken fillets, coated in a light, golden batter. Great as a snack or meal centerpiece."
+  },
+  {
+    "id": 23,
+    "category": ["Chicken"],
+    "name": "Chicken Tocino",
+    "image": "/images/Chicken-Tocino.jpg",
+    "weight": "250g",
+    "dimension": "5x6",
+    "description": "Sweet, savory, and perfectly tender—our Chicken Tocino brings classic Filipino breakfast vibes to your table. Made from marinated chicken and cooked to juicy, caramelized perfection."
+  },
+  {
+    "id": 24,
+    "category": ["Christmas Ham"],
+    "name": "Muscle Ham",
+    "image": "/images/Muscle-Ham.jpg",
+    "weight": "800g, 1kg",
+    "dimension": "",
+    "description": "A premium, chunky ham made from choice cuts of pork, seasoned to perfection and glazed for a savory-sweet finish. This meaty ham is perfect for carving and serving as your show-stopping centerpiece. Every bite is tender, juicy, and loaded with festive flavor."
+  },
+  {
+    "id": 25,
+    "category": ["Christmas Ham"],
+    "name": "Pork or Chicken-Pearshaped_Ham",
+    "image": "/images/Pork-or-Chicken-Pearshaped_Ham.jpg",
+    "weight": "500g, 700g, 1kg",
+    "dimension": "",
+    "description": "A family favorite, Joshua's Pear-Shaped Ham is available in Pork or Chicken variants — perfect for any taste preference. Smooth, compact, and easy to slice, this holiday ham delivers that classic Filipino sweetness, ideal for breakfast, sandwiches, or your noche buena table."
+  },
+  {
+    "id": 26,
+    "category": ["Christmas Ham"],
+    "name": "Roasted Ham",
+    "image": "/images/Roasted-Ham.jpg",
+    "weight": "1kg",
+    "dimension": "",
+    "description": "Savor the smoky aroma and traditional holiday taste of Joshua's Roasted Ham. Expertly cured and slow-roasted, this ham delivers a perfectly balanced flavor that's slightly sweet with a hint of smokiness. Serve it warm with your favorite sides or slice it cold for sandwiches and party platters."
+  },
+  {
+    "id": 27,
+    "category": ["Hotdog"],
+    "name": "Cheesedog Footlong",
+    "image": "/images/Cheesedog-Footlong.jpg",
+    "weight": "500g",
+    "dimension": "14x4",
+    "description": "Get a taste of cheesy goodness in every bite with our Cheesedog Footlong – packed with flavor, made to satisfy! Perfect for merienda or quick bites on the go!"
+  },
+  {
+    "id": 28,
+    "category": ["Hotdog"],
+    "name": "Cheesedog",
+    "image": "/images/Cheesedog.jpg",
+    "weight": "250g",
+    "dimension": "6.89x618",
+    "description": "Cheese + Hotdog = Perfect Combo! Our classic Cheesedog is bursting with creamy cheese and premium meat. One bite and you'll be hooked!"
+  },
+  {
+    "id": 29,
+    "category": ["Hotdog"],
+    "name": "Premium Hotdog",
+    "image": "/images/Premium-Hotdog.jpg",
+    "weight": "500g, 1kg",
+    "dimension": "12x7",
+    "description": "Experience the rich, meaty flavor of our Premium Hotdog – your new go-to for any meal of the day!"
+  },
+  {
+    "id": 30,
+    "category": ["Hotdog"],
+    "name": "Swak Hotdog",
+    "image": "/images/Swak-Hotdog.jpg",
+    "weight": "250g",
+    "dimension": "12x7",
+    "description": "Swak sa Badyet, Swak sa Panlasa! Enjoy delicious flavor without breaking the bank with our Swak Hotdog – sulit na, masarap pa!"
+  },
+  {
+    "id": 31,
+    "category": ["Pork"],
+    "name": "Pork Belly Bacon",
+    "image": "/images/Pork-Belly-Bacon.jpg",
+    "weight": "200g",
+    "dimension": "9.8x7.8",
+    "description": "Our pork belly bacon is thick-cut, naturally smoked, and perfectly marbled for that satisfying crunch and flavor. Great for breakfast plates, burgers, or as an indulgent topping for salads and pastas."
+  },
+  {
+    "id": 32,
+    "category": ["Pork"],
+    "name": "Pork Breakfast Sausage",
+    "image": "/images/Pork-Breakfast-Sausage.jpg",
+    "weight": "250g",
+    "dimension": "5x7",
+    "description": "Kick-start your day with juicy, savory pork breakfast sausages seasoned with a delicate blend of herbs and spices. Best served pan-fried and paired with eggs, pancakes, or rice."
+  },
+  {
+    "id": 33,
+    "category": ["Pork"],
+    "name": "Pork Embotido",
+    "image": "/images/Pork-Embotido.jpg",
+    "weight": "250g, 500g",
+    "dimension": "5x7",
+    "description": "This savory meatloaf roll is packed with ground pork, carrots, raisins, and classic spices, wrapped and steamed to perfection. Serve it warm or chilled—either way, it's a festive favorite."
+  },
+  {
+    "id": 34,
+    "category": ["Pork"],
+    "name": "Pork Fresh Garlic Longganisa Alaminos Style",
+    "image": "/images/Pork-Fresh-Garlic-Longganisa-Alaminos-Style.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "Enjoy the rustic, homemade taste of Alaminos-style longganisa—fresh, garlicky, and delightfully robust. These skinless sausages are perfect fried and paired with garlic rice and vinegar dip."
+  },
+  {
+    "id": 35,
+    "category": ["Pork"],
+    "name": "Pork German Franks",
+    "image": "/images/Pork-German-Franks.jpg",
+    "weight": "500g",
+    "dimension": "7.87x6.69",
+    "description": "A versatile staple for hotdogs or gourmet sausage platters. These franks are lightly smoked and spiced for that classic European flavor loved by all ages."
+  },
+  {
+    "id": 36,
+    "category": ["Pork"],
+    "name": "Pork German Sausage",
+    "image": "/images/Pork-German-Sausage.jpg",
+    "weight": "500g",
+    "dimension": "10x8",
+    "description": "Made the traditional way, our German sausage offers bold seasoning with just the right amount of smokiness. Great for grilling, stews, or hearty sausage-and-mash meals."
+  },
+  {
+    "id": 37,
+    "category": ["Pork"],
+    "name": "Pork Hamonado",
+    "image": "/images/Pork-Hamonado.jpg",
+    "weight": "250g",
+    "dimension": "8x6",
+    "description": "Our Pork Hamonado is tender pork marinated in pineapple and spices, then slow-cooked until sweet, savory, and perfectly glazed. Serve it with rice for a comforting Pinoy meal."
+  },
+  {
+    "id": 38,
+    "category": ["Pork"],
+    "name": "Pork Salami",
+    "image": "/images/Pork-Salami.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "Richly seasoned and expertly cured, our Pork Salami offers a bold, savory flavor in every bite. Perfect for sandwiches, platters, or as a gourmet snack."
+  },
+  {
+    "id": 39,
+    "category": ["Pork"],
+    "name": "Pork Skinless Longganisa",
+    "image": "/images/Pork-Skinless-Longganisa.jpg",
+    "weight": "225g",
+    "dimension": "6x6",
+    "description": "A Filipino favorite reimagined—our skinless pork longganisa delivers garlicky, slightly sweet notes with a juicy, tender bite."
+  },
+  {
+    "id": 40,
+    "category": ["Pork"],
+    "name": "Special Pork Skinless Longganisa",
+    "image": "/images/Special-Pork-Skinless-Longganisa.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "A gourmet take on the classic—richer, meatier, and loaded with spices for a deeper, more satisfying flavor."
+  },
+  {
+    "id": 41,
+    "category": ["Pork"],
+    "name": "Tocino Honey Cured",
+    "image": "/images/Tocino-Honey-Cured.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "Infused with natural honey, this tocino variant balances sweetness and umami, caramelizing beautifully when pan-cooked."
+  },
+  {
+    "id": 42,
+    "category": ["Pork"],
+    "name": "Longganisa De Cebu",
+    "image": "/images/Longganisa-De-Cebu.jpg",
+    "weight": "250g",
+    "dimension": "6x6",
+    "description": "Enjoy the rich, garlicky-sweet flavor of Cebu's iconic longganisa. Made from premium pork and traditional spices, this Filipino favorite brings island-style goodness to your breakfast table or any mealtime craving."
+  },
+  {
+    "id": 43,
+    "category": ["Pork"],
+    "name": "Pork Siomai",
+    "image": "/images/Pork-Siomai.jpg",
+    "weight": "225g",
+    "dimension": "7.6x6",
+    "description": "Soft, juicy, and bursting with flavor—Joshua's Pork Siomai is made from premium ground pork, carefully seasoned and wrapped in a tender yellow wonton wrapper. Each piece is crafted to deliver that authentic, home-style taste, whether steamed or pan-fried."
   }
-] 
+]
