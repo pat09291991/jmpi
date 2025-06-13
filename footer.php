@@ -65,5 +65,5 @@
 <!-- Fixed Messenger Icon -->
 <a href="https://l.messenger.com/l.php?u=http%3A%2F%2Fm.me%2F260334401164329&h=AT3S6XOMpF3tkHKgm4udKuiznlFfulFc32zT96HO5LKtTHhoZ1h-YJn5jaC7bnVRi1NzASKiWG4IOD4WJU4qp7LrI6Cx3RjIWVycKneBWhY_SttlKpkfdjyuw_LJRqOPf95rN-FZQAAQfSlJWnJRyw"
     target="_blank" class="fixed bottom-6 right-6 z-50 hover:scale-110 transition-transform duration-200">
-    <img src="/images/messenger.png" alt="Chat with us on Messenger" class="w-12 h-12">
+    <img src="/images/messenger.png" alt="Chat with us on Messenger" class="w-14 h-14 shadow-lg rounded-full">
 </a>

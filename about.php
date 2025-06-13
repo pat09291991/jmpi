@@ -241,10 +241,9 @@ $featuredVideos = json_decode(file_get_contents(__DIR__ . '/data/featuredvideos.
         <h2 class="text-lg sm:text-2xl md:text-4xl font-extrabold text-[#F01B23] mb-6">Featured: Videos</h2>
         <div class="flex flex-col items-center">
             <div class="swiper featured-videos-swiper w-full max-w-[90rem] mx-auto">
-                <div class="swiper-pagination mb-6"></div>
                 <div class="swiper-wrapper">
                     <?php foreach ($featuredVideos as $index => $video): ?>
-                    <div class="swiper-slide" style="width: 80%; max-width: 1200px;">
+                    <div class="swiper-slide" style="width: 95%; max-width: 1200px;">
                         <div class="relative w-full pt-[56.25%] bg-black rounded-t-3xl overflow-hidden">
                             <iframe class="absolute top-0 left-0 w-full h-full rounded-t-3xl"
                                 src="https://www.youtube.com/embed/<?= htmlspecialchars(explode('v=', parse_url($video['url'], PHP_URL_QUERY) ? $video['url'] : explode('?v=', $video['url'])[1])[1] ?? substr($video['url'], strrpos($video['url'], '=') + 1)) ?>?<?= $index === 0 ? 'autoplay=1&mute=1' : '' ?>"
@@ -254,8 +253,29 @@ $featuredVideos = json_decode(file_get_contents(__DIR__ . '/data/featuredvideos.
                             </iframe>
                         </div>
                         <div
-                            class="bg-[#F01B23] text-white text-center font-bold py-3 text-sm sm:text-base md:text-lg rounded-b-3xl">
+                            class="bg-[#F01B23] text-white text-center font-bold py-2 sm:py-3 text-xs sm:text-sm md:text-lg rounded-b-3xl">
                             <?= htmlspecialchars($video['title']) ?>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <!-- Thumbs Gallery -->
+            <div class="swiper featured-videos-thumbs w-full max-w-[90rem] mt-2 sm:mt-4">
+                <div class="swiper-wrapper">
+                    <?php foreach ($featuredVideos as $video): ?>
+                    <div class="swiper-slide w-16 sm:w-32 md:w-48">
+                        <div class="relative w-full pt-[56.25%] bg-black rounded-lg overflow-hidden cursor-pointer">
+                            <img src="https://img.youtube.com/vi/<?= htmlspecialchars(explode('v=', parse_url($video['url'], PHP_URL_QUERY) ? $video['url'] : explode('?v=', $video['url'])[1])[1] ?? substr($video['url'], strrpos($video['url'], '=') + 1)) ?>/mqdefault.jpg"
+                                alt="<?= htmlspecialchars($video['title']) ?>"
+                                class="absolute top-0 left-0 w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 text-white opacity-80"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     <?php endforeach; ?>
@@ -280,6 +300,27 @@ $featuredVideos = json_decode(file_get_contents(__DIR__ . '/data/featuredvideos.
     });
 
     // Initialize Featured Videos Swiper with Coverflow Effect
+    const featuredVideosThumbs = new Swiper('.featured-videos-thumbs', {
+        spaceBetween: 6,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+            480: {
+                slidesPerView: 5,
+                spaceBetween: 8,
+            },
+            640: {
+                slidesPerView: 6,
+                spaceBetween: 10,
+            },
+            1024: {
+                slidesPerView: 8,
+                spaceBetween: 12,
+            }
+        }
+    });
+
     const featuredVideosSwiper = new Swiper('.featured-videos-swiper', {
         effect: 'coverflow',
         grabCursor: true,
@@ -292,11 +333,8 @@ $featuredVideos = json_decode(file_get_contents(__DIR__ . '/data/featuredvideos.
             modifier: 1.5,
             slideShadows: true,
         },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            dynamicBullets: true,
-            type: 'bullets',
+        thumbs: {
+            swiper: featuredVideosThumbs
         },
         breakpoints: {
             640: {
