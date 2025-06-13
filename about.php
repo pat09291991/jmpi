@@ -39,6 +39,12 @@ $featuredVideos = json_decode(file_get_contents(__DIR__ . '/data/featuredvideos.
     .about-responsive-p {
         @apply text-sm sm: text-base md:text-lg;
     }
+
+    /* Make the overlay clear for the active/playing thumbnail */
+    .featured-videos-thumbs .swiper-slide-thumb-active .thumbnail-overlay {
+        background: rgba(0, 0, 0, 0) !important;
+        transition: background 0.3s;
+    }
     </style>
 </head>
 
@@ -270,6 +276,8 @@ $featuredVideos = json_decode(file_get_contents(__DIR__ . '/data/featuredvideos.
                             <img src="https://img.youtube.com/vi/<?= htmlspecialchars(explode('v=', parse_url($video['url'], PHP_URL_QUERY) ? $video['url'] : explode('?v=', $video['url'])[1])[1] ?? substr($video['url'], strrpos($video['url'], '=') + 1)) ?>/mqdefault.jpg"
                                 alt="<?= htmlspecialchars($video['title']) ?>"
                                 class="absolute top-0 left-0 w-full h-full object-cover">
+                            <!-- Overlay: dark by default, clear if active -->
+                            <div class="thumbnail-overlay absolute inset-0 transition bg-black/60"></div>
                             <div class="absolute inset-0 flex items-center justify-center">
                                 <svg class="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 text-white opacity-80"
                                     viewBox="0 0 24 24" fill="currentColor">
