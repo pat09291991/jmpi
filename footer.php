@@ -32,10 +32,10 @@
         echo implode(' | ', $footer_links);
         ?>
                 <span>|
-                    <a href="https://facebook.com" target="_blank" class="inline-block">
+                    <a href="https://www.facebook.com/highqualitymeat" target="_blank" class="inline-block">
                         <img src="/images/facebook.png" alt="Facebook" class="h-4 w-4 inline-block">
                     </a>
-                    <a href="https://instagram.com" target="_blank" class="inline-block">
+                    <a href="https://www.instagram.com/info.jmpi/" target="_blank" class="inline-block">
                         <img src="/images/instagram.png" alt="Instagram" class="h-4 w-4 inline-block">
                     </a>
                 </span>
