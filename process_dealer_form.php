@@ -74,7 +74,7 @@ try {
 
     // Content
     $mail->isHTML(true);
-    $mail->Subject = 'TEST - New Dealer Application: ' . $formData['company_name'];
+    $mail->Subject = 'Application Form: ' . $formData['company_name'];
 
     // Email body
     $body = "
@@ -156,6 +156,6 @@ try {
 </html>';
     exit;
 } catch (Exception $e) {
-    echo json_encode(['success' => false, 'message' => 'Failed to send test email. Error: ' . $mail->ErrorInfo]);
+    echo json_encode(['success' => false, 'message' => 'Failed to send email. Error: ' . $mail->ErrorInfo]);
     error_log("Mailer Error: {$mail->ErrorInfo}");
 }

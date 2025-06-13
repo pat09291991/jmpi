@@ -240,94 +240,29 @@ $featuredVideos = json_decode(file_get_contents(__DIR__ . '/data/featuredvideos.
     <section class="w-full bg-white py-8 md:py-16 px-4 md:px-8 lg:px-16 xl:px-24">
         <h2 class="text-lg sm:text-2xl md:text-4xl font-extrabold text-[#F01B23] mb-6">Featured: Videos</h2>
         <div class="flex flex-col items-center">
-            <div class="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden bg-black">
-                <?php foreach ($featuredVideos as $i => $video): ?>
-                <div class="featured-video-slide <?= $i === 0 ? '' : 'hidden' ?>" data-index="<?= $i ?>">
-                    <div class="relative w-full pt-[56.25%] bg-black">
-                        <iframe class="absolute top-0 left-0 w-full h-full rounded-3xl"
-                            src="https://www.youtube.com/embed/<?= htmlspecialchars(explode('v=', parse_url($video['url'], PHP_URL_QUERY) ? $video['url'] : explode('?v=', $video['url'])[1])[1] ?? substr($video['url'], strrpos($video['url'], '=') + 1)) ?>"
-                            title="<?= htmlspecialchars($video['title']) ?>" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                        <script>
-                        (function() {
-                            var iframe = document.querySelector(
-                                '.featured-video-slide[data-index="<?= $i ?>"] iframe');
-                            iframe.addEventListener('load', function() {
-                                iframe.contentWindow.addEventListener('play', function() {
-                                    iframe.parentElement.setAttribute('data-playing', 'true');
-                                });
-                                iframe.contentWindow.addEventListener('pause', function() {
-                                    iframe.parentElement.setAttribute('data-playing', 'false');
-                                });
-                            });
-                        })();
-                        </script>
+            <div class="swiper featured-videos-swiper w-full max-w-[90rem] mx-auto">
+                <div class="swiper-pagination mb-6"></div>
+                <div class="swiper-wrapper">
+                    <?php foreach ($featuredVideos as $index => $video): ?>
+                    <div class="swiper-slide" style="width: 80%; max-width: 1200px;">
+                        <div class="relative w-full pt-[56.25%] bg-black rounded-t-3xl overflow-hidden">
+                            <iframe class="absolute top-0 left-0 w-full h-full rounded-t-3xl"
+                                src="https://www.youtube.com/embed/<?= htmlspecialchars(explode('v=', parse_url($video['url'], PHP_URL_QUERY) ? $video['url'] : explode('?v=', $video['url'])[1])[1] ?? substr($video['url'], strrpos($video['url'], '=') + 1)) ?>?<?= $index === 0 ? 'autoplay=1&mute=1' : '' ?>"
+                                title="<?= htmlspecialchars($video['title']) ?>" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div
+                            class="bg-[#F01B23] text-white text-center font-bold py-3 text-sm sm:text-base md:text-lg rounded-b-3xl">
+                            <?= htmlspecialchars($video['title']) ?>
+                        </div>
                     </div>
-                    <div class="bg-[#F01B23] text-white text-center font-bold py-3 text-sm sm:text-base md:text-lg">
-                        <?= htmlspecialchars($video['title']) ?>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
-            </div>
-            <!-- Pagination Dots -->
-            <div class="flex justify-center gap-2 mt-6">
-                <?php foreach ($featuredVideos as $i => $video): ?>
-                <button
-                    class="featured-video-dot w-10 h-2 rounded-full transition-all duration-300 <?= $i === 0 ? 'bg-[#F01B23]' : 'bg-gray-300' ?>"
-                    data-index="<?= $i ?>"></button>
-                <?php endforeach; ?>
             </div>
         </div>
     </section>
-    <script>
-    // Featured Videos Carousel
-    const slides = document.querySelectorAll('.featured-video-slide');
-    const dots = document.querySelectorAll('.featured-video-dot');
-    let current = 0;
-    // let interval = null;
-
-    function showSlide(idx) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('hidden', i !== idx);
-        });
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('bg-[#F01B23]', i === idx);
-            dot.classList.toggle('bg-gray-300', i !== idx);
-        });
-        current = idx;
-    }
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            showSlide(i);
-            // clearInterval(interval);
-            // interval = setInterval(nextSlide, 5000);
-        });
-    });
-
-    // Disable pagination when a video is playing
-    document.querySelectorAll('.featured-video-slide').forEach(function(slide) {
-        var iframe = slide.querySelector('iframe');
-        iframe.addEventListener('load', function() {
-            iframe.contentWindow.addEventListener('play', function() {
-                dots.forEach(function(dot) {
-                    dot.classList.add('disabled');
-                    dot.style.pointerEvents = 'none';
-                    dot.style.opacity = '0.5';
-                });
-            });
-            iframe.contentWindow.addEventListener('pause', function() {
-                dots.forEach(function(dot) {
-                    dot.classList.remove('disabled');
-                    dot.style.pointerEvents = 'auto';
-                    dot.style.opacity = '1';
-                });
-            });
-        });
-    });
-    </script>
 
     <?php include 'footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -342,6 +277,43 @@ $featuredVideos = json_decode(file_get_contents(__DIR__ . '/data/featuredvideos.
         setTimeout(() => {
             AOS.refresh();
         }, 500);
+    });
+
+    // Initialize Featured Videos Swiper with Coverflow Effect
+    const featuredVideosSwiper = new Swiper('.featured-videos-swiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+            rotate: 30,
+            stretch: 0,
+            depth: 150,
+            modifier: 1.5,
+            slideShadows: true,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+            type: 'bullets',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 1.5,
+            },
+            1024: {
+                slidesPerView: 2,
+            }
+        }
+    });
+
+    // Pause video when slide changes
+    featuredVideosSwiper.on('slideChange', function() {
+        const iframes = document.querySelectorAll('.featured-videos-swiper iframe');
+        iframes.forEach(iframe => {
+            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        });
     });
     </script>
 </body>
