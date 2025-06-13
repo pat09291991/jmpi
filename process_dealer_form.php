@@ -69,7 +69,7 @@ try {
 
     // Recipients
     $mail->setFrom($smtpFromEmail, $smtpFromName);
-    $mail->addAddress($smtpFromEmail, 'JMPI Sales');
+    $mail->addAddress('altemailstudent3@gmail.com', 'JMPI Sales');
     $mail->addReplyTo($formData['business_email'], $formData['contact_person']);
 
     // Content
@@ -82,7 +82,7 @@ try {
       <table align='center' width='1000' cellpadding='0' cellspacing='0' style='background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:0 30px 30px 30px;'>
         <tr>
           <td style='text-align:center;padding:30px 0 10px 0;'>
-            <img src='https://joshuameatproductsph.com/images/jmpi-logo.webp' alt='Joshua&#39;s Meat Products Logo' style='max-width:180px;max-height:60px;'>
+            <img src='https://www.joshuameatproductsph.com/wp-content/uploads/2019/01/lOGO.png' alt='Joshua&#39;s Meat Products Logo' style='max-width:180px;max-height:60px;'>
           </td>
         </tr>
         <tr>
@@ -132,6 +132,7 @@ try {
 <html>
 <head>
     <title>Thank You</title>
+    <link rel="icon" type="image/webp" href="/images/yticon.png">
     <meta http-equiv="refresh" content="3;url=dealer.php">
     <style>
         body { background: #f4f4f4; font-family: Poppins, Arial, sans-serif; }

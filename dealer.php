@@ -155,10 +155,20 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
                     </div>
                     <div class="flex flex-col items-center gap-4">
                         <div class="h-captcha" data-sitekey="fe4037d4-0dc0-4e6a-bed0-05dc18fa7426"
-                            data-callback="onCaptchaVerified" data-size="invisible"></div>
+                            data-callback="onCaptchaVerified" data-size="invisible" data-error-callback="onCaptchaError"
+                            data-expired-callback="onCaptchaExpired"></div>
                         <button type="button" id="submit-button"
-                            class="w-full md:w-40 h-12 bg-[#F01B23] text-white rounded-lg font-bold text-xs sm:text-sm md:text-base shadow hover:bg-[#F01B23] transition">
-                            Submit
+                            class="w-full md:w-40 h-12 bg-[#F01B23] text-white rounded-lg font-bold text-xs sm:text-sm md:text-base shadow hover:bg-[#F01B23] transition flex items-center justify-center gap-2">
+                            <span class="submit-btn-text">Submit</span>
+                            <span class="submit-btn-spinner hidden">
+                                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                        stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor"
+                                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                                </svg>
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -367,6 +377,15 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
     function onCaptchaVerified(token) {
         document.getElementById('recaptcha_token').value = token;
         confirmationModal.classList.remove('hidden');
+        restoreSubmitButton();
+    }
+
+    function onCaptchaError() {
+        restoreSubmitButton();
+    }
+
+    function onCaptchaExpired() {
+        restoreSubmitButton();
     }
 
     submitButton.addEventListener('click', function() {
@@ -374,7 +393,25 @@ $nav = json_decode(file_get_contents(__DIR__ . '/data/nav.json'), true);
             showValidationMessage();
             return;
         }
+        // Show loader
+        submitButton.disabled = true;
+        submitButton.classList.add('opacity-70', 'cursor-not-allowed');
+        submitButton.querySelector('.submit-btn-text').textContent = 'Submitting...';
+        submitButton.querySelector('.submit-btn-spinner').classList.remove('hidden');
         hcaptcha.execute();
+    });
+
+    // Restore button if needed (e.g., if captcha fails or modal is closed)
+    function restoreSubmitButton() {
+        submitButton.disabled = false;
+        submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+        submitButton.querySelector('.submit-btn-text').textContent = 'Submit';
+        submitButton.querySelector('.submit-btn-spinner').classList.add('hidden');
+    }
+
+    // If user cancels confirmation modal, restore button
+    cancelConfirmationBtn.addEventListener('click', function() {
+        restoreSubmitButton();
     });
     </script>
 
